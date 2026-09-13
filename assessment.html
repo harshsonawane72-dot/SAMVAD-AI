@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAMVAD AI Prototype | New Case Assessment</title>
+  <meta name="description" content="SAMVAD AI Prototype — New Case Assessment. AI-assisted decision support only. Not an official NHAA system.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css?v=step82c">
+</head>
+<body class="page-assessment">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header assessment-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="SAMVAD AI Prototype home">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span class="brand-text">
+          <span class="brand-name">SAMVAD AI</span>
+          <span class="brand-meaning">Stress &amp; Vulnerability Assessment and Decision-support</span>
+        </span>
+      </a>
+
+      <div class="assessment-header-actions">
+        <span class="hero-badge assessment-badge">AI-ASSISTED PROTOTYPE</span>
+        <nav class="app-nav" aria-label="Prototype pages">
+          <a href="index.html">Home</a>
+          <a href="assessment.html" aria-current="page">Assessment</a>
+          <a href="dashboard.html">Dashboard</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="assessment-main">
+    <div class="assessment-wrap">
+      <header class="assessment-intro">
+        <p class="assessment-kicker">SAMVAD AI Prototype</p>
+        <h1>New Case Assessment</h1>
+        <p class="assessment-sub">
+          Capture the initial interaction and prepare it for AI-assisted vulnerability assessment.
+        </p>
+        <p class="assessment-tagline">AI-Assisted Support for Every Voice</p>
+      </header>
+
+      <form id="assessment-form" class="assessment-form" novalidate>
+        <!-- Case Information -->
+        <section class="panel" aria-labelledby="case-info-heading">
+          <div class="panel-header">
+            <h2 id="case-info-heading">Case Information</h2>
+            <span class="demo-pill">Prototype / demo data</span>
+          </div>
+
+          <dl class="meta-grid">
+            <div class="meta-item">
+              <dt>Case ID</dt>
+              <dd id="case-id">—</dd>
+            </div>
+            <div class="meta-item">
+              <dt>Date / Time</dt>
+              <dd id="case-datetime">—</dd>
+            </div>
+            <div class="meta-item">
+              <dt>Assessment Status</dt>
+              <dd><span class="status-pill" id="case-status">Ready for Analysis</span></dd>
+            </div>
+          </dl>
+        </section>
+
+        <!-- Interaction Details -->
+        <section class="panel" aria-labelledby="interaction-heading">
+          <div class="panel-header">
+            <h2 id="interaction-heading">Interaction Details</h2>
+          </div>
+
+          <fieldset class="option-fieldset">
+            <legend>Preferred Language</legend>
+            <div class="option-row" role="radiogroup" aria-label="Preferred Language">
+              <label class="option-chip">
+                <input type="radio" name="language" value="english" checked>
+                <span>English</span>
+              </label>
+              <label class="option-chip">
+                <input type="radio" name="language" value="hindi">
+                <span>Hindi</span>
+              </label>
+              <label class="option-chip">
+                <input type="radio" name="language" value="marathi">
+                <span>Marathi</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="option-fieldset">
+            <legend>Interaction Type</legend>
+            <div class="option-row" role="radiogroup" aria-label="Interaction Type">
+              <label class="option-chip">
+                <input type="radio" name="interaction-type" value="voice">
+                <span>Voice</span>
+              </label>
+              <label class="option-chip">
+                <input type="radio" name="interaction-type" value="chat" checked>
+                <span>Chat</span>
+              </label>
+              <label class="option-chip">
+                <input type="radio" name="interaction-type" value="portal">
+                <span>Portal</span>
+              </label>
+              <label class="option-chip">
+                <input type="radio" name="interaction-type" value="ivrs">
+                <span>IVRS</span>
+              </label>
+            </div>
+            <p class="field-hint">For this prototype, Chat is the primary working option.</p>
+          </fieldset>
+        </section>
+
+        <!-- Statement -->
+        <section class="panel" aria-labelledby="statement-heading">
+          <div class="panel-header">
+            <h2 id="statement-heading">Complainant Statement</h2>
+          </div>
+          <p class="field-help" id="statement-help">
+            Enter the complainant's statement or interaction transcript for prototype analysis.
+          </p>
+
+          <label class="visually-hidden" for="statement-input">Complainant statement</label>
+          <textarea
+            id="statement-input"
+            name="statement"
+            rows="8"
+            maxlength="4000"
+            aria-required="true"
+            aria-describedby="statement-help statement-count voice-status"
+            placeholder="Example: I am feeling very worried about my situation and I need support to understand what I should do next."
+          ></textarea>
+          <div class="textarea-meta">
+            <span id="statement-count" aria-live="polite">0 / 4000 characters</span>
+          </div>
+
+          <div class="voice-input" id="voice-input">
+            <p class="voice-input-label" id="voice-input-label">Voice input</p>
+            <div class="voice-controls">
+              <button type="button" class="btn btn-secondary" id="voice-start-btn" aria-label="Start voice input" aria-pressed="false" aria-describedby="voice-status voice-privacy">
+                <span class="voice-mic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"></path>
+                    <path d="M19 10v1a7 7 0 0 1-14 0v-1"></path>
+                    <line x1="12" y1="18" x2="12" y2="21"></line>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                  </svg>
+                </span>
+                Start Voice Input
+              </button>
+              <button type="button" class="btn btn-secondary" id="voice-stop-btn" aria-label="Stop voice input" hidden>
+                Stop Voice Input
+              </button>
+            </div>
+            <p id="voice-status" class="voice-status" role="status" aria-live="polite"></p>
+            <p id="voice-privacy" class="voice-privacy">
+              Voice input is converted to text by the browser when supported. This prototype does not send voice recordings to an external service.
+            </p>
+          </div>
+
+          <div class="demo-scenarios">
+            <p class="demo-scenarios-label" id="demo-scenarios-label">Demo scenarios</p>
+            <div class="demo-scenario-row" role="group" aria-labelledby="demo-scenarios-label">
+              <button type="button" class="btn btn-scenario" data-scenario="low">Low Distress</button>
+              <button type="button" class="btn btn-scenario" data-scenario="moderate">Moderate Distress</button>
+              <button type="button" class="btn btn-scenario" data-scenario="high">High Vulnerability</button>
+              <button type="button" class="btn btn-scenario" data-scenario="critical">Critical Safety</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Consent -->
+        <section class="panel panel-consent" aria-labelledby="consent-heading">
+          <div class="panel-header">
+            <h2 id="consent-heading">Consent &amp; Privacy</h2>
+          </div>
+
+          <label class="consent-check">
+            <input type="checkbox" id="consent-checkbox" name="consent" aria-required="true" aria-describedby="consent-note">
+            <span>I consent to the use of this interaction for this prototype assessment.</span>
+          </label>
+
+          <p class="consent-note" id="consent-note">
+            Prototype demonstration only. In a real deployment, explicit consent, data minimization,
+            encryption, access controls and secure data handling would be required.
+          </p>
+        </section>
+
+        <!-- Actions -->
+        <div class="assessment-actions">
+          <button type="submit" class="btn btn-primary btn-lg btn-analyze" id="analyze-btn" disabled>
+            Analyze Interaction
+          </button>
+        </div>
+        <p id="analyze-hint" class="field-hint analyze-hint">
+          Provide a statement and consent to enable analysis. Analysis is advisory only.
+        </p>
+
+        <p id="form-error" class="form-error" role="alert" hidden></p>
+
+        <div
+          id="analysis-feedback"
+          class="analysis-feedback"
+          role="status"
+          aria-live="polite"
+          hidden
+        >
+          <div class="analysis-loading" id="analysis-loading" hidden>
+            <span class="spinner" aria-hidden="true"></span>
+            <p>Analyzing interaction...</p>
+          </div>
+        </div>
+      </form>
+
+      <!-- Assessment Result — presentation-ready decision-support report -->
+      <section
+        id="assessment-result"
+        class="assessment-result"
+        aria-labelledby="result-heading"
+        hidden
+      >
+        <header class="result-header">
+          <div class="result-header-top">
+            <h2 id="result-heading">Assessment Result</h2>
+            <span class="demo-pill">Prototype Result</span>
+          </div>
+          <dl class="result-meta">
+            <div>
+              <dt>Case ID</dt>
+              <dd id="result-case-id">—</dd>
+            </div>
+            <div>
+              <dt>Assessment Status</dt>
+              <dd id="result-status">AI-Assisted Preliminary Assessment</dd>
+            </div>
+          </dl>
+          <p class="result-official-note">
+            Not an official NHAA assessment. SAMVAD AI Prototype demonstration only.
+          </p>
+        </header>
+
+        <div
+          id="safety-alert"
+          class="safety-alert"
+          role="status"
+          aria-live="polite"
+          hidden
+        >
+          <p class="safety-alert-title">Priority Safety Review</p>
+          <p>
+            Immediate human review is recommended based on detected safety-related signals.
+          </p>
+          <p class="safety-alert-hitl">AI assists. Humans decide.</p>
+        </div>
+
+        <article class="svi-hero" aria-labelledby="svi-hero-heading">
+          <div class="svi-hero-copy">
+            <h3 id="svi-hero-heading">Stress &amp; Vulnerability Index</h3>
+            <p class="svi-hero-score">
+              <strong id="result-svi">0</strong>
+              <span aria-hidden="true"> / 100</span>
+              <span class="visually-hidden">out of 100</span>
+            </p>
+            <p class="svi-hero-risk-wrap">
+              <span class="result-label">Risk Level</span>
+              <span id="result-risk" class="result-risk-badge risk-low">LOW</span>
+            </p>
+            <p id="risk-explanation" class="risk-explanation"></p>
+            <p class="svi-scale">LOW 0–24 · MODERATE 25–49 · HIGH 50–74 · CRITICAL 75–100</p>
+          </div>
+          <div class="svi-ring-wrap" aria-hidden="true">
+            <svg class="svi-ring" viewBox="0 0 120 120" role="presentation">
+              <circle class="svi-ring-track" cx="60" cy="60" r="52"></circle>
+              <circle
+                id="svi-ring-progress"
+                class="svi-ring-progress"
+                cx="60"
+                cy="60"
+                r="52"
+              ></circle>
+            </svg>
+            <div class="svi-ring-label">
+              <span id="svi-ring-value">0</span>
+              <small>SVI</small>
+            </div>
+          </div>
+        </article>
+
+        <section class="result-section" aria-labelledby="dimensions-heading">
+          <h3 id="dimensions-heading">Assessment Dimensions</h3>
+          <div class="component-grid">
+            <article class="component-card">
+              <div class="component-top">
+                <h4>Stress</h4>
+                <p><span id="score-stress">0</span> / 100</p>
+              </div>
+              <div
+                class="progress-track"
+                role="progressbar"
+                aria-label="Stress score"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                id="track-stress"
+              >
+                <div id="bar-stress" class="progress-fill" style="width: 0%"></div>
+              </div>
+              <p class="component-help">
+                Signals related to worry, pressure, fear or emotional strain.
+              </p>
+            </article>
+            <article class="component-card">
+              <div class="component-top">
+                <h4>Vulnerability</h4>
+                <p><span id="score-vulnerability">0</span> / 100</p>
+              </div>
+              <div
+                class="progress-track"
+                role="progressbar"
+                aria-label="Vulnerability score"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                id="track-vulnerability"
+              >
+                <div id="bar-vulnerability" class="progress-fill" style="width: 0%"></div>
+              </div>
+              <p class="component-help">
+                Signals indicating limited support, helplessness or difficulty coping.
+              </p>
+            </article>
+            <article class="component-card">
+              <div class="component-top">
+                <h4>Urgency</h4>
+                <p><span id="score-urgency">0</span> / 100</p>
+              </div>
+              <div
+                class="progress-track"
+                role="progressbar"
+                aria-label="Urgency score"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                id="track-urgency"
+              >
+                <div id="bar-urgency" class="progress-fill" style="width: 0%"></div>
+              </div>
+              <p class="component-help">
+                Signals indicating a need for faster assistance.
+              </p>
+            </article>
+            <article class="component-card">
+              <div class="component-top">
+                <h4>Safety Concern</h4>
+                <p><span id="score-safety">0</span> / 100</p>
+              </div>
+              <div
+                class="progress-track"
+                role="progressbar"
+                aria-label="Safety Concern score"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                id="track-safety"
+              >
+                <div id="bar-safety" class="progress-fill" style="width: 0%"></div>
+              </div>
+              <p class="component-help">
+                Signals related to immediate safety or serious threat.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="result-section" aria-labelledby="indicators-heading">
+          <h3 id="indicators-heading">Possible Indicators Detected</h3>
+          <ul id="indicator-list" class="indicator-tags"></ul>
+        </section>
+
+        <section class="result-section support-section" aria-labelledby="support-heading">
+          <div class="support-header">
+            <h3 id="support-heading">Recommended Support Pathway</h3>
+            <span class="human-review-pill">Human review required</span>
+          </div>
+          <p id="support-recommendation" class="support-text"></p>
+          <p class="support-note">
+            Suggestions for authorized human operators only. This system does not automatically
+            contact police, emergency services, medical services, or any authority.
+          </p>
+        </section>
+
+        <details class="explain-details">
+          <summary>Why this result?</summary>
+          <div class="explain-body">
+            <p class="explain-lead">Detected signal categories</p>
+            <ul id="why-signals"></ul>
+
+            <p class="explain-lead">Score contributions to SVI</p>
+            <ul id="why-contributions" class="contribution-list"></ul>
+
+            <p class="explain-lead">SVI formula</p>
+            <pre class="formula-block" id="why-formula">SVI =
+(Stress × 0.30) +
+(Vulnerability × 0.30) +
+(Urgency × 0.25) +
+(Safety Concern × 0.15)</pre>
+
+            <p class="explain-lead">Risk thresholds used</p>
+            <p id="why-thresholds">LOW 0–24 · MODERATE 25–49 · HIGH 50–74 · CRITICAL 75–100</p>
+
+            <p id="prototype-model-note" class="prototype-model-note">
+              Prototype scoring model — requires expert validation before real-world deployment.
+            </p>
+          </div>
+        </details>
+
+        <aside class="hitl-banner" aria-labelledby="hitl-heading">
+          <h3 id="hitl-heading" class="visually-hidden">Human-in-the-Loop Decision Support</h3>
+          <p class="hitl-kicker">Human-in-the-Loop Decision Support</p>
+          <p class="hitl-principle">AI assists. Humans decide.</p>
+          <p>
+            This prototype provides AI-assisted decision-support signals only. Final assessment,
+            prioritization and support decisions must be made by trained human personnel.
+          </p>
+        </aside>
+
+        <aside class="privacy-panel" aria-labelledby="privacy-heading">
+          <h3 id="privacy-heading">Privacy &amp; Data Notice</h3>
+          <p>
+            Prototype demonstration only. Do not enter real personal, medical, legal or identifying
+            information.
+          </p>
+          <p>
+            In a real deployment, data would require appropriate consent, encryption, access controls,
+            audit logging and secure retention policies.
+          </p>
+          <p>
+            Demo data is stored locally in this browser for prototype demonstration.
+          </p>
+        </aside>
+
+        <p class="result-disclaimer">
+          Prototype demonstration only. This system does not provide medical or psychological
+          diagnosis, determine legal validity, assess guilt or replace trained human decision-making.
+        </p>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary btn-lg" id="new-assessment-btn">
+            New Assessment
+          </button>
+          <a class="btn btn-secondary btn-lg" href="dashboard.html" id="view-dashboard-btn">
+            View in Operator Dashboard
+          </a>
+          <a class="btn btn-secondary btn-lg" href="index.html">Back to Home</a>
+          <button type="button" class="btn btn-secondary btn-lg" id="review-input-btn">
+            Review Input
+          </button>
+        </div>
+      </section>
+
+      <p class="assessment-disclaimer">
+        AI-assisted assessment is advisory only. It does not provide medical or psychological diagnosis,
+        determine legal validity, or replace human decision-making.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer assessment-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-name">SAMVAD AI</p>
+        <p class="footer-subtitle">AI-Assisted Stress, Vulnerability &amp; Support Assessment</p>
+      </div>
+      <div class="footer-meta">
+        <p>AI assists. Humans decide.</p>
+        <p>SIH 2026 Prototype</p>
+        <p>Not an official NHAA system.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js?v=step82"></script>
+  <script src="mock-ai.js?v=step4"></script>
+  <script src="assessment.js?v=step82"></script>
+</body>
+</html>

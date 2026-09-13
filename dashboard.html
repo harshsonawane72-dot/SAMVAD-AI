@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAMVAD AI Prototype | Human Operator Dashboard</title>
+  <meta name="description" content="SAMVAD AI Prototype operator dashboard. Fictional demo cases only. Not an official NHAA system.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css?v=step82c">
+</head>
+<body class="page-dashboard">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header assessment-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="SAMVAD AI Prototype home">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span class="brand-text">
+          <span class="brand-name">SAMVAD AI</span>
+          <span class="brand-meaning">Stress &amp; Vulnerability Assessment and Decision-support</span>
+        </span>
+      </a>
+
+      <div class="assessment-header-actions">
+        <span class="hero-badge assessment-badge">SIH 2026 Prototype</span>
+        <nav class="app-nav" aria-label="Prototype pages">
+          <a href="index.html">Home</a>
+          <a href="assessment.html">Assessment</a>
+          <a href="dashboard.html" aria-current="page">Dashboard</a>
+        </nav>
+        <a class="btn btn-primary btn-header" href="assessment.html">New Assessment</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="dashboard-main">
+    <div class="dashboard-wrap">
+      <header class="dashboard-intro">
+        <p class="assessment-kicker">SAMVAD AI Prototype</p>
+        <h1>Human Operator Dashboard</h1>
+        <p class="assessment-sub">
+          Review AI-assisted screening signals and record human decisions. Demo cases only.
+        </p>
+        <span class="demo-pill">Fictional / demo data</span>
+      </header>
+
+      <section class="summary-grid" aria-label="Queue summary (demo data)">
+        <article class="summary-card">
+          <p class="summary-label">Total Active Cases</p>
+          <p class="summary-value" id="stat-active">0</p>
+          <p class="summary-hint">New + under review</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-label">Critical Cases</p>
+          <p class="summary-value" id="stat-critical">0</p>
+          <p class="summary-hint">Risk level CRITICAL</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-label">High Priority Cases</p>
+          <p class="summary-value" id="stat-high">0</p>
+          <p class="summary-hint">Risk level HIGH</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-label">Awaiting Review</p>
+          <p class="summary-value" id="stat-awaiting">0</p>
+          <p class="summary-hint">Status: New</p>
+        </article>
+      </section>
+
+      <section class="panel dashboard-filters" aria-labelledby="filters-heading">
+        <div class="panel-header">
+          <h2 id="filters-heading">Search &amp; Filters</h2>
+        </div>
+        <div class="filter-grid">
+          <label class="filter-field">
+            <span>Search by Case ID</span>
+            <input type="search" id="filter-search" placeholder="e.g. NHAA-2026-1042" autocomplete="off">
+          </label>
+          <label class="filter-field">
+            <span>Risk Level</span>
+            <select id="filter-risk">
+              <option value="all">All</option>
+              <option value="LOW">Low</option>
+              <option value="MODERATE">Moderate</option>
+              <option value="HIGH">High</option>
+              <option value="CRITICAL">Critical</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span>Language</span>
+            <select id="filter-language">
+              <option value="all">All</option>
+              <option value="English">English</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Marathi">Marathi</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span>Interaction Type</span>
+            <select id="filter-interaction">
+              <option value="all">All</option>
+              <option value="Voice">Voice</option>
+              <option value="Chat">Chat</option>
+              <option value="Portal">Portal</option>
+              <option value="IVRS">IVRS</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span>Status</span>
+            <select id="filter-status">
+              <option value="all">All active</option>
+              <option value="New">New</option>
+              <option value="Under Review">Under Review</option>
+              <option value="Reviewed">Reviewed</option>
+              <option value="Archived">Archived</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <div class="dashboard-layout">
+        <section class="panel case-table-panel" aria-labelledby="queue-heading">
+          <div class="panel-header">
+            <h2 id="queue-heading">Case Queue</h2>
+            <p class="table-count" id="table-count">0 demo cases</p>
+          </div>
+          <div class="table-scroll">
+            <table class="case-table" id="case-table">
+              <caption class="visually-hidden">Demo case queue for the SAMVAD AI prototype</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Case ID</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Language</th>
+                  <th scope="col">Interaction</th>
+                  <th scope="col">SVI</th>
+                  <th scope="col">Risk</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Support Pathway</th>
+                </tr>
+              </thead>
+              <tbody id="case-table-body"></tbody>
+            </table>
+          </div>
+          <p id="empty-queue" class="empty-queue" role="status" hidden>No matching demo cases.</p>
+        </section>
+
+        <section class="panel case-detail-panel" aria-labelledby="detail-heading">
+          <div class="panel-header">
+            <h2 id="detail-heading">Case Detail</h2>
+            <span class="demo-pill">Prototype view</span>
+          </div>
+
+          <p id="detail-empty" class="detail-empty" role="status">
+            Select a case from the queue to view AI-assisted signals and record a human decision.
+          </p>
+
+          <div id="detail-content" hidden>
+            <div id="critical-safety-panel" class="safety-alert" hidden>
+              <p class="safety-alert-title">Critical Safety Review</p>
+              <p>
+                Immediate human review is required in this prototype based on detected
+                safety-related signals or a CRITICAL risk level.
+              </p>
+              <p class="safety-alert-hitl">AI assists. Humans decide.</p>
+              <p class="support-note">
+                This prototype does not contact police, emergency services, medical services,
+                or any authority.
+              </p>
+            </div>
+
+            <dl class="detail-meta">
+              <div>
+                <dt>Case ID</dt>
+                <dd id="detail-id">—</dd>
+              </div>
+              <div>
+                <dt>Date / Time</dt>
+                <dd id="detail-datetime">—</dd>
+              </div>
+              <div>
+                <dt>Language</dt>
+                <dd id="detail-language">—</dd>
+              </div>
+              <div>
+                <dt>Interaction Type</dt>
+                <dd id="detail-interaction">—</dd>
+              </div>
+            </dl>
+
+            <div class="detail-block">
+              <h3>Complainant statement excerpt</h3>
+              <blockquote id="detail-statement" class="statement-excerpt"></blockquote>
+            </div>
+
+            <div class="detail-svi-row">
+              <div>
+                <p class="result-label">SVI score</p>
+                <p class="detail-svi"><strong id="detail-svi">0</strong> / 100</p>
+              </div>
+              <div>
+                <p class="result-label">Risk level</p>
+                <p id="detail-risk" class="result-risk-badge risk-low">LOW</p>
+              </div>
+            </div>
+
+            <div class="mini-score-grid" aria-label="Component scores">
+              <article>
+                <h4>Stress</h4>
+                <p><span id="detail-stress">0</span> / 100</p>
+                <div class="progress-track" aria-hidden="true">
+                  <div id="detail-bar-stress" class="progress-fill" style="width: 0%"></div>
+                </div>
+              </article>
+              <article>
+                <h4>Vulnerability</h4>
+                <p><span id="detail-vulnerability">0</span> / 100</p>
+                <div class="progress-track" aria-hidden="true">
+                  <div id="detail-bar-vulnerability" class="progress-fill" style="width: 0%"></div>
+                </div>
+              </article>
+              <article>
+                <h4>Urgency</h4>
+                <p><span id="detail-urgency">0</span> / 100</p>
+                <div class="progress-track" aria-hidden="true">
+                  <div id="detail-bar-urgency" class="progress-fill" style="width: 0%"></div>
+                </div>
+              </article>
+              <article>
+                <h4>Safety Concern</h4>
+                <p><span id="detail-safety">0</span> / 100</p>
+                <div class="progress-track" aria-hidden="true">
+                  <div id="detail-bar-safety" class="progress-fill" style="width: 0%"></div>
+                </div>
+              </article>
+            </div>
+
+            <div class="detail-block">
+              <h3>Possible indicators detected</h3>
+              <ul id="detail-indicators" class="indicator-tags"></ul>
+            </div>
+
+            <div class="detail-block">
+              <h3>Recommended Support Pathway</h3>
+              <p id="detail-pathway" class="support-text"></p>
+              <p class="support-note">Suggestion for trained operators. Human review required.</p>
+            </div>
+
+            <div class="detail-block">
+              <h3>Human review actions</h3>
+              <p class="field-hint">Updates this prototype’s local mock state only. No external calls.</p>
+              <div class="action-grid" id="review-actions">
+                <button type="button" class="btn btn-primary" data-action="reviewed">Mark as Reviewed</button>
+                <button type="button" class="btn btn-secondary" data-action="counselling">Assign Counselling</button>
+                <button type="button" class="btn btn-secondary" data-action="legal">Assign Legal Aid</button>
+                <button type="button" class="btn btn-secondary" data-action="protection">Assign Medical/Protection Support</button>
+                <button type="button" class="btn btn-secondary" data-action="more-info">Request More Information</button>
+              </div>
+              <p id="action-feedback" class="action-feedback" role="status" aria-live="polite"></p>
+            </div>
+
+            <div class="detail-block archive-block">
+              <h3>Case closure</h3>
+              <p class="field-hint">
+                Case closure is a human operator action. AI does not automatically close or archive cases.
+              </p>
+              <button type="button" class="btn btn-secondary" id="archive-case-btn">
+                <span class="archive-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                    <rect x="1" y="3" width="22" height="5"></rect>
+                    <line x1="10" y1="12" x2="14" y2="12"></line>
+                  </svg>
+                </span>
+                Close / Archive Case
+              </button>
+              <button type="button" class="btn btn-primary" id="restore-case-btn" hidden>
+                Restore Case
+              </button>
+            </div>
+
+            <div class="detail-block">
+              <h3>Audit timeline</h3>
+              <p class="field-hint">Prototype audit-log visualization. Not a production record.</p>
+              <ol id="detail-timeline" class="audit-timeline"></ol>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="hitl-banner" aria-labelledby="dash-hitl-heading">
+        <h2 id="dash-hitl-heading" class="visually-hidden">Human-in-the-Loop Decision Support</h2>
+        <p class="hitl-kicker">Human-in-the-Loop Decision Support</p>
+        <p class="hitl-principle">AI assists. Humans decide.</p>
+        <p>
+          SAMVAD AI provides an assessment aid and a support-pathway suggestion from local,
+          rule-based prototype signals. Trained human operators remain responsible for final
+          assessment, prioritization, and any support decision.
+        </p>
+      </aside>
+
+      <aside class="privacy-panel" aria-labelledby="dash-privacy-heading">
+        <h2 id="dash-privacy-heading">Privacy &amp; Data Notice</h2>
+        <p>Demo data only. No real personal, medical, legal, or identifying information.</p>
+        <p>
+          This prototype does not store or transmit data to external services. Processing stays
+          in the browser.
+        </p>
+        <p>
+          A real deployment would require appropriate consent, encryption, access controls,
+          audit logs, and expert validation.
+        </p>
+        <p>Demo data is stored locally in this browser for prototype demonstration.</p>
+      </aside>
+
+      <p class="result-disclaimer">
+        Demo dashboard for SIH 2026. Not an official NHAA system.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer assessment-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-name">SAMVAD AI</p>
+        <p class="footer-subtitle">AI-Assisted Stress, Vulnerability &amp; Support Assessment</p>
+      </div>
+      <div class="footer-meta">
+        <p>AI assists. Humans decide.</p>
+        <p>SIH 2026 Prototype</p>
+        <p>Not an official NHAA system.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="archive-dialog" class="modal" hidden>
+    <div class="modal-backdrop" data-archive-cancel></div>
+    <div
+      class="modal-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="archive-dialog-title"
+      aria-describedby="archive-dialog-desc"
+    >
+      <h2 id="archive-dialog-title">Archive this case?</h2>
+      <p id="archive-dialog-desc">Archived cases will be removed from the active case list.</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="archive-cancel-btn">Cancel</button>
+        <button type="button" class="btn btn-primary" id="archive-confirm-btn">Archive Case</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js?v=step82"></script>
+  <script src="demo-data.js?v=step6a"></script>
+  <script src="mock-ai.js?v=step4"></script>
+  <script src="dashboard.js?v=step82"></script>
+</body>
+</html>
