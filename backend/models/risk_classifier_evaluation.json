@@ -1,0 +1,225 @@
+{
+  "evaluation_timestamp": "2026-09-15T07:45:08.539096+00:00",
+  "model_name": "ai4bharat/IndicBERTv2-MLM-only + MLP Head",
+  "held_out_test_metrics": {
+    "accuracy": 0.75,
+    "macro_f1": 0.753,
+    "per_class": {
+      "LOW": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6
+      },
+      "MODERATE": {
+        "precision": 1.0,
+        "recall": 0.6667,
+        "f1": 0.8,
+        "support": 6
+      },
+      "HIGH": {
+        "precision": 0.6,
+        "recall": 0.5,
+        "f1": 0.5455,
+        "support": 6
+      },
+      "CRITICAL": {
+        "precision": 0.5556,
+        "recall": 0.8333,
+        "f1": 0.6667,
+        "support": 6
+      }
+    },
+    "confusion_matrix": [
+      [
+        6,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        3,
+        3
+      ],
+      [
+        0,
+        0,
+        1,
+        5
+      ]
+    ],
+    "classes": [
+      "LOW",
+      "MODERATE",
+      "HIGH",
+      "CRITICAL"
+    ],
+    "test_sample_count": 24
+  },
+  "generalization_paraphrase_metrics": {
+    "paraphrase_count": 10,
+    "matches": 10,
+    "accuracy": 1.0,
+    "cases": [
+      {
+        "id": "GP-01",
+        "text": "Could you kindly guide me through the stages of tracking my grievance status online?",
+        "category": "ordinary_info_request",
+        "expected": "LOW",
+        "predicted": "LOW",
+        "confidence": 0.9999,
+        "probabilities": {
+          "LOW": 0.9999,
+          "MODERATE": 0.0001,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "match": true
+      },
+      {
+        "id": "GP-02",
+        "text": "प्रणाम महोदय, क्या आप बता सकते हैं कि प्रमाणपत्र नवीनीकरण के लिए कौन से कागजात लगेंगे?",
+        "category": "ordinary_info_request",
+        "expected": "LOW",
+        "predicted": "LOW",
+        "confidence": 1.0,
+        "probabilities": {
+          "LOW": 1.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "match": true
+      },
+      {
+        "id": "GP-03",
+        "text": "It feels like an insurmountable hill right now and the unending paperwork is wearing me down.",
+        "category": "sustained_stress",
+        "expected": "MODERATE",
+        "predicted": "MODERATE",
+        "confidence": 0.9653,
+        "probabilities": {
+          "LOW": 0.0001,
+          "MODERATE": 0.9653,
+          "HIGH": 0.0346,
+          "CRITICAL": 0.0
+        },
+        "match": true
+      },
+      {
+        "id": "GP-04",
+        "text": "या प्रकरणाचा माझ्या मनावर खूप ताण येत आहे आणि सततची चिंता सहन होत नाहीये.",
+        "category": "sustained_stress",
+        "expected": "MODERATE",
+        "predicted": "MODERATE",
+        "confidence": 0.7187,
+        "probabilities": {
+          "LOW": 0.0001,
+          "MODERATE": 0.7187,
+          "HIGH": 0.2811,
+          "CRITICAL": 0.0
+        },
+        "match": true
+      },
+      {
+        "id": "GP-05",
+        "text": "Mujhe guidance chahiye kyonki situation se dimaag par bohot load pad raha hai roz roz.",
+        "category": "support_request",
+        "expected": "MODERATE",
+        "predicted": "MODERATE",
+        "confidence": 0.8783,
+        "probabilities": {
+          "LOW": 0.0071,
+          "MODERATE": 0.8783,
+          "HIGH": 0.1064,
+          "CRITICAL": 0.0081
+        },
+        "match": true
+      },
+      {
+        "id": "GP-06",
+        "text": "I am shivering from dread, I have nobody to turn to and I cannot endure this torment anymore.",
+        "category": "extreme_fear_isolation",
+        "expected": "HIGH",
+        "predicted": "HIGH",
+        "confidence": 0.9966,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0004,
+          "HIGH": 0.9966,
+          "CRITICAL": 0.003
+        },
+        "match": true
+      },
+      {
+        "id": "GP-07",
+        "text": "मेरे पास छत नहीं बची है और मैं इस ठंड में अपने बीमार बच्चे के साथ सड़क पर आ गया हूँ।",
+        "category": "acute_vulnerability",
+        "expected": "HIGH",
+        "predicted": "HIGH",
+        "confidence": 0.8796,
+        "probabilities": {
+          "LOW": 0.0001,
+          "MODERATE": 0.0035,
+          "HIGH": 0.8796,
+          "CRITICAL": 0.1167
+        },
+        "match": true
+      },
+      {
+        "id": "GP-08",
+        "text": "Mala khup bhiti vatat ahe, amche sarva kahi thap zale ahe ani amhi asahay jhalo ahot.",
+        "category": "extreme_vulnerability",
+        "expected": "HIGH",
+        "predicted": "HIGH",
+        "confidence": 0.8746,
+        "probabilities": {
+          "LOW": 0.0003,
+          "MODERATE": 0.1079,
+          "HIGH": 0.8746,
+          "CRITICAL": 0.0172
+        },
+        "match": true
+      },
+      {
+        "id": "GP-09",
+        "text": "I do not feel safe in my own dwelling right now, please send emergency intervention immediately.",
+        "category": "safety_concern",
+        "expected": "CRITICAL",
+        "predicted": "CRITICAL",
+        "confidence": 0.9992,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0008,
+          "CRITICAL": 0.9992
+        },
+        "match": true
+      },
+      {
+        "id": "GP-10",
+        "text": "मला भीती वाटते की या परिस्थितीत मी स्वतःला सुरक्षित ठेवू शकणार नाही, कृपया त्वरित वाचवा.",
+        "category": "safety_concern",
+        "expected": "CRITICAL",
+        "predicted": "CRITICAL",
+        "confidence": 0.9998,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0001,
+          "CRITICAL": 0.9998
+        },
+        "match": true
+      }
+    ]
+  },
+  "scientific_limitation_notice": "This evaluation is performed on a prototype curated benchmark. It does NOT constitute clinical psychological validation, psychiatric diagnosis, or autonomous emergency triage. Production deployment requires expert-labelled, representative multilingual data and independent institutional validation."
+}

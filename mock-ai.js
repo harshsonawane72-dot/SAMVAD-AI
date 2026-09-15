@@ -35,6 +35,7 @@ const MockAI = (function () {
    */
   const SIGNAL_BANKS = {
     stress: [
+      "emotional crisis",
       "worried",
       "stress",
       "stressed",
@@ -43,16 +44,31 @@ const MockAI = (function () {
       "anxious",
       "fear",
       "scared",
+      "tension",
       "परेशान",
       "तनाव",
       "डर",
       "घबराहट",
       "दबाव",
+      "ताण",
+      "भीती",
+      "काळजी",
     ],
     vulnerability: [
+      "don't know how to deal",
+      "dont know how to deal",
+      "don't know what to do",
+      "dont know what to do",
+      "unable to handle",
+      "unable to cope",
+      "cannot cope",
+      "struggling to cope",
+      "unable to manage",
+      "too much for me",
+      "becoming too much",
+      "no one to support",
       "alone",
       "helpless",
-      "unable to cope",
       "vulnerable",
       "dependent",
       "no support",
@@ -62,12 +78,24 @@ const MockAI = (function () {
       "मदद नहीं",
       "कोई साथ नहीं",
       "कमजोर",
-      // Hinglish / demo synonyms (prototype)
+      "आधार नाही",
+      "मदत",
+      "मदद",
+      "मदत हवी",
+      "मदत पाहिजे",
+      "कोणाचाही आधार नाही",
+      "एकटा",
+      "एकटी",
+      "असहाय्य",
       "akela",
       "akeli",
       "asahay",
       "handle nahi",
       "support chahiye",
+      "samajh nahi aa raha",
+      "samajh nahi aa rahi",
+      "kay karu samjat nahi",
+      "handle karna khup difficult",
     ],
     urgency: [
       "immediately",
@@ -80,11 +108,14 @@ const MockAI = (function () {
       "तुरंत",
       "अभी",
       "तत्काल",
-      // Hinglish / demo synonyms (prototype)
+      "तात्काळ",
+      "त्वरित",
+      "लवकर",
       "immediate help",
       "immediate",
       "jaldi",
       "abhi",
+      "pahije",
     ],
     safety: [
       "not safe",
@@ -95,7 +126,6 @@ const MockAI = (function () {
       "मुझे सुरक्षित महसूस नहीं हो रहा",
       "तत्काल खतरा",
       "खतरा",
-      // Hinglish / demo synonyms (prototype)
       "safe feel nahi",
       "safe feel nahi ho",
     ],
@@ -173,11 +203,181 @@ const MockAI = (function () {
     return 100;
   }
 
+  const CONTEXTUAL_SAFETY = {
+    affirmative: [
+      /\bi (?:feel|am|stay|remain) safe\b/i,
+      /\bfeeling safe\b/i,
+      /\bcompletely safe\b/i,
+      /\bsafe and sound\b/i,
+      /\bin a safe place\b/i,
+      /\bkept safe\b/i,
+      /\bi am now safe\b/i,
+      /\bfeel safe now\b/i,
+      /\bnow feel safe\b/i,
+      /\bsafe now\b/i,
+      /सुरक्षित महसूस (?:हो|कर) रहा/i,
+      /अब सुरक्षित (?:हूँ|हुँ|हैं)/i,
+      /सुरक्षित स्थान पर/i,
+      /पूरी तरह सुरक्षित/i,
+      /\bab safe (?:hoon|hun|hai|feel)\b/i,
+      /\bsafe feel ho raha\b/i,
+      /\bab safe lag raha\b/i,
+      /आता सुरक्षित वाटत/i,
+      /सुरक्षित आहे/i,
+      /पूर्णपणे सुरक्षित/i,
+    ],
+    inability: [
+      /(?:worried|anxious|afraid|scared|fear)\s+(?:that\s+)?(?:i\s+)?(?:may|might|will|would)?\s*(?:not\s+be\s+able|unable)\s+to\s+keep\s+(?:my\s*self|myself)\s+safe/i,
+      /(?:not\s+be\s+able|unable|cannot|can't|cant)\s+to\s+keep\s+(?:my\s*self|myself)\s+safe/i,
+      /(?:not\s+be\s+able|unable|cannot|can't|cant)\s+to\s+(?:stay|remain)\s+safe/i,
+      /(?:not\s+be\s+able|unable|cannot|can't|cant)\s+to\s+protect\s+(?:my\s*self|myself)/i,
+      /(?:hard|difficult|impossible)\s+to\s+keep\s+(?:my\s*self|myself)\s+safe/i,
+      /(?:fear|worry|worried)\s+(?:about|for)\s+(?:my\s*self\s+being\s+safe|keeping\s+myself\s+safe)/i,
+      /खुद को सुरक्षित नहीं (?:रख|पा)/i,
+      /सुरक्षित नहीं रख (?:सकता|सकती|पाऊँगा|पाऊंगा|पाऊंगी)/i,
+      /सुरक्षित नहीं रह (?:सकता|सकती)/i,
+      /स्वयं की (?:रक्षा|सुरक्षा) नहीं/i,
+      /अपनी (?:सुरक्षा|हिफाजत) नहीं कर/i,
+      /khud ko safe nahi rakh/i,
+      /safe nahi reh (?:sakta|sakti)/i,
+      /khud ko safe nahi rakh (?:paunga|paungi|sakta|sakti)/i,
+      /apne aap ko safe nahi/i,
+      /स्वतःला सुरक्षित ठेवू शकत नाही/i,
+      /स्वतःला सुरक्षित ठेवू शकणार नाही/i,
+      /स्वतःचे रक्षण करू शकत नाही/i,
+      /सुरक्षित राहू शकत नाही/i,
+    ],
+    feelingUnsafe: [
+      /\b(?:don't|dont|do not|doesn't|does not|cannot|can't|not)\s+feel\s+safe\b/i,
+      /\b(?:feeling|feel|feels)\s+unsafe\b/i,
+      /\bnot\s+feeling\s+safe\b/i,
+      /\bnowhere\s+is\s+safe\b/i,
+      /\bno\s+longer\s+safe\b/i,
+      /सुरक्षित महसूस नहीं हो रहा/i,
+      /सुरक्षित नहीं लग रहा/i,
+      /असुरक्षित महसूस/i,
+      /सुरक्षित नहीं हूँ/i,
+      /safe feel nahi/i,
+      /safe nahi lag raha/i,
+      /unsafe feel/i,
+      /safe nahi hoon/i,
+      /सुरक्षित वाटत नाही/i,
+      /असुरक्षित वाटत आहे/i,
+      /सुरक्षित वाटत नाहीये/i,
+    ],
+    concern: [
+      /\b(?:worried|worry|fear|scared|anxious|concerned)\s+(?:about|for)\s+(?:my|our|personal)\s+safety\b/i,
+      /\bthreat\s+to\s+(?:my|our|personal)\s+safety\b/i,
+      /\bfear\s+for\s+(?:my|my\s+own)\s+safety\b/i,
+      /\bconcern\s+(?:about|for)\s+(?:my|our|personal)\s+safety\b/i,
+      /अपनी सुरक्षा की (?:चिंता|फ़िक्र|फिक्र)/i,
+      /सुरक्षा को लेकर चिंतित/i,
+      /सुरक्षा को खतरा/i,
+      /मेरी सुरक्षा पर खतरा/i,
+      /meri safety ki chinta/i,
+      /apni safety ko lekar/i,
+      /safety ko khatra/i,
+      /माझ्या सुरक्षेची काळजी/i,
+      /सुरक्षेबद्दल भीती/i,
+      /सुरक्षेला धोका/i,
+    ],
+    acute: [
+      /\bimmediate\s+danger\b/i,
+      /\bserious\s+threat\b/i,
+      /\bcannot\s+stay\s+safe\b/i,
+      /\blife\s+is\s+in\s+danger\b/i,
+      /\blife\s+in\s+danger\b/i,
+      /\bextreme\s+danger\b/i,
+      /\bimmediate\s+protection\b/i,
+      /तत्काल खतरा/i,
+      /गंभीर खतरा/i,
+      /जान को खतरा/i,
+      /जीवाला धोका/i,
+      /immediate danger/i,
+      /serious threat/i,
+      /jaan ko khatra/i,
+      /तातडीने धोका/i,
+      /जीवाला धोका/i,
+      /गंभीर धोका/i,
+    ],
+  };
+
+  function evaluateContextualSafety(text) {
+    var cleaned = String(text || "").trim();
+    if (!cleaned) {
+      return { hasSafetyConcern: false, isAffirmativeSafe: false, indicators: [] };
+    }
+    var norm = cleaned.toLowerCase();
+    var negationWords = ["not", "don't", "dont", "cannot", "can't", "cant", "unable", "never", "no", "nahi", "nahin", "na", "नाही", "नाहीत"];
+
+    var isAffirmative = false;
+    CONTEXTUAL_SAFETY.affirmative.forEach(function (rx) {
+      var m = rx.exec(norm);
+      if (m) {
+        var prefix = norm.substring(0, m.index).trim();
+        var tokens = prefix.split(/\s+/);
+        var windowTokens = tokens.slice(Math.max(0, tokens.length - 4));
+        var hasNeg = windowTokens.some(function (w) { return negationWords.indexOf(w) !== -1; });
+        if (!hasNeg) isAffirmative = true;
+      }
+    });
+
+    var acuteHits = CONTEXTUAL_SAFETY.acute.some(function (rx) { return rx.test(norm); });
+    var inabilityHits = CONTEXTUAL_SAFETY.inability.some(function (rx) { return rx.test(norm); });
+    var unsafeHits = CONTEXTUAL_SAFETY.feelingUnsafe.some(function (rx) { return rx.test(norm); });
+    var concernHits = CONTEXTUAL_SAFETY.concern.some(function (rx) { return rx.test(norm); });
+
+    if (isAffirmative && !(acuteHits || inabilityHits || unsafeHits || concernHits)) {
+      return {
+        hasSafetyConcern: false,
+        tier: "SAFE_AFFIRMATION",
+        isAffirmativeSafe: true,
+        indicators: ["Affirmative safe expression detected (no safety escalation)"],
+        recommendations: { safetyOverride: 0 }
+      };
+    }
+
+    if (acuteHits) {
+      return {
+        hasSafetyConcern: true,
+        tier: "CRITICAL_ACUTE",
+        concernType: "immediate_danger_threat",
+        isAffirmativeSafe: false,
+        indicators: ["Safety concern indicators", "Immediate threat or acute safety danger detected"],
+        recommendations: { stressFloor: 55, vulnFloor: 88, urgencyFloor: 88, safetyFloor: 96 }
+      };
+    }
+
+    if (inabilityHits || unsafeHits || concernHits) {
+      var primaryType = inabilityHits ? "personal_safety_inability" : (unsafeHits ? "feeling_unsafe" : "personal_safety_concern");
+      var indicators = ["Safety concern indicators"];
+      if (inabilityHits) {
+        indicators.push("Apprehension or inability to maintain personal safety");
+      } else if (unsafeHits) {
+        indicators.push("Contextual feeling of being unsafe");
+      } else {
+        indicators.push("Personal safety concern or fear identified");
+      }
+      indicators.push("Contextual safety concern detected (human review required)");
+
+      return {
+        hasSafetyConcern: true,
+        tier: "HIGH_MEANINGFUL",
+        concernType: primaryType,
+        isAffirmativeSafe: false,
+        indicators: indicators,
+        recommendations: { stressFloor: 54, vulnFloor: 64, urgencyFloor: 42, safetyFloor: 76 }
+      };
+    }
+
+    return { hasSafetyConcern: false, isAffirmativeSafe: false, indicators: [] };
+  }
+
   /**
    * Small contextual boosts when signal categories co-occur.
    * Strong safety phrases also raise minimum floors (still explainable / capped).
    */
-  function applyContextualAdjustments(scores, matches, strongSafetyHit) {
+  function applyContextualAdjustments(scores, matches, strongSafetyHit, contextualSafety) {
     var adjustments = [];
     var next = {
       stress: scores.stress,
@@ -194,7 +394,8 @@ const MockAI = (function () {
       );
     }
 
-    if (matches.urgency.length && matches.safety.length) {
+    var hasSafetySignal = matches.safety.length > 0 || (contextualSafety && contextualSafety.hasSafetyConcern);
+    if (matches.urgency.length && hasSafetySignal) {
       next.urgency += 12;
       next.safetyConcern += 14;
       adjustments.push(
@@ -212,6 +413,28 @@ const MockAI = (function () {
       adjustments.push(
         "Multiple distinct vulnerability signals (+8, prototype)"
       );
+    }
+
+    // Contextual safety floors
+    if (contextualSafety && contextualSafety.hasSafetyConcern && contextualSafety.recommendations) {
+      var rec = contextualSafety.recommendations;
+      var cType = contextualSafety.concernType || "contextual_safety";
+      if (rec.stressFloor && next.stress < rec.stressFloor) {
+        next.stress = rec.stressFloor;
+        adjustments.push("Contextual safety stress floor applied (stress ≥ " + rec.stressFloor + ", " + cType + ")");
+      }
+      if (rec.vulnFloor && next.vulnerability < rec.vulnFloor) {
+        next.vulnerability = rec.vulnFloor;
+        adjustments.push("Contextual safety vulnerability floor applied (vulnerability ≥ " + rec.vulnFloor + ", " + cType + ")");
+      }
+      if (rec.urgencyFloor && next.urgency < rec.urgencyFloor) {
+        next.urgency = rec.urgencyFloor;
+        adjustments.push("Contextual safety urgency floor applied (urgency ≥ " + rec.urgencyFloor + ", " + cType + ")");
+      }
+      if (rec.safetyFloor && next.safetyConcern < rec.safetyFloor) {
+        next.safetyConcern = rec.safetyFloor;
+        adjustments.push("Contextual safety concern floor applied (safety ≥ " + rec.safetyFloor + ", " + cType + ")");
+      }
     }
 
     // Strong safety language elevates floors independently of overall SVI class.
@@ -240,6 +463,11 @@ const MockAI = (function () {
           "Strong safety context stress floor (stress ≥ 55, prototype)"
         );
       }
+    }
+
+    if (contextualSafety && contextualSafety.isAffirmativeSafe && !strongSafetyHit) {
+      next.safetyConcern = 0;
+      adjustments.push("Affirmative safe expression: safety escalation suppressed");
     }
 
     next.stress = roundScore(next.stress);
@@ -289,7 +517,10 @@ const MockAI = (function () {
   function analyze(statementText, options) {
     options = options || {};
     var text = String(statementText || "").trim();
-    var normalized = text.toLowerCase();
+    var normalized = text
+      .toLowerCase()
+      .replace(/[\u2018\u2019]/g, "'")
+      .replace(/[\u201C\u201D]/g, '"');
 
     if (!text) {
       return {
@@ -298,6 +529,8 @@ const MockAI = (function () {
       };
     }
 
+    var ctxSafety = evaluateContextualSafety(text);
+
     var matches = {
       stress: findMatches(normalized, SIGNAL_BANKS.stress),
       vulnerability: findMatches(normalized, SIGNAL_BANKS.vulnerability),
@@ -305,9 +538,13 @@ const MockAI = (function () {
       safety: findMatches(normalized, SIGNAL_BANKS.safety),
     };
 
+    if (ctxSafety.isAffirmativeSafe) {
+      matches.safety = [];
+    }
+
     var strongSafetyHit = STRONG_SAFETY_PHRASES.some(function (phrase) {
       return normalized.indexOf(phrase.toLowerCase()) !== -1;
-    });
+    }) || ctxSafety.tier === "CRITICAL_ACUTE";
 
     var baseScores = {
       stress: scoreFromMatchCount(matches.stress.length),
@@ -319,7 +556,8 @@ const MockAI = (function () {
     var adjusted = applyContextualAdjustments(
       baseScores,
       matches,
-      strongSafetyHit
+      strongSafetyHit,
+      ctxSafety
     );
     var components = adjusted.scores;
 
@@ -335,9 +573,19 @@ const MockAI = (function () {
     var immediateHumanReview =
       strongSafetyHit ||
       matches.safety.length > 0 ||
+      Boolean(ctxSafety.hasSafetyConcern) ||
       riskLevel === "CRITICAL";
 
+    if (ctxSafety.isAffirmativeSafe && !strongSafetyHit) {
+      immediateHumanReview = false;
+    }
+
     var indicators = buildIndicators(matches);
+    if (ctxSafety.indicators && ctxSafety.indicators.length) {
+      ctxSafety.indicators.forEach(function (ind) {
+        if (indicators.indexOf(ind) === -1) indicators.push(ind);
+      });
+    }
     if (!indicators.length) {
       indicators.push("No strong prototype signals detected in the statement");
     }
@@ -357,6 +605,7 @@ const MockAI = (function () {
         ? "Immediate human review recommended."
         : null,
       contextualAdjustments: adjusted.adjustments,
+      contextualSafety: ctxSafety,
       explainability: {
         formula:
           "SVI = Stress (30%) + Vulnerability (30%) + Urgency (25%) + Safety Concern (15%)",

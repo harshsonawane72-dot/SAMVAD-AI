@@ -92,17 +92,151 @@
     });
   }
 
-  function loadCombinedCases() {
+  var BACKEND_API_BASE =
+    (typeof window !== "undefined" && window.SAMVAD_API_BASE_URL)
+      ? window.SAMVAD_API_BASE_URL
+      : "http://127.0.0.1:8000";
+  var BACKEND_API_URL = BACKEND_API_BASE + "/cases";
+
+  function titleCaseLabel(val) {
+    if (!val) return "English";
+    var s = String(val).trim();
+    return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+  }
+
+  function normalizeInteraction(val) {
+    if (!val) return "Chat";
+    var s = String(val).trim().toLowerCase();
+    if (s === "ivrs") return "IVRS";
+    if (s === "voice") return "Voice";
+    if (s === "portal") return "Portal";
+    if (s === "chat") return "Chat";
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+
+  function formatDbDate(iso) {
+    if (!iso) return nowStamp();
+    try {
+      var d = new Date(iso);
+      if (isNaN(d.getTime())) return nowStamp();
+      return new Intl.DateTimeFormat(undefined, {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      }).format(d);
+    } catch (e) {
+      return nowStamp();
+    }
+  }
+
+  function fromBackendCase(dbCase) {
+    var caseId = dbCase.case_id || ("CASE-" + dbCase.id);
+    var lang = titleCaseLabel(dbCase.language);
+    var interaction = normalizeInteraction(
+      dbCase.interaction_type || dbCase.interactionType
+    );
+    var createdAt = dbCase.created_at || "";
+    var dt = formatDbDate(createdAt);
+    var time = formatTimeLabel(dt, createdAt);
+    var rawStatus = dbCase.status || "New";
+    var status = rawStatus.toLowerCase() === "received" ? "New" : rawStatus;
+
+    var analysis = MockAI.analyze(dbCase.statement || "", {
+      language: lang.toLowerCase(),
+    });
+
+    var risk = dbCase.risk_level || (analysis.ok ? analysis.riskLevel : "LOW");
+    var svi = (typeof dbCase.svi_score === "number" && !isNaN(dbCase.svi_score))
+      ? dbCase.svi_score
+      : (analysis.ok ? analysis.svi : 0);
+    var components = analysis.ok
+      ? analysis.components
+      : { stress: 0, vulnerability: 0, urgency: 0, safetyConcern: 0 };
+    var indicators = analysis.ok ? analysis.indicators.slice() : [];
+    var recommendation = analysis.ok
+      ? analysis.recommendation
+      : "Human review required";
+    var safetyFlag = (typeof dbCase.human_review === "boolean")
+      ? dbCase.human_review
+      : (analysis.ok ? !!analysis.immediateHumanReview : false);
+
+    return {
+      id: caseId,
+      datetime: dt,
+      time: time,
+      language: lang,
+      interaction: interaction,
+      status: status,
+      humanReviewStatus: status === "Reviewed" ? "Reviewed" : "Pending",
+      previousStatus: "",
+      statement: dbCase.statement || "",
+      svi: svi,
+      risk: risk,
+      components: components,
+      indicators: indicators,
+      aiRecommendation: recommendation,
+      supportPathway: recommendation,
+      safetyFlag: safetyFlag,
+      timeline: [
+        { label: "Case recorded in SQLite database", note: dt },
+        {
+          label: "AI-assisted assessment generated",
+          note: dbCase.risk_level ? "Full backend pipeline" : "Local prototype engine",
+        },
+        {
+          label:
+            status === "Reviewed"
+              ? "Human review recorded"
+              : "Human review pending",
+          note: "Operator decision required",
+        },
+        { label: "Support pathway recommendation", note: "Advisory only" },
+      ],
+      createdAt: createdAt,
+      source: "database",
+    };
+  }
+
+  function loadCombinedCases(backendCases) {
     var byId = {};
+
+    // 1. Initial / fallback demo cases
     DEMO_DATA.sampleCases.forEach(function (seed) {
       var item = hydrateCase(seed);
       byId[item.id] = item;
     });
 
+    // 2. Database cases from SQLite backend (merge, avoid duplicates by case_id)
+    if (Array.isArray(backendCases)) {
+      backendCases.forEach(function (dbCase) {
+        var caseId = dbCase.case_id || ("CASE-" + dbCase.id);
+        if (!caseId) return;
+        byId[caseId] = fromBackendCase(dbCase);
+      });
+    }
+
+    // 3. LocalStorage persistence overlay for operator reviews / archive state
     if (typeof CaseStore !== "undefined") {
       CaseStore.load().forEach(function (record) {
         var item = fromStoredCase(record);
-        if (item.id) byId[item.id] = item;
+        if (!item.id) return;
+        if (byId[item.id]) {
+          byId[item.id].status = item.status || byId[item.id].status;
+          byId[item.id].humanReviewStatus =
+            item.humanReviewStatus || byId[item.id].humanReviewStatus;
+          byId[item.id].previousStatus =
+            item.previousStatus || byId[item.id].previousStatus;
+          byId[item.id].supportPathway =
+            item.supportPathway || byId[item.id].supportPathway;
+          if (item.timeline && item.timeline.length) {
+            byId[item.id].timeline = item.timeline;
+          }
+        } else {
+          byId[item.id] = item;
+        }
       });
     }
 
@@ -206,8 +340,16 @@
     var query = (searchEl.value || "").trim().toLowerCase();
     if (query && item.id.toLowerCase().indexOf(query) === -1) return false;
     if (riskEl.value !== "all" && item.risk !== riskEl.value) return false;
-    if (languageEl.value !== "all" && item.language !== languageEl.value) return false;
-    if (interactionEl.value !== "all" && item.interaction !== interactionEl.value) {
+    if (
+      languageEl.value !== "all" &&
+      item.language.toLowerCase() !== languageEl.value.toLowerCase()
+    ) {
+      return false;
+    }
+    if (
+      interactionEl.value !== "all" &&
+      item.interaction.toLowerCase() !== interactionEl.value.toLowerCase()
+    ) {
       return false;
     }
 
@@ -636,6 +778,63 @@
     });
   });
 
+  function updateBackendStatus(state, message) {
+    var pill = document.querySelector("#backend-status-pill");
+    if (!pill) return;
+    pill.textContent = message;
+    if (state === "connected") {
+      pill.style.background = "var(--teal-soft)";
+      pill.style.color = "var(--teal-deep)";
+      pill.title = "Connected to FastAPI backend with SQLite persistence";
+    } else if (state === "error") {
+      pill.style.background = "var(--amber-soft)";
+      pill.style.color = "var(--amber)";
+      pill.title = "Backend unavailable. Showing local demo cases.";
+    } else {
+      pill.style.background = "var(--paper-deep)";
+      pill.style.color = "var(--muted)";
+    }
+  }
+
+  function fetchBackendCases() {
+    return fetch(BACKEND_API_URL, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("HTTP " + response.status);
+        }
+        return response.json();
+      })
+      .then(function (dbCases) {
+        if (!Array.isArray(dbCases)) {
+          throw new Error("Invalid response format");
+        }
+        cases = loadCombinedCases(dbCases);
+        updateBackendStatus(
+          "connected",
+          "Backend: Connected (SQLite - " + dbCases.length + " saved)"
+        );
+        updateSummary();
+        renderTable();
+        var selectedItem = findCase(selectedId);
+        if (selectedItem) {
+          renderDetail(selectedItem);
+        }
+        return dbCases;
+      })
+      .catch(function (err) {
+        console.warn(
+          "FastAPI backend unavailable at " + BACKEND_API_URL + ". Falling back to demo data.",
+          err
+        );
+        updateBackendStatus("error", "Backend: Offline (Demo Mode)");
+      });
+  }
+
   updateSummary();
   renderTable();
   renderDetail(null);
@@ -644,4 +843,10 @@
   if (focusId && findCase(focusId)) {
     selectCase(focusId);
   }
+
+  fetchBackendCases().then(function () {
+    if (focusId && findCase(focusId)) {
+      selectCase(focusId);
+    }
+  });
 })();

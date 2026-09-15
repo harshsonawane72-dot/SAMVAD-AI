@@ -1,0 +1,31 @@
+{
+  "model_name": "ai4bharat/IndicBERTv2-MLM-only + MLP Head",
+  "architecture": "LayerNorm(768) -> Dropout(0.2) -> Linear(768, 128) -> GELU -> Dropout(0.1) -> Linear(128, 4)",
+  "dataset_size": 264,
+  "train_count": 200,
+  "val_count": 40,
+  "test_count": 24,
+  "random_seed": 42,
+  "epochs_trained": 60,
+  "best_epoch": 22,
+  "learning_rate": 0.001,
+  "batch_size": 16,
+  "class_mapping": {
+    "LOW": 0,
+    "MODERATE": 1,
+    "HIGH": 2,
+    "CRITICAL": 3
+  },
+  "training_date": "2026-09-15T07:42:35.023826+00:00",
+  "validation_metrics": {
+    "loss": 0.3869,
+    "accuracy": 0.875,
+    "macro_f1": 0.8749
+  },
+  "test_metrics": {
+    "loss": 0.6763,
+    "accuracy": 0.75,
+    "macro_f1": 0.753
+  },
+  "disclaimer": "Prototype AI risk classifier for human operator decision-support. Not clinically validated for psychiatric assessment or autonomous triage."
+}

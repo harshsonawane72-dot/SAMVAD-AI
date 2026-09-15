@@ -1,0 +1,590 @@
+[
+  {
+    "id": "VAL-001",
+    "text": "I would like to verify the working hours of the public facilitation center in my district.",
+    "language": "English",
+    "risk_level": "LOW",
+    "category": "procedural_inquiry"
+  },
+  {
+    "id": "VAL-002",
+    "text": "Can you advise whether a residential proof certificate is mandatory for voter registration update?",
+    "language": "English",
+    "risk_level": "LOW",
+    "category": "document_guidance"
+  },
+  {
+    "id": "VAL-003",
+    "text": "I am following up on service request number 4821 filed last Tuesday regarding water meter replacement.",
+    "language": "English",
+    "risk_level": "LOW",
+    "category": "routine_follow_up"
+  },
+  {
+    "id": "VAL-004",
+    "text": "I am slightly confused about which section to fill under column B on the pension renewal form.",
+    "language": "English",
+    "risk_level": "LOW",
+    "category": "confusion_without_distress"
+  },
+  {
+    "id": "VAL-005",
+    "text": "कृपया मुझे बताएं कि राशन कार्ड में नए सदस्य का नाम जोड़ने के लिए कौन से दस्तावेज देने होंगे।",
+    "language": "Hindi",
+    "risk_level": "LOW",
+    "category": "document_guidance"
+  },
+  {
+    "id": "VAL-006",
+    "text": "मेरी बिजली बिल से संबंधित शिकायत का निवारण किस अधिकारी द्वारा किया जाएगा?",
+    "language": "Hindi",
+    "risk_level": "LOW",
+    "category": "procedural_inquiry"
+  },
+  {
+    "id": "VAL-007",
+    "text": "मैंने कल ऑनलाइन पोर्टल पर फॉर्म भरा था, क्या इसकी हार्ड कॉपी जमा करना जरूरी है?",
+    "language": "Hindi",
+    "risk_level": "LOW",
+    "category": "routine_follow_up"
+  },
+  {
+    "id": "VAL-008",
+    "text": "छात्रवृत्ति पोर्टल पर बैंक खाता संख्या अपडेट करने का विकल्प कहाँ उपलब्ध है?",
+    "language": "Hindi",
+    "risk_level": "LOW",
+    "category": "procedural_inquiry"
+  },
+  {
+    "id": "VAL-009",
+    "text": "Mera complaint number 1092 hai, please check karke batayein ki officer assign hua ya nahi.",
+    "language": "Hinglish",
+    "risk_level": "LOW",
+    "category": "routine_follow_up"
+  },
+  {
+    "id": "VAL-010",
+    "text": "Mujhe birth certificate ke liye apply karna hai, fees online pay hogi ya counter par?",
+    "language": "Hinglish",
+    "risk_level": "LOW",
+    "category": "procedural_inquiry"
+  },
+  {
+    "id": "VAL-011",
+    "text": "Maine address proof upload kiya tha, bas confirm karna tha ki document format acceptable hai.",
+    "language": "Hinglish",
+    "risk_level": "LOW",
+    "category": "document_guidance"
+  },
+  {
+    "id": "VAL-012",
+    "text": "तहसील कार्यालयात नवीन आधार नोंदणीसाठी कोणती वेळ निश्चित केली आहे?",
+    "language": "Marathi",
+    "risk_level": "LOW",
+    "category": "procedural_inquiry"
+  },
+  {
+    "id": "VAL-013",
+    "text": "मी उत्पन्नाचा दाखला काढण्यासाठी अर्ज केला होता, त्याची पोहोच पावती कशी डाउनलोड करावी?",
+    "language": "Marathi",
+    "risk_level": "LOW",
+    "category": "document_guidance"
+  },
+  {
+    "id": "VAL-014",
+    "text": "ग्रामपंचायतीमध्ये पाणी पुरवठा दुरुस्तीचा अर्ज कोणाकडे द्यावा लागेल?",
+    "language": "Marathi",
+    "risk_level": "LOW",
+    "category": "routine_follow_up"
+  },
+  {
+    "id": "VAL-015",
+    "text": "अर्ज भरताना जात प्रमाणपत्राचा क्रमांक टाकणे आवश्यक आहे का?",
+    "language": "Marathi",
+    "risk_level": "LOW",
+    "category": "confusion_without_distress"
+  },
+  {
+    "id": "VAL-016",
+    "text": "Majhya water connection arjachi sadyasthiti tpasnyasathi link share kara please.",
+    "language": "Romanized Marathi",
+    "risk_level": "LOW",
+    "category": "routine_follow_up"
+  },
+  {
+    "id": "VAL-017",
+    "text": "Property tax online bharnyasathi konta portal vapraycha ahe te sanga.",
+    "language": "Romanized Marathi",
+    "risk_level": "LOW",
+    "category": "procedural_inquiry"
+  },
+  {
+    "id": "VAL-018",
+    "text": "Senior citizen card sathi eligibility criteria kay ahe te mahiti havi hoti.",
+    "language": "Romanized Marathi",
+    "risk_level": "LOW",
+    "category": "document_guidance"
+  },
+  {
+    "id": "VAL-019",
+    "text": "Hello, I just need to verify if the grievance redressal cell operates on second Saturdays, please advise.",
+    "language": "Mixed",
+    "risk_level": "LOW",
+    "category": "procedural_inquiry"
+  },
+  {
+    "id": "VAL-020",
+    "text": "Maine acknowledgement form save kar liya hai, but next verification date kab hogi?",
+    "language": "Mixed",
+    "risk_level": "LOW",
+    "category": "routine_follow_up"
+  },
+  {
+    "id": "VAL-021",
+    "text": "Sir, portal par mobile number update nahi ho raha, is there any alternate procedure?",
+    "language": "Mixed",
+    "risk_level": "LOW",
+    "category": "procedural_inquiry"
+  },
+  {
+    "id": "VAL-022",
+    "text": "I am feeling increasingly worn out by the constant delays in my disability pension release.",
+    "language": "English",
+    "risk_level": "MODERATE",
+    "category": "sustained_stress"
+  },
+  {
+    "id": "VAL-023",
+    "text": "The continuous back-and-forth between departments is making me anxious and exhausted.",
+    "language": "English",
+    "risk_level": "MODERATE",
+    "category": "emotional_fatigue"
+  },
+  {
+    "id": "VAL-024",
+    "text": "I am struggling to manage household expenses and this unresolved wage dispute is causing sleepless nights.",
+    "language": "English",
+    "risk_level": "MODERATE",
+    "category": "repeated_worry"
+  },
+  {
+    "id": "VAL-025",
+    "text": "I feel quite burdened by these complicated legal demands and need someone patient to guide me.",
+    "language": "English",
+    "risk_level": "MODERATE",
+    "category": "support_need"
+  },
+  {
+    "id": "VAL-026",
+    "text": "पिछले दो महीने से लगातार चक्कर लगा रहा हूँ, मानसिक रूप से बहुत थक चुका हूँ।",
+    "language": "Hindi",
+    "risk_level": "MODERATE",
+    "category": "emotional_fatigue"
+  },
+  {
+    "id": "VAL-027",
+    "text": "दवाइयों का खर्च बढ़ रहा है और सहायता राशि अटकी हुई है, जिससे घर में बहुत तनाव का माहौल है।",
+    "language": "Hindi",
+    "risk_level": "MODERATE",
+    "category": "sustained_stress"
+  },
+  {
+    "id": "VAL-028",
+    "text": "कोई भी अधिकारी स्पष्ट जवाब नहीं देता, जिससे मेरी चिंता और घबराहट दिन-प्रतिदिन बढ़ती जा रही है।",
+    "language": "Hindi",
+    "risk_level": "MODERATE",
+    "category": "repeated_worry"
+  },
+  {
+    "id": "VAL-029",
+    "text": "मुझे इस समस्या से निपटने के लिए थोड़ी सलाह और मार्गदर्शन की बहुत आवश्यकता है।",
+    "language": "Hindi",
+    "risk_level": "MODERATE",
+    "category": "support_need"
+  },
+  {
+    "id": "VAL-030",
+    "text": "Office ke chakkar kaat kar dimag bohot heavy ho gaya hai, samajh nahi aa raha aage kaise proceed karun.",
+    "language": "Hinglish",
+    "risk_level": "MODERATE",
+    "category": "emotional_fatigue"
+  },
+  {
+    "id": "VAL-031",
+    "text": "Salary hold par hone ki wajah se family me daily arguments ho rahe hain, bohot mental pressure hai.",
+    "language": "Hinglish",
+    "risk_level": "MODERATE",
+    "category": "sustained_stress"
+  },
+  {
+    "id": "VAL-032",
+    "text": "Main bohot overwhelmed feel kar raha hoon is legal notice se, koi proper direction nahi mil rahi.",
+    "language": "Hinglish",
+    "risk_level": "MODERATE",
+    "category": "support_need"
+  },
+  {
+    "id": "VAL-033",
+    "text": "माझ्या निवृत्तीवेतनाचे काम रखडल्यामुळे घर चालवणे अत्यंत कठीण झाले आहे आणि खूप ताण येत आहे.",
+    "language": "Marathi",
+    "risk_level": "MODERATE",
+    "category": "sustained_stress"
+  },
+  {
+    "id": "VAL-034",
+    "text": "वारंवार कार्यालयात जाऊनही काहीच उत्तर मिळत नाही, त्यामुळे मी मनातून खूप खचून गेलो आहे.",
+    "language": "Marathi",
+    "risk_level": "MODERATE",
+    "category": "emotional_fatigue"
+  },
+  {
+    "id": "VAL-035",
+    "text": "या वादाची सतत चिंता लागून राहिल्याने माझी प्रकृती ढासळत चालली आहे.",
+    "language": "Marathi",
+    "risk_level": "MODERATE",
+    "category": "repeated_worry"
+  },
+  {
+    "id": "VAL-036",
+    "text": "मला योग्य कायदेशीर सल्ला आणि मानसिक आधार हवा आहे कारण मला एकट्याला हे पेलवत नाही.",
+    "language": "Marathi",
+    "risk_level": "MODERATE",
+    "category": "support_need"
+  },
+  {
+    "id": "VAL-037",
+    "text": "Sarv kahi khup stressful zala ahe, pension nahi aali tar purna month manage karna tough ahe.",
+    "language": "Romanized Marathi",
+    "risk_level": "MODERATE",
+    "category": "sustained_stress"
+  },
+  {
+    "id": "VAL-038",
+    "text": "Mala khup chinta vatat ahe, continuous rejection mule manat khup negativity yetiye.",
+    "language": "Romanized Marathi",
+    "risk_level": "MODERATE",
+    "category": "repeated_worry"
+  },
+  {
+    "id": "VAL-039",
+    "text": "Itka mental load ahe ki daily routine madhe focus karna shakkya hot nahiye.",
+    "language": "Romanized Marathi",
+    "risk_level": "MODERATE",
+    "category": "emotional_fatigue"
+  },
+  {
+    "id": "VAL-040",
+    "text": "I am feeling so overwhelmed by these unresolved fines, samajh nahi aa raha kisse baat karke solve karun.",
+    "language": "Mixed",
+    "risk_level": "MODERATE",
+    "category": "support_need"
+  },
+  {
+    "id": "VAL-041",
+    "text": "The continuous uncertainty is really draining me out, roz naya notice aata hai aur tension badhti hai.",
+    "language": "Mixed",
+    "risk_level": "MODERATE",
+    "category": "sustained_stress"
+  },
+  {
+    "id": "VAL-042",
+    "text": "Mala ya situation madhun baher padnyasathi guidance pahije, I am feeling very mentally exhausted.",
+    "language": "Mixed",
+    "risk_level": "MODERATE",
+    "category": "emotional_fatigue"
+  },
+  {
+    "id": "VAL-043",
+    "text": "I feel entirely deserted by the authorities and I am having severe panic episodes because my eviction is tomorrow.",
+    "language": "English",
+    "risk_level": "HIGH",
+    "category": "severe_helplessness"
+  },
+  {
+    "id": "VAL-044",
+    "text": "I am shaking uncontrollably with fear, my livelihood has been confiscated and I have nowhere to seek shelter.",
+    "language": "English",
+    "risk_level": "HIGH",
+    "category": "acute_vulnerability"
+  },
+  {
+    "id": "VAL-045",
+    "text": "The emotional torment is reaching a breaking point, I cannot manage my basic survival without immediate intervention.",
+    "language": "English",
+    "risk_level": "HIGH",
+    "category": "severe_distress"
+  },
+  {
+    "id": "VAL-046",
+    "text": "I am trapped in an abusive commercial contract and the creditors are harassing me day and night, I am terrified.",
+    "language": "English",
+    "risk_level": "HIGH",
+    "category": "severe_pressure"
+  },
+  {
+    "id": "VAL-047",
+    "text": "मैं पूरी तरह से असहाय और लाचार महसूस कर रहा हूँ, मेरे पास सिर छिपाने की भी जगह नहीं बची है।",
+    "language": "Hindi",
+    "risk_level": "HIGH",
+    "category": "severe_helplessness"
+  },
+  {
+    "id": "VAL-048",
+    "text": "दबंग लोग लगातार मेरे परिवार को प्रताड़ित कर रहे हैं और हम भयानक खौफ के साए में जी रहे हैं।",
+    "language": "Hindi",
+    "risk_level": "HIGH",
+    "category": "severe_pressure"
+  },
+  {
+    "id": "VAL-049",
+    "text": "मेरी मानसिक हालत इतनी नाजुक हो गई है कि मैं अकेला कमरे में बैठकर रोता रहता हूँ, कोई तो मदद करो।",
+    "language": "Hindi",
+    "risk_level": "HIGH",
+    "category": "severe_distress"
+  },
+  {
+    "id": "VAL-050",
+    "text": "हमारी फसल नष्ट हो गई और सिर पर भारी कर्ज़ है, मुझे आगे कोई उम्मीद दिखाई नहीं दे रही।",
+    "language": "Hindi",
+    "risk_level": "HIGH",
+    "category": "acute_vulnerability"
+  },
+  {
+    "id": "VAL-051",
+    "text": "Main itna panic me hoon ki meri saans phool rahi hai, mujhe lagta hai mera sab kuch barbad ho gaya.",
+    "language": "Hinglish",
+    "risk_level": "HIGH",
+    "category": "severe_distress"
+  },
+  {
+    "id": "VAL-052",
+    "text": "Local antisocial elements roz dhamkiyan de rahe hain, mera pura parivaar extreme fear me hai.",
+    "language": "Hinglish",
+    "risk_level": "HIGH",
+    "category": "severe_pressure"
+  },
+  {
+    "id": "VAL-053",
+    "text": "Mere paas zero support system hai is city me aur mera ration card bhi cancel kar diya, I am desperate.",
+    "language": "Hinglish",
+    "risk_level": "HIGH",
+    "category": "severe_helplessness"
+  },
+  {
+    "id": "VAL-054",
+    "text": "माझ्यावर कर्जाचा प्रचंड डोंगर झाला आहे आणि सावकार दररोज दारात येऊन अपमानित करत आहेत, मी पुरता खचलो आहे.",
+    "language": "Marathi",
+    "risk_level": "HIGH",
+    "category": "severe_pressure"
+  },
+  {
+    "id": "VAL-055",
+    "text": "मी अत्यंत हताश झालो आहे आणि मला भयानक भीती वाटते की माझे कुटुंब रस्त्यावर येईल.",
+    "language": "Marathi",
+    "risk_level": "HIGH",
+    "category": "severe_helplessness"
+  },
+  {
+    "id": "VAL-056",
+    "text": "घरात अन्नाचा एक कणही नाही आणि बाळ आजारी आहे, कृपया तातडीने प्रशासकीय मदत पाठवा.",
+    "language": "Marathi",
+    "risk_level": "HIGH",
+    "category": "acute_vulnerability"
+  },
+  {
+    "id": "VAL-057",
+    "text": "माझी मानसिक स्थिती पूर्णपणे ढासळली आहे, मला त्वरित मानसोपचार किंवा समुपदेशनाची गरज आहे.",
+    "language": "Marathi",
+    "risk_level": "HIGH",
+    "category": "severe_distress"
+  },
+  {
+    "id": "VAL-058",
+    "text": "Mala khup extreme pressure vat-tay, konich aadhar nahi dila tar mi purna udhvast hoin.",
+    "language": "Romanized Marathi",
+    "risk_level": "HIGH",
+    "category": "severe_helplessness"
+  },
+  {
+    "id": "VAL-059",
+    "text": "Gund lokani shop todnyachi dhamki dili ahe, amhi bhiti mule police complaint pan karu shakat nahi.",
+    "language": "Romanized Marathi",
+    "risk_level": "HIGH",
+    "category": "severe_pressure"
+  },
+  {
+    "id": "VAL-060",
+    "text": "Purna aayushyachi kamai geli ya scam madhe, mi shivrayala laglo ahe darr mule.",
+    "language": "Romanized Marathi",
+    "risk_level": "HIGH",
+    "category": "acute_vulnerability"
+  },
+  {
+    "id": "VAL-061",
+    "text": "I am experiencing severe terror because creditors are banging on my door right now, bahut zyada darr lag raha hai.",
+    "language": "Mixed",
+    "risk_level": "HIGH",
+    "category": "severe_pressure"
+  },
+  {
+    "id": "VAL-062",
+    "text": "My shelter is being demolished tomorrow morning and I have an ailing mother, mala urgently rescue help havi ahe.",
+    "language": "Mixed",
+    "risk_level": "HIGH",
+    "category": "acute_vulnerability"
+  },
+  {
+    "id": "VAL-063",
+    "text": "I feel utterly crushed under this institutional harassment, I cannot bear this mental torture alone anymore.",
+    "language": "Mixed",
+    "risk_level": "HIGH",
+    "category": "severe_distress"
+  },
+  {
+    "id": "VAL-064",
+    "text": "I do not feel safe in this vicinity and I fear someone will violently attack me within hours.",
+    "language": "English",
+    "risk_level": "CRITICAL",
+    "category": "imminent_attack_fear"
+  },
+  {
+    "id": "VAL-065",
+    "text": "I am scared that I will not be able to keep myself safe tonight under these escalating threats.",
+    "language": "English",
+    "risk_level": "CRITICAL",
+    "category": "inability_to_keep_safe"
+  },
+  {
+    "id": "VAL-066",
+    "text": "An aggressive group has surrounded my dwelling with weapons, please dispatch emergency rescue immediately.",
+    "language": "English",
+    "risk_level": "CRITICAL",
+    "category": "active_violent_threat"
+  },
+  {
+    "id": "VAL-067",
+    "text": "I have locked myself inside the room because my abusive partner is threatening my life right now.",
+    "language": "English",
+    "risk_level": "CRITICAL",
+    "category": "domestic_mortal_threat"
+  },
+  {
+    "id": "VAL-068",
+    "text": "मुझे अपनी सुरक्षा को लेकर गंभीर आशंका है, मुझे तुरंत पुलिस सुरक्षा की आवश्यकता है।",
+    "language": "Hindi",
+    "risk_level": "CRITICAL",
+    "category": "safety_concern"
+  },
+  {
+    "id": "VAL-069",
+    "text": "मुझे डर है कि मैं खुद को सुरक्षित नहीं रख सकूँगा, हालात मेरे हाथ से पूरी तरह निकल चुके हैं।",
+    "language": "Hindi",
+    "risk_level": "CRITICAL",
+    "category": "inability_to_keep_safe"
+  },
+  {
+    "id": "VAL-070",
+    "text": "मेरे घर पर पेट्रोल फेंकने की कोशिश की गई है, मेरी और मेरे बच्चों की जान खतरे में है।",
+    "language": "Hindi",
+    "risk_level": "CRITICAL",
+    "category": "active_violent_threat"
+  },
+  {
+    "id": "VAL-071",
+    "text": "मुझ पर जानलेवा हमला हुआ है और मैं बुरी तरह घायल हूँ, तुरंत एम्बुलेंस और सहायता भेजिए।",
+    "language": "Hindi",
+    "risk_level": "CRITICAL",
+    "category": "acute_trauma_rescue"
+  },
+  {
+    "id": "VAL-072",
+    "text": "Mujhe bohot khatra feel ho raha hai, main apni personal safety guarantee nahi kar sakta abhi.",
+    "language": "Hinglish",
+    "risk_level": "CRITICAL",
+    "category": "inability_to_keep_safe"
+  },
+  {
+    "id": "VAL-073",
+    "text": "Ghar ke bahar armed men khade hain aur wo door break karne ki koshish kar rahe hain, urgent help bhejo.",
+    "language": "Hinglish",
+    "risk_level": "CRITICAL",
+    "category": "active_violent_threat"
+  },
+  {
+    "id": "VAL-074",
+    "text": "Main safe feel nahi kar raha hoon kisi bhi tarah se, immediate human intervention chahiye.",
+    "language": "Hinglish",
+    "risk_level": "CRITICAL",
+    "category": "safety_concern"
+  },
+  {
+    "id": "VAL-075",
+    "text": "मला या क्षणी स्वतःच्या सुरक्षेची खात्री वाटत नाहीये, माझा जीव धोक्यात आहे.",
+    "language": "Marathi",
+    "risk_level": "CRITICAL",
+    "category": "safety_concern"
+  },
+  {
+    "id": "VAL-076",
+    "text": "मला भीती वाटते की मी स्वतःचा बचाव करू शकणार नाही, तातडीने पोलीस मदत पाठवा.",
+    "language": "Marathi",
+    "risk_level": "CRITICAL",
+    "category": "inability_to_keep_safe"
+  },
+  {
+    "id": "VAL-077",
+    "text": "काही लोकांनी माझ्या घरावर दगडफेक केली आहे आणि ते दरवाजा तोडण्याचा प्रयत्न करत आहेत.",
+    "language": "Marathi",
+    "risk_level": "CRITICAL",
+    "category": "active_violent_threat"
+  },
+  {
+    "id": "VAL-078",
+    "text": "हा जीव वाचवण्याचा प्रश्न आहे, त्वरित ऑपरेटरशी बोलायचे आहे आणि संरक्षण हवे आहे.",
+    "language": "Marathi",
+    "risk_level": "CRITICAL",
+    "category": "mortal_peril_escalation"
+  },
+  {
+    "id": "VAL-079",
+    "text": "Mala atta safe vatat nahiye ya jagevar, konitari mala attack karel ashi bhiti vat-te.",
+    "language": "Romanized Marathi",
+    "risk_level": "CRITICAL",
+    "category": "safety_concern"
+  },
+  {
+    "id": "VAL-080",
+    "text": "Mi swatala safe thevu shaknar nahi, situation violent zali ahe khup.",
+    "language": "Romanized Marathi",
+    "risk_level": "CRITICAL",
+    "category": "inability_to_keep_safe"
+  },
+  {
+    "id": "VAL-081",
+    "text": "Gundanni talwar dakhvun marun taknyachi dhamki dili, please police force pathva lagech.",
+    "language": "Romanized Marathi",
+    "risk_level": "CRITICAL",
+    "category": "active_violent_threat"
+  },
+  {
+    "id": "VAL-082",
+    "text": "I do not feel safe right now, door ke bahar log shivigol de rahe hain and threatening to burn the place.",
+    "language": "Mixed",
+    "risk_level": "CRITICAL",
+    "category": "active_violent_threat"
+  },
+  {
+    "id": "VAL-083",
+    "text": "I am terrified that I cannot keep myself safe tonight, please trigger emergency operator escalation immediately.",
+    "language": "Mixed",
+    "risk_level": "CRITICAL",
+    "category": "inability_to_keep_safe"
+  },
+  {
+    "id": "VAL-084",
+    "text": "Meri jaan khatre mein hai, te lok weapon ghevun aale ahet, save me right now.",
+    "language": "Mixed",
+    "risk_level": "CRITICAL",
+    "category": "active_violent_threat"
+  }
+]

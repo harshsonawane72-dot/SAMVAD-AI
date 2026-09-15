@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy
+torch
+transformers
+sentencepiece
+python-multipart
+httpx
+langdetect

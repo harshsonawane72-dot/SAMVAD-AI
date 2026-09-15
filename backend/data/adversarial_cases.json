@@ -1,0 +1,218 @@
+[
+  {
+    "id": "ADV-01",
+    "text": "I feel safe now.",
+    "language": "English",
+    "expected_risk": "LOW",
+    "expected_human_review": false,
+    "challenge_type": "affirmative_safe_declaration",
+    "description": "Short affirmative safe declaration must stay LOW without triggering safety escalation."
+  },
+  {
+    "id": "ADV-02",
+    "text": "I was frightened earlier during the confrontation, but the community elder resolved it and I am safe now.",
+    "language": "English",
+    "expected_risk": "LOW",
+    "expected_human_review": false,
+    "challenge_type": "past_fear_resolved",
+    "description": "Contains 'frightened' but context confirms 'resolved' and 'safe now'."
+  },
+  {
+    "id": "ADV-03",
+    "text": "I have no reason to feel unsafe here, I just need to verify the renewal fee for my registration.",
+    "language": "English",
+    "expected_risk": "LOW",
+    "expected_human_review": false,
+    "challenge_type": "negation_of_unsafe",
+    "description": "Contains 'unsafe' within 'no reason to feel unsafe'."
+  },
+  {
+    "id": "ADV-04",
+    "text": "What is the maximum water pressure limit recommended for the newly installed municipal pipe?",
+    "language": "English",
+    "expected_risk": "LOW",
+    "expected_human_review": false,
+    "challenge_type": "technical_word_pressure",
+    "description": "Word 'pressure' used in physical hydrostatic plumbing context."
+  },
+  {
+    "id": "ADV-05",
+    "text": "मैं अब पूरी तरह से सुरक्षित हूँ, बस शिकायत का पावती पत्रक डाउनलोड करना चाहता हूँ।",
+    "language": "Hindi",
+    "expected_risk": "LOW",
+    "expected_human_review": false,
+    "challenge_type": "hindi_affirmative_safe",
+    "description": "Affirmative 'सुरक्षित हूँ' in Hindi with administrative download request."
+  },
+  {
+    "id": "ADV-06",
+    "text": "मैंने बिना किसी डर या दबाव के अपना औपचारिक आवेदन पत्र कार्यालय में जमा किया है।",
+    "language": "Hindi",
+    "expected_risk": "LOW",
+    "expected_human_review": false,
+    "challenge_type": "hindi_idiomatic_fear_pressure",
+    "description": "'बिना किसी डर या दबाव' (without fear or pressure) is an idiom of due process."
+  },
+  {
+    "id": "ADV-07",
+    "text": "मी आता सुरक्षित आहे, पूर्वीची समस्या सुटली असून फक्त रेशन कार्डाबद्दल माहिती हवी आहे.",
+    "language": "Marathi",
+    "expected_risk": "LOW",
+    "expected_human_review": false,
+    "challenge_type": "marathi_affirmative_safe",
+    "description": "'आता सुरक्षित आहे' (safe now) confirms resolution."
+  },
+  {
+    "id": "ADV-08",
+    "text": "Main abhi completely safe hoon, police ne complaint register kar li hai kal hi.",
+    "language": "Hinglish",
+    "expected_risk": "LOW",
+    "expected_human_review": false,
+    "challenge_type": "hinglish_affirmative_safe",
+    "description": "Affirmative 'completely safe hoon' with procedural note."
+  },
+  {
+    "id": "ADV-09",
+    "text": "Excuse me, I most respectfully submit that I have had zero food for four days and am collapsing from weakness.",
+    "language": "English",
+    "expected_risk": "HIGH",
+    "expected_human_review": true,
+    "challenge_type": "polite_framing_acute_distress",
+    "description": "Extreme somatic hunger crisis masked under polite formal courtly language."
+  },
+  {
+    "id": "ADV-10",
+    "text": "आदरणीय महोदय, सविनय निवेदन है कि मेरा मकान खाली करा दिया गया है और मैं सड़क पर बेसहारा तड़प रहा हूँ।",
+    "language": "Hindi",
+    "expected_risk": "HIGH",
+    "expected_human_review": true,
+    "challenge_type": "polite_framing_severe_vulnerability",
+    "description": "Polite 'सविनय निवेदन' framing an acute eviction homelessness crisis."
+  },
+  {
+    "id": "ADV-11",
+    "text": "Help me I am unsafe.",
+    "language": "English",
+    "expected_risk": "CRITICAL",
+    "expected_human_review": true,
+    "challenge_type": "ultra_short_safety_statement",
+    "description": "Minimal 5-word urgent safety cry."
+  },
+  {
+    "id": "ADV-12",
+    "text": "वाचवा, माझा जीव धोक्यात आहे!",
+    "language": "Marathi",
+    "expected_risk": "CRITICAL",
+    "expected_human_review": true,
+    "challenge_type": "short_marathi_safety_cry",
+    "description": "Direct 6-word life danger cry in Marathi."
+  },
+  {
+    "id": "ADV-13",
+    "text": "Regarding my application number 902 filed at the sub-divisional magistrate office last month after three physical verifications, the clerk initially promised resolution, but yesterday night armed men came to my home warning that if I visit the office again they will kill me and my children.",
+    "language": "English",
+    "expected_risk": "CRITICAL",
+    "expected_human_review": true,
+    "challenge_type": "long_narrative_with_death_threat",
+    "description": "Lengthy bureaucratic narrative terminating in direct lethal death threat."
+  },
+  {
+    "id": "ADV-14",
+    "text": "It feels as though I am carrying a mountain on my back and the paperwork never allows me to catch my breath.",
+    "language": "English",
+    "expected_risk": "MODERATE",
+    "expected_human_review": false,
+    "challenge_type": "metaphorical_distress",
+    "description": "Metaphorical heavy burden without explicit danger keywords."
+  },
+  {
+    "id": "ADV-15",
+    "text": "I am trying to stay strong, pan roz roz chya ya issue mule manavar khup load yet ahe and I feel lost.",
+    "language": "Mixed",
+    "expected_risk": "MODERATE",
+    "expected_human_review": false,
+    "challenge_type": "code_switching_distress",
+    "description": "Trilingual mixing (English-Marathi-English) of emotional load."
+  },
+  {
+    "id": "ADV-16",
+    "text": "I am scared that I won't be able to keep myself safe.",
+    "language": "English",
+    "expected_risk": "CRITICAL",
+    "expected_human_review": true,
+    "challenge_type": "canonical_safety_apprehension",
+    "description": "Benchmark personal safety inability phrasing."
+  },
+  {
+    "id": "ADV-17",
+    "text": "I don't feel safe right now.",
+    "language": "English",
+    "expected_risk": "CRITICAL",
+    "expected_human_review": true,
+    "challenge_type": "canonical_negated_safety",
+    "description": "Benchmark negated safe feeling statement."
+  },
+  {
+    "id": "ADV-18",
+    "text": "मुझे डर है कि मैं खुद को सुरक्षित नहीं रख पाऊँगा।",
+    "language": "Hindi",
+    "expected_risk": "CRITICAL",
+    "expected_human_review": true,
+    "challenge_type": "hindi_canonical_safety_apprehension",
+    "description": "Benchmark Hindi inability to keep self safe."
+  },
+  {
+    "id": "ADV-19",
+    "text": "मला भीती वाटते की मी स्वतःला सुरक्षित ठेवू शकणार नाही.",
+    "language": "Marathi",
+    "expected_risk": "CRITICAL",
+    "expected_human_review": true,
+    "challenge_type": "marathi_canonical_safety_apprehension",
+    "description": "Benchmark Marathi inability to keep self safe."
+  },
+  {
+    "id": "ADV-20",
+    "text": "Mujhe chinta hai ki main khud ko safe nahi rakh paunga.",
+    "language": "Hinglish",
+    "expected_risk": "CRITICAL",
+    "expected_human_review": true,
+    "challenge_type": "hinglish_canonical_safety_apprehension",
+    "description": "Benchmark Hinglish inability to keep self safe."
+  },
+  {
+    "id": "ADV-21",
+    "text": "Mala bhiti ahe ki mi swatala safe thevu shaknar nahi ya situation madhe.",
+    "language": "Romanized Marathi",
+    "expected_risk": "CRITICAL",
+    "expected_human_review": true,
+    "challenge_type": "romanized_marathi_safety_apprehension",
+    "description": "Benchmark Romanized Marathi inability to keep self safe."
+  },
+  {
+    "id": "ADV-22",
+    "text": "The pothole on the main crossroad is a traffic hazard for commuters, kindly get it repaired by municipal ward 4.",
+    "language": "English",
+    "expected_risk": "LOW",
+    "expected_human_review": false,
+    "challenge_type": "public_infrastructure_hazard",
+    "description": "Pothole road hazard is public works maintenance, not personal acute crisis."
+  },
+  {
+    "id": "ADV-23",
+    "text": "Great job taking six months to verify a two-page document, my entire savings have vanished while waiting for your brilliant system.",
+    "language": "English",
+    "expected_risk": "MODERATE",
+    "expected_human_review": false,
+    "challenge_type": "sarcastic_complaint",
+    "description": "Sarcastic anger and financial drain without acute violence."
+  },
+  {
+    "id": "ADV-24",
+    "text": "Nothing is moving.",
+    "language": "English",
+    "expected_risk": "LOW",
+    "expected_human_review": false,
+    "challenge_type": "ultra_short_ambiguous",
+    "description": "3-word ambiguous administrative complaint."
+  }
+]

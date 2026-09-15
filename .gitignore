@@ -1,0 +1,17 @@
+# Ignore large binary tools
+cloudflared.exe
+
+# Python bytecode & caches
+__pycache__/
+*.py[cod]
+*$py.class
+backend/__pycache__/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+*.db
+backend/samvad.db

@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SAMVAD AI Prototype | New Case Assessment</title>
-  <meta name="description" content="SAMVAD AI Prototype — New Case Assessment. AI-assisted decision support only. Not an official NHAA system.">
+  <meta name="description"
+    content="SAMVAD AI Prototype — New Case Assessment. AI-assisted decision support only. Not an official NHAA system.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="main.css?v=step82c">
 </head>
+
 <body class="page-assessment">
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -75,23 +80,6 @@
             <h2 id="interaction-heading">Interaction Details</h2>
           </div>
 
-          <fieldset class="option-fieldset">
-            <legend>Preferred Language</legend>
-            <div class="option-row" role="radiogroup" aria-label="Preferred Language">
-              <label class="option-chip">
-                <input type="radio" name="language" value="english" checked>
-                <span>English</span>
-              </label>
-              <label class="option-chip">
-                <input type="radio" name="language" value="hindi">
-                <span>Hindi</span>
-              </label>
-              <label class="option-chip">
-                <input type="radio" name="language" value="marathi">
-                <span>Marathi</span>
-              </label>
-            </div>
-          </fieldset>
 
           <fieldset class="option-fieldset">
             <legend>Interaction Type</legend>
@@ -127,25 +115,21 @@
           </p>
 
           <label class="visually-hidden" for="statement-input">Complainant statement</label>
-          <textarea
-            id="statement-input"
-            name="statement"
-            rows="8"
-            maxlength="4000"
-            aria-required="true"
+          <textarea id="statement-input" name="statement" rows="8" maxlength="4000" aria-required="true"
             aria-describedby="statement-help statement-count voice-status"
-            placeholder="Example: I am feeling very worried about my situation and I need support to understand what I should do next."
-          ></textarea>
+            placeholder="Example: I am feeling very worried about my situation and I need support to understand what I should do next."></textarea>
           <div class="textarea-meta">
             <span id="statement-count" aria-live="polite">0 / 4000 characters</span>
           </div>
 
-          <div class="voice-input" id="voice-input">
+          <div class="voice-input" id="voice-input" hidden>
             <p class="voice-input-label" id="voice-input-label">Voice input</p>
             <div class="voice-controls">
-              <button type="button" class="btn btn-secondary" id="voice-start-btn" aria-label="Start voice input" aria-pressed="false" aria-describedby="voice-status voice-privacy">
+              <button type="button" class="btn btn-secondary" id="voice-start-btn" aria-label="Start voice input"
+                aria-pressed="false" aria-describedby="voice-status voice-privacy">
                 <span class="voice-mic" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"></path>
                     <path d="M19 10v1a7 7 0 0 1-14 0v-1"></path>
                     <line x1="12" y1="18" x2="12" y2="21"></line>
@@ -160,7 +144,8 @@
             </div>
             <p id="voice-status" class="voice-status" role="status" aria-live="polite"></p>
             <p id="voice-privacy" class="voice-privacy">
-              Voice input is converted to text by the browser when supported. This prototype does not send voice recordings to an external service.
+              Voice input is converted to text by the browser when supported. This prototype does not send voice
+              recordings to an external service.
             </p>
           </div>
 
@@ -182,7 +167,8 @@
           </div>
 
           <label class="consent-check">
-            <input type="checkbox" id="consent-checkbox" name="consent" aria-required="true" aria-describedby="consent-note">
+            <input type="checkbox" id="consent-checkbox" name="consent" aria-required="true"
+              aria-describedby="consent-note">
             <span>I consent to the use of this interaction for this prototype assessment.</span>
           </label>
 
@@ -204,13 +190,7 @@
 
         <p id="form-error" class="form-error" role="alert" hidden></p>
 
-        <div
-          id="analysis-feedback"
-          class="analysis-feedback"
-          role="status"
-          aria-live="polite"
-          hidden
-        >
+        <div id="analysis-feedback" class="analysis-feedback" role="status" aria-live="polite" hidden>
           <div class="analysis-loading" id="analysis-loading" hidden>
             <span class="spinner" aria-hidden="true"></span>
             <p>Analyzing interaction...</p>
@@ -219,12 +199,7 @@
       </form>
 
       <!-- Assessment Result — presentation-ready decision-support report -->
-      <section
-        id="assessment-result"
-        class="assessment-result"
-        aria-labelledby="result-heading"
-        hidden
-      >
+      <section id="assessment-result" class="assessment-result" aria-labelledby="result-heading" hidden>
         <header class="result-header">
           <div class="result-header-top">
             <h2 id="result-heading">Assessment Result</h2>
@@ -239,19 +214,17 @@
               <dt>Assessment Status</dt>
               <dd id="result-status">AI-Assisted Preliminary Assessment</dd>
             </div>
+            <div id="result-language-wrap" hidden>
+              <dt>Detected Language</dt>
+              <dd id="result-detected-language">—</dd>
+            </div>
           </dl>
           <p class="result-official-note">
             Not an official NHAA assessment. SAMVAD AI Prototype demonstration only.
           </p>
         </header>
 
-        <div
-          id="safety-alert"
-          class="safety-alert"
-          role="status"
-          aria-live="polite"
-          hidden
-        >
+        <div id="safety-alert" class="safety-alert" role="status" aria-live="polite" hidden>
           <p class="safety-alert-title">Priority Safety Review</p>
           <p>
             Immediate human review is recommended based on detected safety-related signals.
@@ -277,13 +250,7 @@
           <div class="svi-ring-wrap" aria-hidden="true">
             <svg class="svi-ring" viewBox="0 0 120 120" role="presentation">
               <circle class="svi-ring-track" cx="60" cy="60" r="52"></circle>
-              <circle
-                id="svi-ring-progress"
-                class="svi-ring-progress"
-                cx="60"
-                cy="60"
-                r="52"
-              ></circle>
+              <circle id="svi-ring-progress" class="svi-ring-progress" cx="60" cy="60" r="52"></circle>
             </svg>
             <div class="svi-ring-label">
               <span id="svi-ring-value">0</span>
@@ -300,15 +267,8 @@
                 <h4>Stress</h4>
                 <p><span id="score-stress">0</span> / 100</p>
               </div>
-              <div
-                class="progress-track"
-                role="progressbar"
-                aria-label="Stress score"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                aria-valuenow="0"
-                id="track-stress"
-              >
+              <div class="progress-track" role="progressbar" aria-label="Stress score" aria-valuemin="0"
+                aria-valuemax="100" aria-valuenow="0" id="track-stress">
                 <div id="bar-stress" class="progress-fill" style="width: 0%"></div>
               </div>
               <p class="component-help">
@@ -320,15 +280,8 @@
                 <h4>Vulnerability</h4>
                 <p><span id="score-vulnerability">0</span> / 100</p>
               </div>
-              <div
-                class="progress-track"
-                role="progressbar"
-                aria-label="Vulnerability score"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                aria-valuenow="0"
-                id="track-vulnerability"
-              >
+              <div class="progress-track" role="progressbar" aria-label="Vulnerability score" aria-valuemin="0"
+                aria-valuemax="100" aria-valuenow="0" id="track-vulnerability">
                 <div id="bar-vulnerability" class="progress-fill" style="width: 0%"></div>
               </div>
               <p class="component-help">
@@ -340,15 +293,8 @@
                 <h4>Urgency</h4>
                 <p><span id="score-urgency">0</span> / 100</p>
               </div>
-              <div
-                class="progress-track"
-                role="progressbar"
-                aria-label="Urgency score"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                aria-valuenow="0"
-                id="track-urgency"
-              >
+              <div class="progress-track" role="progressbar" aria-label="Urgency score" aria-valuemin="0"
+                aria-valuemax="100" aria-valuenow="0" id="track-urgency">
                 <div id="bar-urgency" class="progress-fill" style="width: 0%"></div>
               </div>
               <p class="component-help">
@@ -360,15 +306,8 @@
                 <h4>Safety Concern</h4>
                 <p><span id="score-safety">0</span> / 100</p>
               </div>
-              <div
-                class="progress-track"
-                role="progressbar"
-                aria-label="Safety Concern score"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                aria-valuenow="0"
-                id="track-safety"
-              >
+              <div class="progress-track" role="progressbar" aria-label="Safety Concern score" aria-valuemin="0"
+                aria-valuemax="100" aria-valuenow="0" id="track-safety">
                 <div id="bar-safety" class="progress-fill" style="width: 0%"></div>
               </div>
               <p class="component-help">
@@ -393,6 +332,18 @@
             Suggestions for authorized human operators only. This system does not automatically
             contact police, emergency services, medical services, or any authority.
           </p>
+        </section>
+
+        <!-- Relevant Resources for Operator (RAG Vector Search) -->
+        <section class="result-section resources-section" id="relevant-resources-card" aria-labelledby="resources-heading" hidden>
+          <div class="support-header" style="margin-bottom: 0.5rem;">
+            <h3 id="resources-heading">Relevant Resources for Operator</h3>
+            <span class="demo-pill" style="font-size: 0.75rem; align-self: center;">Grounded Knowledge</span>
+          </div>
+          <p class="support-note" style="margin-top: 0; margin-bottom: 0.85rem;">
+            Retrieved support pathways and procedural guidance based on complaint context. Advisory only.
+          </p>
+          <div id="resources-list" class="resources-list" style="display: flex; flex-direction: column; gap: 0.75rem;"></div>
         </section>
 
         <details class="explain-details">
@@ -489,4 +440,5 @@
   <script src="mock-ai.js?v=step4"></script>
   <script src="assessment.js?v=step82"></script>
 </body>
+
 </html>

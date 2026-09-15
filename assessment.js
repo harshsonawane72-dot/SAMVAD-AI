@@ -72,9 +72,103 @@
     }
   }
 
-  function selectedLanguage() {
-    var checked = form.querySelector('input[name="language"]:checked');
-    return checked ? checked.value : "english";
+  function detectStatementLanguage(text) {
+    var cleaned = String(text || "").trim();
+    if (!cleaned) return null;
+
+    // Check for Devanagari script characters (\u0900-\u097F)
+    var devanagariMatches = cleaned.match(/[\u0900-\u097F]/g);
+    var devanagariCount = devanagariMatches ? devanagariMatches.length : 0;
+
+    if (devanagariCount >= 3 || devanagariCount / cleaned.length > 0.15) {
+      // Differentiate Marathi from Hindi using distinct grammatical words
+      var devanagariWords = cleaned.split(/[\s,।!?.:;()"'—\-\/]+/);
+      var marathiMarkers = [
+        "मला", "आहे", "नाही", "नाहीत", "तक्रार", "हवी", "हवे", "माझ्या", "करायचे",
+        "होते", "केले", "सांगितले", "खूप", "काही", "येत", "कसे",
+        "काय", "आम्ही", "त्यांना", "त्यांच्या", "झाले", "झाली", "करतो", "करते",
+        "शकतो", "शकत", "मदत"
+      ];
+      var isMarathi = marathiMarkers.some(function (marker) {
+        return devanagariWords.indexOf(marker) !== -1;
+      });
+      if (isMarathi) {
+        return { code: "mr", label: "Marathi" };
+      }
+      return { code: "hi", label: "Hindi" };
+    }
+
+    // Latin text: check for Hindi/Hinglish keywords vs English
+    var hinglishMarkers =
+      /\b(mujhe|apni|chahiye|hoon|hun|hai|hain|nahi|nahin|kaafi|madad|samajh|karein|kare|raha|rahi|pareshan|bahut|akela|akeli|sakta|sakti|dar|dabav|thoda|kuch|kya|kyun|aap|mera|meri|mere)\b/i;
+    if (hinglishMarkers.test(cleaned)) {
+      return { code: "hi", label: "Hindi" };
+    }
+
+    // Standard Latin English
+    if (/[a-zA-Z]/.test(cleaned)) {
+      return { code: "en", label: "English" };
+    }
+
+    return null;
+  }
+
+  function currentLanguage() {
+    var detected = detectStatementLanguage(statementInput ? statementInput.value : "");
+    return detected ? detected.label.toLowerCase() : "english";
+  }
+
+  var BACKEND_API_BASE =
+    (typeof window !== "undefined" && window.SAMVAD_API_BASE_URL)
+      ? window.SAMVAD_API_BASE_URL
+      : "http://127.0.0.1:8000";
+
+  // Automatic language detection is designed as a multilingual architecture. Actual supported languages depend on the configured language-identification, speech-recognition, and text-understanding models/services. The prototype must never claim unsupported universal language coverage.
+  function detectLanguageRemote(text) {
+    var cleaned = String(text || "").trim();
+    if (!cleaned) {
+      return Promise.resolve(null);
+    }
+    return fetch(BACKEND_API_BASE + "/ai/detect-language", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: cleaned }),
+    })
+      .then(function (res) {
+        if (!res.ok) return null;
+        return res.json();
+      })
+      .then(function (data) {
+        if (data) {
+          if (data.status === "success") {
+            return {
+              status: "success",
+              code: data.language_code,
+              label: data.language_name,
+              confidence: data.confidence,
+              method: data.detection_method,
+            };
+          }
+          if (
+            data.status === "unknown" ||
+            data.language_code === "unknown" ||
+            data.status === "mixed" ||
+            data.language_code === "mixed"
+          ) {
+            return {
+              status: data.status,
+              code: data.language_code,
+              label: data.language_name || "Unknown / Mixed",
+              confidence: data.confidence || 0,
+              method: data.detection_method,
+            };
+          }
+        }
+        return detectStatementLanguage(cleaned);
+      })
+      .catch(function () {
+        return detectStatementLanguage(cleaned);
+      });
   }
 
   function updateCharCount() {
@@ -123,16 +217,20 @@
 
   function renderMatchList(matches) {
     var parts = [];
-    if (matches.stress.length) {
+    if (!matches) {
+      parts.push("Evaluated via full end-to-end AI assessment pipeline.");
+      return parts;
+    }
+    if (matches.stress && matches.stress.length) {
       parts.push("Stress: " + matches.stress.join(", "));
     }
-    if (matches.vulnerability.length) {
+    if (matches.vulnerability && matches.vulnerability.length) {
       parts.push("Vulnerability: " + matches.vulnerability.join(", "));
     }
-    if (matches.urgency.length) {
+    if (matches.urgency && matches.urgency.length) {
       parts.push("Urgency: " + matches.urgency.join(", "));
     }
-    if (matches.safety.length) {
+    if (matches.safety && matches.safety.length) {
       parts.push("Safety: " + matches.safety.join(", "));
     }
     if (!parts.length) {
@@ -166,13 +264,45 @@
     return Math.round(score * weight * 10) / 10;
   }
 
-  function renderResult(result) {
+  function renderResult(result, detectedLang) {
     if (!resultSection) return;
 
     document.querySelector("#result-case-id").textContent = currentCaseId;
+    var statusEl = document.querySelector("#result-status");
+    if (statusEl) {
+      if (result.isLocalFallback) {
+        statusEl.textContent = "Backend unavailable — prototype/local analysis mode";
+      } else {
+        statusEl.textContent = "AI-Assisted Preliminary Assessment";
+      }
+    }
     document.querySelector("#result-svi").textContent = String(result.svi);
     document.querySelector("#svi-ring-value").textContent = String(result.svi);
     setSviRing(result.svi);
+
+    var detectedWrap = document.querySelector("#result-language-wrap");
+    var detectedEl = document.querySelector("#result-detected-language");
+    if (detectedWrap && detectedEl) {
+      if (detectedLang) {
+        var label = detectedLang.label || detectedLang.language_name || "";
+        if (
+          detectedLang.status === "unknown" ||
+          detectedLang.code === "unknown" ||
+          detectedLang.language_code === "unknown" ||
+          label === "Unknown / Mixed"
+        ) {
+          detectedEl.textContent = "Unknown / Mixed";
+          detectedWrap.hidden = false;
+        } else if (label) {
+          detectedEl.textContent = label;
+          detectedWrap.hidden = false;
+        } else {
+          detectedWrap.hidden = true;
+        }
+      } else {
+        detectedWrap.hidden = true;
+      }
+    }
 
     var riskEl = document.querySelector("#result-risk");
     riskEl.textContent = result.riskLevel;
@@ -185,7 +315,7 @@
     }
 
     document.querySelector("#risk-explanation").textContent =
-      RISK_EXPLANATIONS[result.riskLevel] || RISK_EXPLANATIONS.LOW;
+      result.explanation || RISK_EXPLANATIONS[result.riskLevel] || RISK_EXPLANATIONS.LOW;
 
     document.querySelector("#score-stress").textContent = result.components.stress;
     document.querySelector("#score-vulnerability").textContent =
@@ -226,6 +356,54 @@
 
     document.querySelector("#support-recommendation").textContent =
       result.recommendation;
+
+    var resourcesCard = document.querySelector("#relevant-resources-card");
+    var resourcesList = document.querySelector("#resources-list");
+    var resources = result.supportResources || result.support_resources || [];
+    if (resourcesCard && resourcesList) {
+      resourcesList.innerHTML = "";
+      if (resources && resources.length > 0) {
+        resources.forEach(function (res) {
+          var item = document.createElement("div");
+          item.className = "resource-item";
+          item.style.padding = "0.75rem";
+          item.style.borderRadius = "8px";
+          item.style.background = "var(--color-bg-subtle, #f8fafc)";
+          item.style.border = "1px solid var(--color-border, #e2e8f0)";
+
+          var titleEl = document.createElement("h4");
+          titleEl.style.margin = "0 0 0.35rem 0";
+          titleEl.style.fontSize = "0.95rem";
+          titleEl.style.fontWeight = "600";
+          titleEl.textContent = res.title || "Support Resource";
+
+          var badge = document.createElement("span");
+          badge.className = "demo-pill";
+          badge.style.fontSize = "0.7rem";
+          badge.style.marginLeft = "0.5rem";
+          badge.textContent = res.category ? res.category.replace(/_/g, " ") : "Resource";
+          titleEl.appendChild(badge);
+
+          var contentEl = document.createElement("p");
+          contentEl.style.margin = "0 0 0.4rem 0";
+          contentEl.style.fontSize = "0.85rem";
+          contentEl.style.lineHeight = "1.4";
+          contentEl.textContent = res.content || "";
+
+          var srcEl = document.createElement("small");
+          srcEl.style.color = "var(--color-text-muted, #64748b)";
+          srcEl.textContent = "Source: " + (res.source || "Curated Knowledge Base");
+
+          item.appendChild(titleEl);
+          item.appendChild(contentEl);
+          item.appendChild(srcEl);
+          resourcesList.appendChild(item);
+        });
+        resourcesCard.hidden = false;
+      } else {
+        resourcesCard.hidden = true;
+      }
+    }
 
     var safetyAlert = document.querySelector("#safety-alert");
     var showSafety =
@@ -294,7 +472,7 @@
     document.querySelector("#prototype-model-note").textContent =
       result.explainability.prototypeNotice;
 
-    saveCaseToStore(result);
+    saveCaseToStore(result, detectedLang);
 
     var dashLink = document.querySelector("#view-dashboard-btn");
     if (dashLink) {
@@ -346,15 +524,24 @@
     }
   }
 
-  function saveCaseToStore(result) {
+  function saveCaseToStore(result, detectedLang) {
     if (typeof CaseStore === "undefined") return;
     var now = new Date();
     var datetime = formatDateTime(now);
+    var langLabel = (detectedLang && (detectedLang.label || detectedLang.language_name)) || titleCaseLabel(currentLanguage());
+    if (
+      detectedLang &&
+      (detectedLang.status === "unknown" ||
+        detectedLang.code === "unknown" ||
+        detectedLang.language_code === "unknown")
+    ) {
+      langLabel = "Unknown / Mixed";
+    }
     var record = {
       caseId: currentCaseId,
       timestamp: datetime,
       createdAt: now.toISOString(),
-      language: titleCaseLabel(selectedLanguage()),
+      language: langLabel,
       interactionType: titleCaseLabel(selectedInteraction()),
       statement: statementExcerpt(statementInput.value),
       svi: result.svi,
@@ -389,8 +576,9 @@
     form.reset();
     var chat = form.querySelector('input[name="interaction-type"][value="chat"]');
     if (chat) chat.checked = true;
-    var english = form.querySelector('input[name="language"][value="english"]');
-    if (english) english.checked = true;
+
+    var detectedWrap = document.querySelector("#result-language-wrap");
+    if (detectedWrap) detectedWrap.hidden = true;
 
     currentCaseId = createDemoCaseId();
     caseIdEl.textContent = currentCaseId;
@@ -408,6 +596,7 @@
     setSviRing(0);
     latestFinalConfidence = null;
     stopVoiceInput("Voice input stopped");
+    updateVoiceControlsVisibility();
 
     form.scrollIntoView({ behavior: "smooth", block: "start" });
     statementInput.focus();
@@ -426,6 +615,17 @@
   var voiceStopBtn = document.querySelector("#voice-stop-btn");
   var voiceStatus = document.querySelector("#voice-status");
   var voiceBox = document.querySelector("#voice-input");
+
+  function updateVoiceControlsVisibility() {
+    var interaction = selectedInteraction();
+    var isVoice = interaction === "voice";
+    if (voiceBox) {
+      voiceBox.hidden = !isVoice;
+    }
+    if (!isVoice && (isListening || wantListening || (typeof isRecordingBhashini !== "undefined" && isRecordingBhashini))) {
+      stopVoiceInput("Voice input stopped");
+    }
+  }
   var isSwitchingLanguage = false;
   var recognition = null;
   var isListening = false;
@@ -446,7 +646,12 @@
   };
 
   function recognitionLang() {
-    return LANG_CODES[selectedLanguage()] || "en-IN";
+    var detected = detectStatementLanguage(statementInput ? statementInput.value : "");
+    if (detected && LANG_CODES[detected.label.toLowerCase()]) {
+      return LANG_CODES[detected.label.toLowerCase()];
+    }
+    var navLang = (navigator.languages && navigator.languages[0]) || navigator.language || "en-IN";
+    return navLang;
   }
 
   function setVoiceStatus(message) {
@@ -608,6 +813,9 @@
     sessionCommittedIndex = 0;
     lastFinalText = "";
     lastFinalTime = 0;
+    if (typeof isRecordingBhashini !== "undefined" && isRecordingBhashini) {
+      stopBhashiniRecording();
+    }
     if (recognition && isListening) {
       try {
         recognition.stop();
@@ -671,12 +879,20 @@
         var warn = confidenceWarning(latestFinalConfidence);
         if (warn) {
           setVoiceStatus(warn);
-        } else if (interimBits.length) {
-          showInterimFeedback(interimBits.join(" "));
         } else {
-          setVoiceStatus(
-            "Speech converted to text. Possible indicators are assessed only after Analyze."
-          );
+          detectLanguageRemote(statementInput.value).then(function (det) {
+            if (det && det.status === "success" && det.label) {
+              setVoiceStatus(
+                "Speech converted to text. Detected Language: " + det.label + "."
+              );
+            } else if (interimBits.length) {
+              showInterimFeedback(interimBits.join(" "));
+            } else {
+              setVoiceStatus(
+                "Speech converted to text. Possible indicators are assessed only after Analyze."
+              );
+            }
+          });
         }
       } else if (interimBits.length) {
         showInterimFeedback(interimBits.join(" "));
@@ -705,8 +921,8 @@
         message = "Voice input stopped.";
       } else if (code === "language-not-supported") {
         message =
-          "This browser does not support voice input for the selected language (" +
-          titleCaseLabel(selectedLanguage()) +
+          "This browser does not support voice input for the detected/system language (" +
+          titleCaseLabel(currentLanguage()) +
           "). Please type the statement or try English.";
       }
 
@@ -796,8 +1012,8 @@
         clearVoiceRestart();
         setListeningUi(false);
         setVoiceStatus(
-          "This browser does not support voice input for the selected language (" +
-          titleCaseLabel(selectedLanguage()) +
+          "This browser does not support voice input for the detected/system language (" +
+          titleCaseLabel(currentLanguage()) +
           "). Please type the statement or try English."
         );
         return;
@@ -814,19 +1030,188 @@
     }
   }
 
-  function startVoiceInput() {
-    if (!SpeechRecognitionCtor) {
-      setVoiceStatus(
-        "Voice input is not supported in this browser. Please use text input."
-      );
+  var bhashiniConfigured = false;
+  var mediaRecorder = null;
+  var mediaStream = null;
+  var recordedChunks = [];
+  var isRecordingBhashini = false;
+
+  function checkBhashiniStatus() {
+    fetch(BACKEND_API_BASE + "/ai/transcribe")
+      .then(function (res) {
+        if (!res.ok) return null;
+        return res.json();
+      })
+      .then(function (data) {
+        if (data && data.status === "configured") {
+          bhashiniConfigured = true;
+        } else {
+          bhashiniConfigured = false;
+        }
+      })
+      .catch(function () {
+        bhashiniConfigured = false;
+      });
+  }
+
+  function startBhashiniRecording() {
+    wantListening = true;
+    recordedChunks = [];
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      fallbackToBrowserSpeech("Microphone recording not supported. Using browser speech recognition.");
       return;
     }
+
+    navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(function (stream) {
+        if (!wantListening) {
+          stream.getTracks().forEach(function (t) { t.stop(); });
+          return;
+        }
+        mediaStream = stream;
+        try {
+          var mimeType = (window.MediaRecorder && MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported("audio/webm;codecs=opus"))
+            ? "audio/webm;codecs=opus"
+            : (window.MediaRecorder && MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported("audio/webm") ? "audio/webm" : "");
+          mediaRecorder = mimeType ? new MediaRecorder(stream, { mimeType: mimeType }) : new MediaRecorder(stream);
+        } catch (e) {
+          mediaRecorder = new MediaRecorder(stream);
+        }
+
+        mediaRecorder.ondataavailable = function (e) {
+          if (e.data && e.data.size > 0) {
+            recordedChunks.push(e.data);
+          }
+        };
+
+        mediaRecorder.onerror = function (e) {
+          console.warn("MediaRecorder error:", e);
+          stopBhashiniRecording();
+          fallbackToBrowserSpeech("Microphone recording error. Switching to browser speech.");
+        };
+
+        mediaRecorder.onstop = function () {
+          isRecordingBhashini = false;
+          if (mediaStream) {
+            mediaStream.getTracks().forEach(function (t) { t.stop(); });
+            mediaStream = null;
+          }
+          if (!wantListening) return;
+
+          var audioBlob = new Blob(recordedChunks, { type: (mediaRecorder && mediaRecorder.mimeType) || "audio/webm" });
+          if (audioBlob.size === 0) {
+            setVoiceStatus("No audio captured. Please try again or type the statement.");
+            setListeningUi(false);
+            return;
+          }
+
+          sendAudioToBhashini(audioBlob);
+        };
+
+        mediaRecorder.start();
+        isRecordingBhashini = true;
+        setListeningUi(true);
+        setVoiceStatus("Listening (Bhashini recording)... Press Stop Voice Input when finished.");
+      })
+      .catch(function (err) {
+        console.warn("getUserMedia error:", err);
+        var msg = "Microphone access could not be acquired. Please check permissions or use text input.";
+        if (err && (err.name === "NotAllowedError" || err.name === "PermissionDeniedError")) {
+          msg = "Microphone permission was denied. Please use text input or allow microphone access.";
+          setVoiceStatus(msg);
+          wantListening = false;
+          setListeningUi(false);
+        } else {
+          fallbackToBrowserSpeech("Bhashini recording unavailable. Falling back to browser speech recognition.");
+        }
+      });
+  }
+
+  function stopBhashiniRecording() {
+    if (mediaRecorder && isRecordingBhashini && mediaRecorder.state !== "inactive") {
+      try {
+        mediaRecorder.stop();
+      } catch (err) {
+        /* already stopped */
+      }
+    }
+    isRecordingBhashini = false;
+    if (mediaStream) {
+      mediaStream.getTracks().forEach(function (t) { t.stop(); });
+      mediaStream = null;
+    }
+  }
+
+  function sendAudioToBhashini(audioBlob) {
+    setVoiceStatus("Transcribing speech via Bhashini...");
+    var formData = new FormData();
+    formData.append("file", audioBlob, "recording.webm");
+
+    var candidateLang = "hi";
+    var detected = detectStatementLanguage(statementInput ? statementInput.value : "");
+    if (detected && detected.code) {
+      candidateLang = detected.code;
+    }
+    formData.append("language", candidateLang);
+
+    fetch(BACKEND_API_BASE + "/ai/transcribe", {
+      method: "POST",
+      body: formData,
+    })
+      .then(function (res) {
+        if (res.status === 503) {
+          bhashiniConfigured = false;
+          throw new Error("Bhashini is not configured.");
+        }
+        if (!res.ok) {
+          throw new Error("Bhashini returned status " + res.status);
+        }
+        return res.json();
+      })
+      .then(function (data) {
+        setListeningUi(false);
+        wantListening = false;
+        if (data && data.status === "success" && data.transcript) {
+          applyTranscript(data.transcript);
+          detectLanguageRemote(statementInput.value).then(function (det) {
+            var langLabel = (det && det.label && det.status === "success") ? det.label : "";
+            var langMsg = langLabel ? " (Detected: " + langLabel + ")" : "";
+            setVoiceStatus("Speech transcribed via Bhashini" + langMsg + ". " + (data.disclaimer || ""));
+          });
+        } else if (data && data.status === "not_configured") {
+          bhashiniConfigured = false;
+          fallbackToBrowserSpeech("Bhashini credentials not configured. Falling back to browser speech.");
+        } else {
+          setVoiceStatus(data.message || "No transcription returned. Please review or type the statement.");
+        }
+      })
+      .catch(function (err) {
+        console.warn("Bhashini transcription error:", err);
+        setListeningUi(false);
+        wantListening = false;
+        setVoiceStatus("Bhashini transcription unavailable (" + (err.message || "service error") + "). Falling back to browser speech or text.");
+      });
+  }
+
+  function fallbackToBrowserSpeech(reasonMessage) {
+    bhashiniConfigured = false;
+    if (SpeechRecognitionCtor) {
+      if (reasonMessage) setVoiceStatus(reasonMessage);
+      beginRecognitionSession();
+    } else {
+      wantListening = false;
+      setListeningUi(false);
+      setVoiceStatus("Voice input is not supported in this browser. Please use text input.");
+    }
+  }
+
+  function startVoiceInput() {
     if (!consentCheckbox.checked) {
       setVoiceStatus("Please provide consent before using voice input.");
       consentCheckbox.focus();
       return;
     }
-    if (wantListening && isListening) {
+    if (wantListening && (isListening || isRecordingBhashini)) {
       return;
     }
 
@@ -834,12 +1219,27 @@
     latestFinalConfidence = null;
     lastFinalText = "";
     lastFinalTime = 0;
-    beginRecognitionSession();
+
+    // Graceful dual-route:
+    // If Bhashini credentials are configured on backend and MediaRecorder is supported,
+    // record audio and send to Bhashini ASR.
+    // If Bhashini is not configured (or offline), fall back seamlessly to browser SpeechRecognition.
+    if (bhashiniConfigured && navigator.mediaDevices && window.MediaRecorder) {
+      startBhashiniRecording();
+    } else {
+      if (!SpeechRecognitionCtor) {
+        setVoiceStatus(
+          "Voice input is not supported in this browser. Please use text input."
+        );
+        return;
+      }
+      beginRecognitionSession();
+    }
   }
 
   if (voiceStartBtn) {
     voiceStartBtn.setAttribute("data-recognition-lang", recognitionLang());
-    if (!SpeechRecognitionCtor) {
+    if (!SpeechRecognitionCtor && !(navigator.mediaDevices && window.MediaRecorder)) {
       voiceStartBtn.disabled = true;
       setVoiceStatus(
         "Voice input is not supported in this browser. Please use text input."
@@ -853,59 +1253,8 @@
     });
   }
 
-  form.querySelectorAll('input[name="language"]').forEach(function (radio) {
-    radio.addEventListener("change", function () {
-      var lang = recognitionLang();
-      if (voiceStartBtn) {
-        voiceStartBtn.setAttribute("data-recognition-lang", lang);
-      }
-
-      var wasActive = wantListening || isListening;
-      if (!wasActive) {
-        if (recognition) {
-          recognition.lang = lang;
-        }
-        setVoiceStatus(
-          "Voice language set to " +
-          titleCaseLabel(selectedLanguage()) +
-          " (" +
-          lang +
-          ")."
-        );
-        return;
-      }
-
-      // Recognition was active before language change:
-      // Stop recognition safely, update recognition.lang, and restart only because it was active
-      isSwitchingLanguage = true;
-      wantListening = true;
-      voiceRestartCount = 0;
-      lastRecognitionError = "";
-      clearVoiceRestart();
-      if (recognition) {
-        recognition.lang = lang;
-      }
-      setVoiceStatus(
-        "Voice language set to " +
-        titleCaseLabel(selectedLanguage()) +
-        " (" +
-        lang +
-        "). Restarting..."
-      );
-
-      if (recognition && isListening) {
-        try {
-          recognition.stop();
-        } catch (err) {
-          isSwitchingLanguage = false;
-          beginRecognitionSession();
-        }
-      } else {
-        isSwitchingLanguage = false;
-        beginRecognitionSession();
-      }
-    });
-  });
+  // Probe Bhashini availability asynchronously in background
+  checkBhashiniStatus();
 
   statementInput.addEventListener("input", function () {
     latestFinalConfidence = null;
@@ -921,6 +1270,14 @@
       stopVoiceInput("Please provide consent before using voice input.");
     }
   });
+
+  var interactionRadios = form.querySelectorAll('input[name="interaction-type"]');
+  interactionRadios.forEach(function (radio) {
+    radio.addEventListener("change", function () {
+      updateVoiceControlsVisibility();
+    });
+  });
+  updateVoiceControlsVisibility();
 
   scenarioButtons.forEach(function (btn) {
     btn.addEventListener("click", function () {
@@ -952,6 +1309,56 @@
       target.scrollIntoView({ behavior: "smooth", block: "start" });
       statementInput.focus();
     });
+  }
+
+  function sendCaseToBackend(statementText, detectedLang) {
+    if (!statementText || !consentCheckbox.checked) return;
+
+    var langName = (detectedLang && (detectedLang.label || detectedLang.language_name))
+      ? (detectedLang.label || detectedLang.language_name).toLowerCase()
+      : currentLanguage();
+    if (
+      detectedLang &&
+      (detectedLang.status === "unknown" ||
+        detectedLang.code === "unknown" ||
+        detectedLang.language_code === "unknown")
+    ) {
+      langName = "unknown";
+    }
+
+    var payload = {
+      case_id: currentCaseId,
+      statement: statementText,
+      language: langName,
+      interaction_type: selectedInteraction(),
+      consent: !!consentCheckbox.checked,
+    };
+
+    fetch(BACKEND_API_BASE + "/cases", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          console.warn("SAMVAD Backend /cases returned status " + response.status);
+          return null;
+        }
+        return response.json();
+      })
+      .then(function (data) {
+        if (data) {
+          console.log("SAMVAD AI Backend: Case successfully recorded", data);
+        }
+      })
+      .catch(function (err) {
+        console.warn(
+          "SAMVAD AI Backend: Could not sync case to " + BACKEND_API_BASE + "/cases",
+          err
+        );
+      });
   }
 
   form.addEventListener("submit", function (event) {
@@ -986,24 +1393,89 @@
     analyzeBtn.disabled = true;
     showLoading(true);
 
-    analysisTimer = setTimeout(function () {
-      var result = MockAI.analyze(statement, {
-        language: selectedLanguage(),
-      });
-
-      if (!result.ok) {
-        showLoading(false);
-        feedback.hidden = true;
-        showFormError(result.error || "Please enter a statement before analysis.");
-        updateAnalyzeState();
-        analysisTimer = null;
-        return;
+    // Automatic language detection via backend service with local heuristic fallback
+    detectLanguageRemote(statement).then(function (detectedLang) {
+      var langForAnalyze = "english";
+      if (detectedLang && (detectedLang.label || detectedLang.code)) {
+        var lower = (detectedLang.label || "").toLowerCase();
+        var code = (detectedLang.code || "").toLowerCase();
+        if (code === "hi" || lower === "hindi") {
+          langForAnalyze = "hindi";
+        } else if (code === "mr" || lower === "marathi") {
+          langForAnalyze = "marathi";
+        } else if (code === "en" || lower === "english") {
+          langForAnalyze = "english";
+        } else {
+          langForAnalyze = code || "english";
+        }
       }
 
-      showLoading(false);
-      renderResult(result);
-      updateAnalyzeState();
-      analysisTimer = null;
-    }, 1200);
+      analysisTimer = setTimeout(function () {
+        fetch(BACKEND_API_BASE + "/ai/assess", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            text: statement,
+            language: langForAnalyze,
+            case_id: currentCaseId,
+            interaction_type: selectedInteraction(),
+            consent: true,
+          }),
+        })
+          .then(function (resp) {
+            if (!resp.ok) throw new Error("Backend HTTP " + resp.status);
+            return resp.json();
+          })
+          .then(function (data) {
+            showLoading(false);
+            var result = {
+              ok: true,
+              svi: data.svi.score,
+              riskLevel: data.svi.risk_level || data.risk_classification.risk_level,
+              components: {
+                stress: data.svi.stress,
+                vulnerability: data.svi.vulnerability,
+                urgency: data.svi.urgency,
+                safetyConcern: data.svi.safety,
+              },
+              indicators: data.indicators || [],
+              recommendation: data.recommendation || "Information and general support",
+              immediateHumanReview: data.human_review !== undefined ? data.human_review : (data.safety ? data.safety.human_review : false),
+              humanReviewReason: data.human_review_reason,
+              supportRequest: data.support_request,
+              explanation: data.explanation,
+              sviRange: data.svi_range,
+              supportResources: data.support_resources || [],
+              isLocalFallback: false,
+            };
+            var langInfo = data.language
+              ? { code: data.language.code, label: data.language.name, confidence: data.language.confidence }
+              : detectedLang;
+            renderResult(result, langInfo);
+            updateAnalyzeState();
+            analysisTimer = null;
+          })
+          .catch(function (err) {
+            console.warn("Backend /ai/assess unavailable, falling back to local analysis mode:", err);
+            var result = MockAI.analyze(statement, {
+              language: langForAnalyze,
+            });
+            result.isLocalFallback = true;
+            if (!result.ok) {
+              showLoading(false);
+              feedback.hidden = true;
+              showFormError(result.error || "Please enter a statement before analysis.");
+              updateAnalyzeState();
+              analysisTimer = null;
+              return;
+            }
+            showLoading(false);
+            renderResult(result, detectedLang);
+            sendCaseToBackend(statement, detectedLang);
+            updateAnalyzeState();
+            analysisTimer = null;
+          });
+      }, 500);
+    });
   });
 })();

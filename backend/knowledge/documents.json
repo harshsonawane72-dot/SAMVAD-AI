@@ -1,0 +1,110 @@
+[
+  {
+    "id": "KB-PROC-001",
+    "title": "NHAA Complaint Submission and Status Review Process",
+    "category": "complaint_process",
+    "content": "To submit an official complaint, provide your incident details, relevant dates, and supporting documents through the portal, designated intake desk, or assisted voice session. You will receive an acknowledgment reference ID within 24 hours. You can check the current status, assigned intake officer, and review timeline by entering your case reference in the portal or calling the status inquiry line.",
+    "language": "en",
+    "source": "NHAA Intake Guidelines (Prototype 2026)",
+    "source_type": "prototype_demo"
+  },
+  {
+    "id": "KB-PROC-002",
+    "title": "Submitting Additional Supporting Documents or Information",
+    "category": "complaint_process",
+    "content": "If you need to attach more documentation, letters, or clarifications to an active complaint, visit the document upload section with your reference number. File formats accepted include PDF, JPEG, and scanned copies. If you are unable to upload digital copies, documents can be submitted at the local district support facilitation center.",
+    "language": "en",
+    "source": "NHAA Procedural Manual (Prototype 2026)",
+    "source_type": "prototype_demo"
+  },
+  {
+    "id": "KB-PROC-003",
+    "title": "शिकायत प्रक्रिया और स्थिति जांच निर्देश",
+    "category": "complaint_process",
+    "content": "अपनी शिकायत दर्ज करने के बाद आपको एक पावती संदर्भ संख्या (Case ID) प्राप्त होगी। शिकायत की स्थिति जानने के लिए पोर्टल पर संदर्भ संख्या दर्ज करें। यदि आपको दस्तावेज जमा करने या प्रक्रिया को आगे बढ़ाने में कोई कठिनाई आ रही है, तो नजदीकी सहायता केंद्र से संपर्क करें।",
+    "language": "hi",
+    "source": "NHAA नागरिक सहायता संदर्शिका (प्रोटोटाइप 2026)",
+    "source_type": "prototype_demo"
+  },
+  {
+    "id": "KB-PROC-004",
+    "title": "तक्रार नोंदणी आणि सद्यस्थिती तपासणी माहिती",
+    "category": "complaint_process",
+    "content": "तक्रार दाखल केल्यानंतर आपल्याला एक नोंदणी क्रमांक दिला जातो. आपल्या तक्रारीची सद्यस्थिती जाणून घेण्यासाठी किंवा नवीन कागदपत्रे जोडण्यासाठी या क्रमांकाचा वापर करावा. प्रक्रिया कशी पुढे न्यायची हे समजण्यास अडचण येत असल्यास ऑपरेटरची मदत उपलब्ध आहे.",
+    "language": "mr",
+    "source": "NHAA तक्रार निवारण मार्गदर्शक (प्रोटोपाइप 2026)",
+    "source_type": "prototype_demo"
+  },
+  {
+    "id": "KB-SUPP-001",
+    "title": "Immediate Non-Clinical Emotional Support & Active Listening",
+    "category": "support_pathways",
+    "content": "For individuals experiencing acute worry, stress, or feeling overwhelmed during the complaint process, trained peer support listeners are available. This service provides a confidential, empathetic space to speak, organize your concerns, and receive guided referrals without clinical evaluation or judgment.",
+    "language": "en",
+    "source": "NHAA Support Services Guide (Prototype 2026)",
+    "source_type": "prototype_demo"
+  },
+  {
+    "id": "KB-SUPP-002",
+    "title": "मानसिक ताण आणि संवादात्मक सहाय्य सेवा",
+    "category": "support_pathways",
+    "content": "जर तुम्हाला खूप ताण, काळजी किंवा दबाव जाणवत असेल आणि कोणाशी तरी बोलायचे असेल, तर संवादात्मक समुपदेशन व सहाय्य सेवा उपलब्ध आहेत. प्रशिक्षित सहाय्यक व्यक्ती परिस्थिती समजून घेऊन पुढील योग्य पावले उचलण्यास मदत करतात.",
+    "language": "mr",
+    "source": "NHAA सहाय्य समन्वय मार्गदर्शक (प्रोटोटाइप 2026)",
+    "source_type": "prototype_demo"
+  },
+  {
+    "id": "KB-COUN-001",
+    "title": "Community Psychosocial Counseling Referral Services",
+    "category": "counselling_resources",
+    "content": "When complaints involve significant distress, prolonged anxiety, or disruption to daily functioning, intake operators can initiate a referral to recognized community-based counseling centers. Counselors provide coping strategies, stress reduction techniques, and personalized support planning.",
+    "language": "en",
+    "source": "Community Health Support Network (Prototype 2026)",
+    "source_type": "prototype_demo"
+  },
+  {
+    "id": "KB-LEGL-001",
+    "title": "Free Legal Aid Clinics & Representation Support",
+    "category": "legal_aid_information",
+    "content": "Citizens requiring legal guidance on their complaint rights, statutory protections, or formal representation can request a connection to the National Legal Services Authority (NALSA) / District Legal Services Authority (DLSA) panel. Legal consultations are provided free of cost for eligible applicants.",
+    "language": "en",
+    "source": "DLSA Legal Aid Charter (Prototype 2026)",
+    "source_type": "prototype_demo"
+  },
+  {
+    "id": "KB-ACCS-001",
+    "title": "Multilingual Vernacular Support & Assisted Intake",
+    "category": "accessibility_language",
+    "content": "If you are more comfortable expressing your grievance in Hindi, Marathi, or other regional languages, translation facilitators and assisted intake staff are available. You may speak or write in your natural dialect, and our system will assist operators in understanding your core requirements accurately.",
+    "language": "en",
+    "source": "NHAA Multilingual Access Framework (Prototype 2026)",
+    "source_type": "prototype_demo"
+  },
+  {
+    "id": "KB-SAFE-001",
+    "title": "Immediate Safety Concern & Human Operator Escalation Protocol",
+    "category": "safety_crisis_protocol",
+    "content": "When a statement indicates feelings of being unsafe, inability to maintain personal safety, or imminent threat, automated routing is prioritized for immediate senior human operator intervention. The operator will review the case without delay, verify the citizen's immediate security status, and coordinate appropriate protective and emergency support pathways.",
+    "language": "en",
+    "source": "NHAA Protection Protocol (Prototype 2026)",
+    "source_type": "prototype_demo"
+  },
+  {
+    "id": "KB-OPER-001",
+    "title": "Operator Intake Guidance: De-escalation and Active Listening",
+    "category": "operator_guidance",
+    "content": "When handling high-stress complaints, operators should use calm, affirmative communication, validate the citizen's concerns, clearly explain each step of the resolution process, and ensure that safety signals receive immediate priority review ahead of procedural filing.",
+    "language": "en",
+    "source": "NHAA Intake Operator Manual (Prototype 2026)",
+    "source_type": "prototype_demo"
+  },
+  {
+    "id": "KB-FOLW-001",
+    "title": "Complaint Resolution Timelines and Formal Follow-up Steps",
+    "category": "follow_up_process",
+    "content": "Standard procedural complaints are reviewed within 15 working days. Priority high-distress or safety-flagged cases receive preliminary review within 24 hours. Citizens receive SMS and email status notifications at every stage of the resolution workflow.",
+    "language": "en",
+    "source": "NHAA Citizen Charter (Prototype 2026)",
+    "source_type": "prototype_demo"
+  }
+]

@@ -1,0 +1,170 @@
+[
+  {
+    "id": "COMP-141",
+    "text": "The mental agony is too much for me to endure any longer, I desperately need someone to intervene.",
+    "language": "English",
+    "risk_level": "HIGH",
+    "reason": "High emotional agony seeking immediate intervention."
+  },
+  {
+    "id": "COMP-015",
+    "text": "पोर्टल पर नया खाता कैसे बनाएं, इसकी जानकारी चाहिए।",
+    "language": "Hindi",
+    "risk_level": "LOW",
+    "reason": "Account creation guidance."
+  },
+  {
+    "id": "COMP-066",
+    "text": "Helpline number var call lagat nahiye, is there any alternate number?",
+    "language": "Mixed",
+    "risk_level": "LOW",
+    "reason": "Alternate telephone inquiry."
+  },
+  {
+    "id": "COMP-157",
+    "text": "Mujhe panic attacks aa rahe hain aur heart beat bohot tez ho rahi hai darr se.",
+    "language": "Hinglish",
+    "risk_level": "HIGH",
+    "reason": "Severe physiological anxiety and panic."
+  },
+  {
+    "id": "COMP-009",
+    "text": "I am feeling fine now and just checking on my application progress.",
+    "language": "English",
+    "risk_level": "LOW",
+    "reason": "Safe affirmation with administrative check."
+  },
+  {
+    "id": "COMP-107",
+    "text": "कागदपत्रांची पूर्तता करताना मला प्रचंड गोंधळ आणि ताण जाणवत आहे.",
+    "language": "Marathi",
+    "risk_level": "MODERATE",
+    "reason": "Confusion and stress during documentation."
+  },
+  {
+    "id": "COMP-263",
+    "text": "The threat is immediate and real, main kisi bhi pal attack ho sakta hoon.",
+    "language": "Mixed",
+    "risk_level": "CRITICAL",
+    "reason": "Immediate real threat of violence."
+  },
+  {
+    "id": "COMP-004",
+    "text": "Where can I find the official guidelines for filing an appeal?",
+    "language": "English",
+    "risk_level": "LOW",
+    "reason": "Information seeking about procedure."
+  },
+  {
+    "id": "COMP-240",
+    "text": "स्वतःचा बचाव करणे माझ्यासाठी अशक्य झाले आहे.",
+    "language": "Marathi",
+    "risk_level": "CRITICAL",
+    "reason": "Inability to defend or protect oneself."
+  },
+  {
+    "id": "COMP-079",
+    "text": "पिछले कई हफ़्तों से लगातार चक्कर काट रहा हूँ, बहुत ज्यादा मानसिक थकान हो गई है।",
+    "language": "Hindi",
+    "risk_level": "MODERATE",
+    "reason": "Persistent frustration and mental fatigue."
+  },
+  {
+    "id": "COMP-153",
+    "text": "मैं बहुत कांप रहा हूँ और बोलने की हालत में भी नहीं हूँ, कृपया तुरंत सुनिए।",
+    "language": "Hindi",
+    "risk_level": "HIGH",
+    "reason": "Physical trembling and acute distress."
+  },
+  {
+    "id": "COMP-120",
+    "text": "Manavar khup vajan vat-tay, kase baher padu ya madhun?",
+    "language": "Romanized Marathi",
+    "risk_level": "MODERATE",
+    "reason": "Heavy emotional burden seeking way out."
+  },
+  {
+    "id": "COMP-224",
+    "text": "Mujhe physical assault kiya gaya hai aur mujhe emergency police help chahiye.",
+    "language": "Hinglish",
+    "risk_level": "CRITICAL",
+    "reason": "Physical violence requiring emergency police."
+  },
+  {
+    "id": "COMP-016",
+    "text": "क्या शिकायत निवारण अधिकारी का संपर्क नंबर मिल सकता है?",
+    "language": "Hindi",
+    "risk_level": "LOW",
+    "reason": "Officer contact details request."
+  },
+  {
+    "id": "COMP-096",
+    "text": "Medical bills pending hain aur insurance claim delay ho raha hai, bahut anxiety hai.",
+    "language": "Hinglish",
+    "risk_level": "MODERATE",
+    "reason": "Healthcare billing anxiety."
+  },
+  {
+    "id": "COMP-241",
+    "text": "हा जीवन आणि मृत्यूचा प्रश्न आहे, त्वरित ऑपरेटरशी बोलायचे आहे.",
+    "language": "Marathi",
+    "risk_level": "CRITICAL",
+    "reason": "Life and death crisis requiring immediate operator."
+  },
+  {
+    "id": "COMP-171",
+    "text": "माझ्या आजारी मुलाला औषध नाही आणि पैसे संपले आहेत, कृपया तातडीने हस्तक्षेप करा.",
+    "language": "Marathi",
+    "risk_level": "HIGH",
+    "reason": "Critical child medical emergency and poverty."
+  },
+  {
+    "id": "COMP-115",
+    "text": "Mala konatri samjun ghenara manus hava ahe guidance sathi.",
+    "language": "Romanized Marathi",
+    "risk_level": "MODERATE",
+    "reason": "Need for an empathetic advisor."
+  },
+  {
+    "id": "COMP-195",
+    "text": "Medical emergency hai ghar me aur paise zero hain, please assist urgently.",
+    "language": "Mixed",
+    "risk_level": "HIGH",
+    "reason": "Acute medical emergency with zero financial resources."
+  },
+  {
+    "id": "COMP-226",
+    "text": "I am in danger right now, darwaza tootne wala hai please police bhejo jaldi.",
+    "language": "Hinglish",
+    "risk_level": "CRITICAL",
+    "reason": "Door breach imminent in life-threatening attack."
+  },
+  {
+    "id": "COMP-187",
+    "text": "Police complaint karayla pan ghabarto ahe mi tyanche lok tithe ahet.",
+    "language": "Romanized Marathi",
+    "risk_level": "HIGH",
+    "reason": "Fear of institutional retaliation."
+  },
+  {
+    "id": "COMP-102",
+    "text": "वारंवार चकरा मारूनही काम होत नसल्याने मी खूप निराश झालो आहे.",
+    "language": "Marathi",
+    "risk_level": "MODERATE",
+    "reason": "Despair from unfulfilled administrative visits."
+  },
+  {
+    "id": "COMP-036",
+    "text": "मी काल तक्रार नोंदवली होती, त्याचा संदर्भ क्रमांक कसा तपासायचा?",
+    "language": "Marathi",
+    "risk_level": "LOW",
+    "reason": "Reference number tracking."
+  },
+  {
+    "id": "COMP-238",
+    "text": "घरात मारहाण सुरू आहे आणि मी मुलाला घेऊन एका खोलीत लपून बसलो आहे.",
+    "language": "Marathi",
+    "risk_level": "CRITICAL",
+    "reason": "Active domestic assault with infant hiding."
+  }
+]

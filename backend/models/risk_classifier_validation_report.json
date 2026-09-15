@@ -1,0 +1,2751 @@
+{
+  "timestamp": "2026-09-15T08:05:53.373551+00:00",
+  "model_name": "ai4bharat/IndicBERTv2-MLM-only + MLP Head",
+  "validation_dataset_size": 84,
+  "adversarial_dataset_size": 24,
+  "realistic_validation": {
+    "overall_metrics": {
+      "accuracy": 0.8929,
+      "macro_precision": 0.898,
+      "macro_recall": 0.8929,
+      "macro_f1": 0.8939,
+      "per_class": {
+        "LOW": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 21
+        },
+        "MODERATE": {
+          "precision": 1.0,
+          "recall": 0.9524,
+          "f1": 0.9756,
+          "support": 21
+        },
+        "HIGH": {
+          "precision": 0.75,
+          "recall": 0.8571,
+          "f1": 0.8,
+          "support": 21
+        },
+        "CRITICAL": {
+          "precision": 0.8421,
+          "recall": 0.7619,
+          "f1": 0.8,
+          "support": 21
+        }
+      },
+      "confusion_matrix": [
+        [
+          21,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          20,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          18,
+          3
+        ],
+        [
+          0,
+          0,
+          5,
+          16
+        ]
+      ]
+    },
+    "per_language_metrics": {
+      "English": {
+        "accuracy": 1.0,
+        "macro_precision": 1.0,
+        "macro_recall": 1.0,
+        "macro_f1": 1.0,
+        "per_class": {
+          "LOW": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4
+          },
+          "MODERATE": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4
+          },
+          "HIGH": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4
+          },
+          "CRITICAL": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4
+          }
+        },
+        "confusion_matrix": [
+          [
+            4,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            4
+          ]
+        ]
+      },
+      "Hindi": {
+        "accuracy": 0.9375,
+        "macro_precision": 0.95,
+        "macro_recall": 0.9375,
+        "macro_f1": 0.9365,
+        "per_class": {
+          "LOW": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4
+          },
+          "MODERATE": {
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571,
+            "support": 4
+          },
+          "HIGH": {
+            "precision": 0.8,
+            "recall": 1.0,
+            "f1": 0.8889,
+            "support": 4
+          },
+          "CRITICAL": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4
+          }
+        },
+        "confusion_matrix": [
+          [
+            4,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            3,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            4
+          ]
+        ]
+      },
+      "Hinglish": {
+        "accuracy": 0.9167,
+        "macro_precision": 0.9375,
+        "macro_recall": 0.9167,
+        "macro_f1": 0.9143,
+        "per_class": {
+          "LOW": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "MODERATE": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "HIGH": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571,
+            "support": 3
+          },
+          "CRITICAL": {
+            "precision": 1.0,
+            "recall": 0.6667,
+            "f1": 0.8,
+            "support": 3
+          }
+        },
+        "confusion_matrix": [
+          [
+            3,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            2
+          ]
+        ]
+      },
+      "Marathi": {
+        "accuracy": 0.875,
+        "macro_precision": 0.875,
+        "macro_recall": 0.875,
+        "macro_f1": 0.875,
+        "per_class": {
+          "LOW": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4
+          },
+          "MODERATE": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4
+          },
+          "HIGH": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 4
+          },
+          "CRITICAL": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 4
+          }
+        },
+        "confusion_matrix": [
+          [
+            4,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            3,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            3
+          ]
+        ]
+      },
+      "Romanized Marathi": {
+        "accuracy": 0.75,
+        "macro_precision": 0.75,
+        "macro_recall": 0.75,
+        "macro_f1": 0.7429,
+        "per_class": {
+          "LOW": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "MODERATE": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "HIGH": {
+            "precision": 0.5,
+            "recall": 0.3333,
+            "f1": 0.4,
+            "support": 3
+          },
+          "CRITICAL": {
+            "precision": 0.5,
+            "recall": 0.6667,
+            "f1": 0.5714,
+            "support": 3
+          }
+        },
+        "confusion_matrix": [
+          [
+            3,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            0,
+            1,
+            2
+          ]
+        ]
+      },
+      "Mixed": {
+        "accuracy": 0.8333,
+        "macro_precision": 0.9,
+        "macro_recall": 0.8333,
+        "macro_f1": 0.8125,
+        "per_class": {
+          "LOW": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "MODERATE": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "HIGH": {
+            "precision": 0.6,
+            "recall": 1.0,
+            "f1": 0.75,
+            "support": 3
+          },
+          "CRITICAL": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 3
+          }
+        },
+        "confusion_matrix": [
+          [
+            3,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            2,
+            1
+          ]
+        ]
+      }
+    },
+    "ece": 0.054,
+    "confidence_buckets": [
+      {
+        "bucket": "0.50–0.59",
+        "count": 8,
+        "avg_confidence": 0.5322,
+        "accuracy": 0.25,
+        "diff": 0.2822
+      },
+      {
+        "bucket": "0.60–0.69",
+        "count": 6,
+        "avg_confidence": 0.6249,
+        "accuracy": 0.6667,
+        "diff": 0.0417
+      },
+      {
+        "bucket": "0.70–0.79",
+        "count": 1,
+        "avg_confidence": 0.7824,
+        "accuracy": 1.0,
+        "diff": 0.2176
+      },
+      {
+        "bucket": "0.80–0.89",
+        "count": 3,
+        "avg_confidence": 0.8659,
+        "accuracy": 0.6667,
+        "diff": 0.1993
+      },
+      {
+        "bucket": "0.90–0.99",
+        "count": 44,
+        "avg_confidence": 0.9726,
+        "accuracy": 1.0,
+        "diff": 0.0274
+      },
+      {
+        "bucket": "1.00",
+        "count": 22,
+        "avg_confidence": 0.9998,
+        "accuracy": 1.0,
+        "diff": 0.0002
+      }
+    ],
+    "under_classification": {
+      "high_predicted_lower": {
+        "count": 0,
+        "instances": []
+      },
+      "critical_predicted_lower": {
+        "count": 5,
+        "instances": [
+          {
+            "id": "VAL-073",
+            "text": "Ghar ke bahar armed men khade hain aur wo door break karne ki koshish kar rahe hain, urgent help bhejo.",
+            "expected": "CRITICAL",
+            "predicted": "HIGH",
+            "confidence": 0.4215,
+            "probabilities": {
+              "LOW": 0.0103,
+              "MODERATE": 0.1495,
+              "HIGH": 0.4215,
+              "CRITICAL": 0.4187
+            }
+          },
+          {
+            "id": "VAL-077",
+            "text": "काही लोकांनी माझ्या घरावर दगडफेक केली आहे आणि ते दरवाजा तोडण्याचा प्रयत्न करत आहेत.",
+            "expected": "CRITICAL",
+            "predicted": "HIGH",
+            "confidence": 0.8281,
+            "probabilities": {
+              "LOW": 0.0021,
+              "MODERATE": 0.006,
+              "HIGH": 0.8281,
+              "CRITICAL": 0.1638
+            }
+          },
+          {
+            "id": "VAL-079",
+            "text": "Mala atta safe vatat nahiye ya jagevar, konitari mala attack karel ashi bhiti vat-te.",
+            "expected": "CRITICAL",
+            "predicted": "HIGH",
+            "confidence": 0.5874,
+            "probabilities": {
+              "LOW": 0.004,
+              "MODERATE": 0.0199,
+              "HIGH": 0.5874,
+              "CRITICAL": 0.3887
+            }
+          },
+          {
+            "id": "VAL-082",
+            "text": "I do not feel safe right now, door ke bahar log shivigol de rahe hain and threatening to burn the place.",
+            "expected": "CRITICAL",
+            "predicted": "HIGH",
+            "confidence": 0.5477,
+            "probabilities": {
+              "LOW": 0.0001,
+              "MODERATE": 0.0018,
+              "HIGH": 0.5477,
+              "CRITICAL": 0.4504
+            }
+          },
+          {
+            "id": "VAL-084",
+            "text": "Meri jaan khatre mein hai, te lok weapon ghevun aale ahet, save me right now.",
+            "expected": "CRITICAL",
+            "predicted": "HIGH",
+            "confidence": 0.5802,
+            "probabilities": {
+              "LOW": 0.0003,
+              "MODERATE": 0.0147,
+              "HIGH": 0.5802,
+              "CRITICAL": 0.4047
+            }
+          }
+        ]
+      }
+    },
+    "disagreements": {
+      "counts": {
+        "MATCH": 24,
+        "CLASSIFIER_HIGHER": 60,
+        "SVI_HIGHER": 0
+      },
+      "examples": [
+        {
+          "id": "VAL-022",
+          "text": "I am feeling increasingly worn out by the constant delays in my disability pension release.",
+          "expected": "MODERATE",
+          "classifier_tier": "MODERATE",
+          "svi_tier": "LOW",
+          "svi_score": 0,
+          "disagreement_type": "CLASSIFIER_HIGHER"
+        },
+        {
+          "id": "VAL-023",
+          "text": "The continuous back-and-forth between departments is making me anxious and exhausted.",
+          "expected": "MODERATE",
+          "classifier_tier": "MODERATE",
+          "svi_tier": "LOW",
+          "svi_score": 10,
+          "disagreement_type": "CLASSIFIER_HIGHER"
+        },
+        {
+          "id": "VAL-024",
+          "text": "I am struggling to manage household expenses and this unresolved wage dispute is causing sleepless nights.",
+          "expected": "MODERATE",
+          "classifier_tier": "MODERATE",
+          "svi_tier": "LOW",
+          "svi_score": 0,
+          "disagreement_type": "CLASSIFIER_HIGHER"
+        },
+        {
+          "id": "VAL-025",
+          "text": "I feel quite burdened by these complicated legal demands and need someone patient to guide me.",
+          "expected": "MODERATE",
+          "classifier_tier": "MODERATE",
+          "svi_tier": "LOW",
+          "svi_score": 0,
+          "disagreement_type": "CLASSIFIER_HIGHER"
+        },
+        {
+          "id": "VAL-026",
+          "text": "पिछले दो महीने से लगातार चक्कर लगा रहा हूँ, मानसिक रूप से बहुत थक चुका हूँ।",
+          "expected": "MODERATE",
+          "classifier_tier": "HIGH",
+          "svi_tier": "LOW",
+          "svi_score": 0,
+          "disagreement_type": "CLASSIFIER_HIGHER"
+        },
+        {
+          "id": "VAL-027",
+          "text": "दवाइयों का खर्च बढ़ रहा है और सहायता राशि अटकी हुई है, जिससे घर में बहुत तनाव का माहौल है।",
+          "expected": "MODERATE",
+          "classifier_tier": "MODERATE",
+          "svi_tier": "LOW",
+          "svi_score": 10,
+          "disagreement_type": "CLASSIFIER_HIGHER"
+        },
+        {
+          "id": "VAL-028",
+          "text": "कोई भी अधिकारी स्पष्ट जवाब नहीं देता, जिससे मेरी चिंता और घबराहट दिन-प्रतिदिन बढ़ती जा रही है।",
+          "expected": "MODERATE",
+          "classifier_tier": "MODERATE",
+          "svi_tier": "LOW",
+          "svi_score": 10,
+          "disagreement_type": "CLASSIFIER_HIGHER"
+        },
+        {
+          "id": "VAL-029",
+          "text": "मुझे इस समस्या से निपटने के लिए थोड़ी सलाह और मार्गदर्शन की बहुत आवश्यकता है।",
+          "expected": "MODERATE",
+          "classifier_tier": "MODERATE",
+          "svi_tier": "LOW",
+          "svi_score": 0,
+          "disagreement_type": "CLASSIFIER_HIGHER"
+        },
+        {
+          "id": "VAL-030",
+          "text": "Office ke chakkar kaat kar dimag bohot heavy ho gaya hai, samajh nahi aa raha aage kaise proceed karun.",
+          "expected": "MODERATE",
+          "classifier_tier": "MODERATE",
+          "svi_tier": "LOW",
+          "svi_score": 10,
+          "disagreement_type": "CLASSIFIER_HIGHER"
+        },
+        {
+          "id": "VAL-031",
+          "text": "Salary hold par hone ki wajah se family me daily arguments ho rahe hain, bohot mental pressure hai.",
+          "expected": "MODERATE",
+          "classifier_tier": "MODERATE",
+          "svi_tier": "LOW",
+          "svi_score": 10,
+          "disagreement_type": "CLASSIFIER_HIGHER"
+        }
+      ],
+      "total_disagreements": 60
+    },
+    "predictions": [
+      {
+        "id": "VAL-001",
+        "text": "I would like to verify the working hours of the public facilitation center in my district.",
+        "language": "English",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 0.9999,
+        "probabilities": {
+          "LOW": 0.9999,
+          "MODERATE": 0.0001,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-002",
+        "text": "Can you advise whether a residential proof certificate is mandatory for voter registration update?",
+        "language": "English",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 1.0,
+        "probabilities": {
+          "LOW": 1.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-003",
+        "text": "I am following up on service request number 4821 filed last Tuesday regarding water meter replacement.",
+        "language": "English",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 0.9725,
+        "probabilities": {
+          "LOW": 0.9725,
+          "MODERATE": 0.0275,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-004",
+        "text": "I am slightly confused about which section to fill under column B on the pension renewal form.",
+        "language": "English",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 1.0,
+        "probabilities": {
+          "LOW": 1.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-005",
+        "text": "कृपया मुझे बताएं कि राशन कार्ड में नए सदस्य का नाम जोड़ने के लिए कौन से दस्तावेज देने होंगे।",
+        "language": "Hindi",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 1.0,
+        "probabilities": {
+          "LOW": 1.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-006",
+        "text": "मेरी बिजली बिल से संबंधित शिकायत का निवारण किस अधिकारी द्वारा किया जाएगा?",
+        "language": "Hindi",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 1.0,
+        "probabilities": {
+          "LOW": 1.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-007",
+        "text": "मैंने कल ऑनलाइन पोर्टल पर फॉर्म भरा था, क्या इसकी हार्ड कॉपी जमा करना जरूरी है?",
+        "language": "Hindi",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 1.0,
+        "probabilities": {
+          "LOW": 1.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-008",
+        "text": "छात्रवृत्ति पोर्टल पर बैंक खाता संख्या अपडेट करने का विकल्प कहाँ उपलब्ध है?",
+        "language": "Hindi",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 1.0,
+        "probabilities": {
+          "LOW": 1.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-009",
+        "text": "Mera complaint number 1092 hai, please check karke batayein ki officer assign hua ya nahi.",
+        "language": "Hinglish",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 0.7824,
+        "probabilities": {
+          "LOW": 0.7824,
+          "MODERATE": 0.1917,
+          "HIGH": 0.002,
+          "CRITICAL": 0.0239
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-010",
+        "text": "Mujhe birth certificate ke liye apply karna hai, fees online pay hogi ya counter par?",
+        "language": "Hinglish",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 0.9991,
+        "probabilities": {
+          "LOW": 0.9991,
+          "MODERATE": 0.0009,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-011",
+        "text": "Maine address proof upload kiya tha, bas confirm karna tha ki document format acceptable hai.",
+        "language": "Hinglish",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 0.9997,
+        "probabilities": {
+          "LOW": 0.9997,
+          "MODERATE": 0.0003,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-012",
+        "text": "तहसील कार्यालयात नवीन आधार नोंदणीसाठी कोणती वेळ निश्चित केली आहे?",
+        "language": "Marathi",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 1.0,
+        "probabilities": {
+          "LOW": 1.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-013",
+        "text": "मी उत्पन्नाचा दाखला काढण्यासाठी अर्ज केला होता, त्याची पोहोच पावती कशी डाउनलोड करावी?",
+        "language": "Marathi",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 1.0,
+        "probabilities": {
+          "LOW": 1.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-014",
+        "text": "ग्रामपंचायतीमध्ये पाणी पुरवठा दुरुस्तीचा अर्ज कोणाकडे द्यावा लागेल?",
+        "language": "Marathi",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 1.0,
+        "probabilities": {
+          "LOW": 1.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-015",
+        "text": "अर्ज भरताना जात प्रमाणपत्राचा क्रमांक टाकणे आवश्यक आहे का?",
+        "language": "Marathi",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 1.0,
+        "probabilities": {
+          "LOW": 1.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-016",
+        "text": "Majhya water connection arjachi sadyasthiti tpasnyasathi link share kara please.",
+        "language": "Romanized Marathi",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 0.9798,
+        "probabilities": {
+          "LOW": 0.9798,
+          "MODERATE": 0.0013,
+          "HIGH": 0.0123,
+          "CRITICAL": 0.0066
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-017",
+        "text": "Property tax online bharnyasathi konta portal vapraycha ahe te sanga.",
+        "language": "Romanized Marathi",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 0.9318,
+        "probabilities": {
+          "LOW": 0.9318,
+          "MODERATE": 0.0504,
+          "HIGH": 0.0137,
+          "CRITICAL": 0.0041
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-018",
+        "text": "Senior citizen card sathi eligibility criteria kay ahe te mahiti havi hoti.",
+        "language": "Romanized Marathi",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 0.9994,
+        "probabilities": {
+          "LOW": 0.9994,
+          "MODERATE": 0.0004,
+          "HIGH": 0.0001,
+          "CRITICAL": 0.0001
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-019",
+        "text": "Hello, I just need to verify if the grievance redressal cell operates on second Saturdays, please advise.",
+        "language": "Mixed",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 0.9946,
+        "probabilities": {
+          "LOW": 0.9946,
+          "MODERATE": 0.0052,
+          "HIGH": 0.0001,
+          "CRITICAL": 0.0001
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-020",
+        "text": "Maine acknowledgement form save kar liya hai, but next verification date kab hogi?",
+        "language": "Mixed",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 0.9991,
+        "probabilities": {
+          "LOW": 0.9991,
+          "MODERATE": 0.0009,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-021",
+        "text": "Sir, portal par mobile number update nahi ho raha, is there any alternate procedure?",
+        "language": "Mixed",
+        "expected_risk": "LOW",
+        "predicted_risk": "LOW",
+        "confidence": 0.9983,
+        "probabilities": {
+          "LOW": 0.9983,
+          "MODERATE": 0.0017,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-022",
+        "text": "I am feeling increasingly worn out by the constant delays in my disability pension release.",
+        "language": "English",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9459,
+        "probabilities": {
+          "LOW": 0.0124,
+          "MODERATE": 0.9459,
+          "HIGH": 0.0417,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-023",
+        "text": "The continuous back-and-forth between departments is making me anxious and exhausted.",
+        "language": "English",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 1.0,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 1.0,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-024",
+        "text": "I am struggling to manage household expenses and this unresolved wage dispute is causing sleepless nights.",
+        "language": "English",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9982,
+        "probabilities": {
+          "LOW": 0.0001,
+          "MODERATE": 0.9982,
+          "HIGH": 0.0017,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-025",
+        "text": "I feel quite burdened by these complicated legal demands and need someone patient to guide me.",
+        "language": "English",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.986,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.986,
+          "HIGH": 0.0139,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-026",
+        "text": "पिछले दो महीने से लगातार चक्कर लगा रहा हूँ, मानसिक रूप से बहुत थक चुका हूँ।",
+        "language": "Hindi",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "HIGH",
+        "confidence": 0.6207,
+        "probabilities": {
+          "LOW": 0.0001,
+          "MODERATE": 0.3791,
+          "HIGH": 0.6207,
+          "CRITICAL": 0.0002
+        },
+        "correct": false,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-027",
+        "text": "दवाइयों का खर्च बढ़ रहा है और सहायता राशि अटकी हुई है, जिससे घर में बहुत तनाव का माहौल है।",
+        "language": "Hindi",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9993,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.9993,
+          "HIGH": 0.0006,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-028",
+        "text": "कोई भी अधिकारी स्पष्ट जवाब नहीं देता, जिससे मेरी चिंता और घबराहट दिन-प्रतिदिन बढ़ती जा रही है।",
+        "language": "Hindi",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9997,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.9997,
+          "HIGH": 0.0002,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-029",
+        "text": "मुझे इस समस्या से निपटने के लिए थोड़ी सलाह और मार्गदर्शन की बहुत आवश्यकता है।",
+        "language": "Hindi",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9989,
+        "probabilities": {
+          "LOW": 0.001,
+          "MODERATE": 0.9989,
+          "HIGH": 0.0001,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-030",
+        "text": "Office ke chakkar kaat kar dimag bohot heavy ho gaya hai, samajh nahi aa raha aage kaise proceed karun.",
+        "language": "Hinglish",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.6961,
+        "probabilities": {
+          "LOW": 0.001,
+          "MODERATE": 0.6961,
+          "HIGH": 0.2706,
+          "CRITICAL": 0.0323
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-031",
+        "text": "Salary hold par hone ki wajah se family me daily arguments ho rahe hain, bohot mental pressure hai.",
+        "language": "Hinglish",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9849,
+        "probabilities": {
+          "LOW": 0.0001,
+          "MODERATE": 0.9849,
+          "HIGH": 0.0143,
+          "CRITICAL": 0.0008
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-032",
+        "text": "Main bohot overwhelmed feel kar raha hoon is legal notice se, koi proper direction nahi mil rahi.",
+        "language": "Hinglish",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9492,
+        "probabilities": {
+          "LOW": 0.0134,
+          "MODERATE": 0.9492,
+          "HIGH": 0.0257,
+          "CRITICAL": 0.0118
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-033",
+        "text": "माझ्या निवृत्तीवेतनाचे काम रखडल्यामुळे घर चालवणे अत्यंत कठीण झाले आहे आणि खूप ताण येत आहे.",
+        "language": "Marathi",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9552,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.9552,
+          "HIGH": 0.0447,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-034",
+        "text": "वारंवार कार्यालयात जाऊनही काहीच उत्तर मिळत नाही, त्यामुळे मी मनातून खूप खचून गेलो आहे.",
+        "language": "Marathi",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9996,
+        "probabilities": {
+          "LOW": 0.0001,
+          "MODERATE": 0.9996,
+          "HIGH": 0.0003,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-035",
+        "text": "या वादाची सतत चिंता लागून राहिल्याने माझी प्रकृती ढासळत चालली आहे.",
+        "language": "Marathi",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9312,
+        "probabilities": {
+          "LOW": 0.0015,
+          "MODERATE": 0.9312,
+          "HIGH": 0.0656,
+          "CRITICAL": 0.0017
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-036",
+        "text": "मला योग्य कायदेशीर सल्ला आणि मानसिक आधार हवा आहे कारण मला एकट्याला हे पेलवत नाही.",
+        "language": "Marathi",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.6201,
+        "probabilities": {
+          "LOW": 0.0003,
+          "MODERATE": 0.6201,
+          "HIGH": 0.3451,
+          "CRITICAL": 0.0345
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-037",
+        "text": "Sarv kahi khup stressful zala ahe, pension nahi aali tar purna month manage karna tough ahe.",
+        "language": "Romanized Marathi",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9867,
+        "probabilities": {
+          "LOW": 0.0103,
+          "MODERATE": 0.9867,
+          "HIGH": 0.0029,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-038",
+        "text": "Mala khup chinta vatat ahe, continuous rejection mule manat khup negativity yetiye.",
+        "language": "Romanized Marathi",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9674,
+        "probabilities": {
+          "LOW": 0.0005,
+          "MODERATE": 0.9674,
+          "HIGH": 0.032,
+          "CRITICAL": 0.0001
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-039",
+        "text": "Itka mental load ahe ki daily routine madhe focus karna shakkya hot nahiye.",
+        "language": "Romanized Marathi",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9953,
+        "probabilities": {
+          "LOW": 0.001,
+          "MODERATE": 0.9953,
+          "HIGH": 0.0031,
+          "CRITICAL": 0.0007
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-040",
+        "text": "I am feeling so overwhelmed by these unresolved fines, samajh nahi aa raha kisse baat karke solve karun.",
+        "language": "Mixed",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9709,
+        "probabilities": {
+          "LOW": 0.0002,
+          "MODERATE": 0.9709,
+          "HIGH": 0.0286,
+          "CRITICAL": 0.0004
+        },
+        "correct": true,
+        "svi_tier": "MODERATE",
+        "svi_score": 25,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-041",
+        "text": "The continuous uncertainty is really draining me out, roz naya notice aata hai aur tension badhti hai.",
+        "language": "Mixed",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.9934,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.9934,
+          "HIGH": 0.0066,
+          "CRITICAL": 0.0
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-042",
+        "text": "Mala ya situation madhun baher padnyasathi guidance pahije, I am feeling very mentally exhausted.",
+        "language": "Mixed",
+        "expected_risk": "MODERATE",
+        "predicted_risk": "MODERATE",
+        "confidence": 0.587,
+        "probabilities": {
+          "LOW": 0.0004,
+          "MODERATE": 0.587,
+          "HIGH": 0.4111,
+          "CRITICAL": 0.0015
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 8,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-043",
+        "text": "I feel entirely deserted by the authorities and I am having severe panic episodes because my eviction is tomorrow.",
+        "language": "English",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.9828,
+        "probabilities": {
+          "LOW": 0.0001,
+          "MODERATE": 0.003,
+          "HIGH": 0.9828,
+          "CRITICAL": 0.0141
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-044",
+        "text": "I am shaking uncontrollably with fear, my livelihood has been confiscated and I have nowhere to seek shelter.",
+        "language": "English",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.9837,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.9837,
+          "CRITICAL": 0.0163
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-045",
+        "text": "The emotional torment is reaching a breaking point, I cannot manage my basic survival without immediate intervention.",
+        "language": "English",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.9765,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0093,
+          "HIGH": 0.9765,
+          "CRITICAL": 0.0142
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 8,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-046",
+        "text": "I am trapped in an abusive commercial contract and the creditors are harassing me day and night, I am terrified.",
+        "language": "English",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.9297,
+        "probabilities": {
+          "LOW": 0.0001,
+          "MODERATE": 0.0472,
+          "HIGH": 0.9297,
+          "CRITICAL": 0.023
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-047",
+        "text": "मैं पूरी तरह से असहाय और लाचार महसूस कर रहा हूँ, मेरे पास सिर छिपाने की भी जगह नहीं बची है।",
+        "language": "Hindi",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.9989,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0001,
+          "HIGH": 0.9989,
+          "CRITICAL": 0.001
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-048",
+        "text": "दबंग लोग लगातार मेरे परिवार को प्रताड़ित कर रहे हैं और हम भयानक खौफ के साए में जी रहे हैं।",
+        "language": "Hindi",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.9993,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.9993,
+          "CRITICAL": 0.0007
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-049",
+        "text": "मेरी मानसिक हालत इतनी नाजुक हो गई है कि मैं अकेला कमरे में बैठकर रोता रहता हूँ, कोई तो मदद करो।",
+        "language": "Hindi",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.9241,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0205,
+          "HIGH": 0.9241,
+          "CRITICAL": 0.0554
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 19,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-050",
+        "text": "हमारी फसल नष्ट हो गई और सिर पर भारी कर्ज़ है, मुझे आगे कोई उम्मीद दिखाई नहीं दे रही।",
+        "language": "Hindi",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.9925,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0072,
+          "HIGH": 0.9925,
+          "CRITICAL": 0.0003
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-051",
+        "text": "Main itna panic me hoon ki meri saans phool rahi hai, mujhe lagta hai mera sab kuch barbad ho gaya.",
+        "language": "Hinglish",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.5908,
+        "probabilities": {
+          "LOW": 0.0028,
+          "MODERATE": 0.3853,
+          "HIGH": 0.5908,
+          "CRITICAL": 0.0212
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-052",
+        "text": "Local antisocial elements roz dhamkiyan de rahe hain, mera pura parivaar extreme fear me hai.",
+        "language": "Hinglish",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.9407,
+        "probabilities": {
+          "LOW": 0.0003,
+          "MODERATE": 0.0087,
+          "HIGH": 0.9407,
+          "CRITICAL": 0.0504
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-053",
+        "text": "Mere paas zero support system hai is city me aur mera ration card bhi cancel kar diya, I am desperate.",
+        "language": "Hinglish",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.8855,
+        "probabilities": {
+          "LOW": 0.0205,
+          "MODERATE": 0.0181,
+          "HIGH": 0.8855,
+          "CRITICAL": 0.0758
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-054",
+        "text": "माझ्यावर कर्जाचा प्रचंड डोंगर झाला आहे आणि सावकार दररोज दारात येऊन अपमानित करत आहेत, मी पुरता खचलो आहे.",
+        "language": "Marathi",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.9974,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0019,
+          "HIGH": 0.9974,
+          "CRITICAL": 0.0007
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-055",
+        "text": "मी अत्यंत हताश झालो आहे आणि मला भयानक भीती वाटते की माझे कुटुंब रस्त्यावर येईल.",
+        "language": "Marathi",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.9955,
+        "probabilities": {
+          "LOW": 0.0001,
+          "MODERATE": 0.0003,
+          "HIGH": 0.9955,
+          "CRITICAL": 0.0041
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-056",
+        "text": "घरात अन्नाचा एक कणही नाही आणि बाळ आजारी आहे, कृपया तातडीने प्रशासकीय मदत पाठवा.",
+        "language": "Marathi",
+        "expected_risk": "HIGH",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.5133,
+        "probabilities": {
+          "LOW": 0.0165,
+          "MODERATE": 0.0667,
+          "HIGH": 0.4035,
+          "CRITICAL": 0.5133
+        },
+        "correct": false,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-057",
+        "text": "माझी मानसिक स्थिती पूर्णपणे ढासळली आहे, मला त्वरित मानसोपचार किंवा समुपदेशनाची गरज आहे.",
+        "language": "Marathi",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.6031,
+        "probabilities": {
+          "LOW": 0.0003,
+          "MODERATE": 0.0097,
+          "HIGH": 0.6031,
+          "CRITICAL": 0.3869
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 8,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-058",
+        "text": "Mala khup extreme pressure vat-tay, konich aadhar nahi dila tar mi purna udhvast hoin.",
+        "language": "Romanized Marathi",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.6076,
+        "probabilities": {
+          "LOW": 0.0563,
+          "MODERATE": 0.3265,
+          "HIGH": 0.6076,
+          "CRITICAL": 0.0096
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-059",
+        "text": "Gund lokani shop todnyachi dhamki dili ahe, amhi bhiti mule police complaint pan karu shakat nahi.",
+        "language": "Romanized Marathi",
+        "expected_risk": "HIGH",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.43,
+        "probabilities": {
+          "LOW": 0.112,
+          "MODERATE": 0.0723,
+          "HIGH": 0.3858,
+          "CRITICAL": 0.43
+        },
+        "correct": false,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-060",
+        "text": "Purna aayushyachi kamai geli ya scam madhe, mi shivrayala laglo ahe darr mule.",
+        "language": "Romanized Marathi",
+        "expected_risk": "HIGH",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.6019,
+        "probabilities": {
+          "LOW": 0.0037,
+          "MODERATE": 0.025,
+          "HIGH": 0.3694,
+          "CRITICAL": 0.6019
+        },
+        "correct": false,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-061",
+        "text": "I am experiencing severe terror because creditors are banging on my door right now, bahut zyada darr lag raha hai.",
+        "language": "Mixed",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.9247,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0609,
+          "HIGH": 0.9247,
+          "CRITICAL": 0.0144
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 8,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-062",
+        "text": "My shelter is being demolished tomorrow morning and I have an ailing mother, mala urgently rescue help havi ahe.",
+        "language": "Mixed",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.9533,
+        "probabilities": {
+          "LOW": 0.001,
+          "MODERATE": 0.0015,
+          "HIGH": 0.9533,
+          "CRITICAL": 0.0442
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 8,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-063",
+        "text": "I feel utterly crushed under this institutional harassment, I cannot bear this mental torture alone anymore.",
+        "language": "Mixed",
+        "expected_risk": "HIGH",
+        "predicted_risk": "HIGH",
+        "confidence": 0.9941,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0016,
+          "HIGH": 0.9941,
+          "CRITICAL": 0.0042
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 10,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-064",
+        "text": "I do not feel safe in this vicinity and I fear someone will violently attack me within hours.",
+        "language": "English",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.998,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.002,
+          "CRITICAL": 0.998
+        },
+        "correct": true,
+        "svi_tier": "HIGH",
+        "svi_score": 57,
+        "safety_detected": true,
+        "safety_tier": "HIGH_MEANINGFUL"
+      },
+      {
+        "id": "VAL-065",
+        "text": "I am scared that I will not be able to keep myself safe tonight under these escalating threats.",
+        "language": "English",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.9955,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0044,
+          "CRITICAL": 0.9955
+        },
+        "correct": true,
+        "svi_tier": "HIGH",
+        "svi_score": 57,
+        "safety_detected": true,
+        "safety_tier": "HIGH_MEANINGFUL"
+      },
+      {
+        "id": "VAL-066",
+        "text": "An aggressive group has surrounded my dwelling with weapons, please dispatch emergency rescue immediately.",
+        "language": "English",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.9972,
+        "probabilities": {
+          "LOW": 0.0008,
+          "MODERATE": 0.0,
+          "HIGH": 0.002,
+          "CRITICAL": 0.9972
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 14,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-067",
+        "text": "I have locked myself inside the room because my abusive partner is threatening my life right now.",
+        "language": "English",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.9663,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0004,
+          "HIGH": 0.0333,
+          "CRITICAL": 0.9663
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 8,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-068",
+        "text": "मुझे अपनी सुरक्षा को लेकर गंभीर आशंका है, मुझे तुरंत पुलिस सुरक्षा की आवश्यकता है।",
+        "language": "Hindi",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.9999,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0,
+          "CRITICAL": 0.9999
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 8,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-069",
+        "text": "मुझे डर है कि मैं खुद को सुरक्षित नहीं रख सकूँगा, हालात मेरे हाथ से पूरी तरह निकल चुके हैं।",
+        "language": "Hindi",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.9575,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0424,
+          "CRITICAL": 0.9575
+        },
+        "correct": true,
+        "svi_tier": "HIGH",
+        "svi_score": 57,
+        "safety_detected": true,
+        "safety_tier": "HIGH_MEANINGFUL"
+      },
+      {
+        "id": "VAL-070",
+        "text": "मेरे घर पर पेट्रोल फेंकने की कोशिश की गई है, मेरी और मेरे बच्चों की जान खतरे में है।",
+        "language": "Hindi",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.8842,
+        "probabilities": {
+          "LOW": 0.0002,
+          "MODERATE": 0.0,
+          "HIGH": 0.1156,
+          "CRITICAL": 0.8842
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-071",
+        "text": "मुझ पर जानलेवा हमला हुआ है और मैं बुरी तरह घायल हूँ, तुरंत एम्बुलेंस और सहायता भेजिए।",
+        "language": "Hindi",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.9955,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0045,
+          "CRITICAL": 0.9955
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 8,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-072",
+        "text": "Mujhe bohot khatra feel ho raha hai, main apni personal safety guarantee nahi kar sakta abhi.",
+        "language": "Hinglish",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.9403,
+        "probabilities": {
+          "LOW": 0.0009,
+          "MODERATE": 0.004,
+          "HIGH": 0.0547,
+          "CRITICAL": 0.9403
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 8,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-073",
+        "text": "Ghar ke bahar armed men khade hain aur wo door break karne ki koshish kar rahe hain, urgent help bhejo.",
+        "language": "Hinglish",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "HIGH",
+        "confidence": 0.4215,
+        "probabilities": {
+          "LOW": 0.0103,
+          "MODERATE": 0.1495,
+          "HIGH": 0.4215,
+          "CRITICAL": 0.4187
+        },
+        "correct": false,
+        "svi_tier": "LOW",
+        "svi_score": 8,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-074",
+        "text": "Main safe feel nahi kar raha hoon kisi bhi tarah se, immediate human intervention chahiye.",
+        "language": "Hinglish",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.9653,
+        "probabilities": {
+          "LOW": 0.0004,
+          "MODERATE": 0.0074,
+          "HIGH": 0.027,
+          "CRITICAL": 0.9653
+        },
+        "correct": true,
+        "svi_tier": "CRITICAL",
+        "svi_score": 79,
+        "safety_detected": true,
+        "safety_tier": "HIGH_MEANINGFUL"
+      },
+      {
+        "id": "VAL-075",
+        "text": "मला या क्षणी स्वतःच्या सुरक्षेची खात्री वाटत नाहीये, माझा जीव धोक्यात आहे.",
+        "language": "Marathi",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.989,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.011,
+          "CRITICAL": 0.989
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-076",
+        "text": "मला भीती वाटते की मी स्वतःचा बचाव करू शकणार नाही, तातडीने पोलीस मदत पाठवा.",
+        "language": "Marathi",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.9909,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.009,
+          "CRITICAL": 0.9909
+        },
+        "correct": true,
+        "svi_tier": "MODERATE",
+        "svi_score": 25,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-077",
+        "text": "काही लोकांनी माझ्या घरावर दगडफेक केली आहे आणि ते दरवाजा तोडण्याचा प्रयत्न करत आहेत.",
+        "language": "Marathi",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "HIGH",
+        "confidence": 0.8281,
+        "probabilities": {
+          "LOW": 0.0021,
+          "MODERATE": 0.006,
+          "HIGH": 0.8281,
+          "CRITICAL": 0.1638
+        },
+        "correct": false,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-078",
+        "text": "हा जीव वाचवण्याचा प्रश्न आहे, त्वरित ऑपरेटरशी बोलायचे आहे आणि संरक्षण हवे आहे.",
+        "language": "Marathi",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.9955,
+        "probabilities": {
+          "LOW": 0.0028,
+          "MODERATE": 0.0011,
+          "HIGH": 0.0006,
+          "CRITICAL": 0.9955
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 8,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-079",
+        "text": "Mala atta safe vatat nahiye ya jagevar, konitari mala attack karel ashi bhiti vat-te.",
+        "language": "Romanized Marathi",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "HIGH",
+        "confidence": 0.5874,
+        "probabilities": {
+          "LOW": 0.004,
+          "MODERATE": 0.0199,
+          "HIGH": 0.5874,
+          "CRITICAL": 0.3887
+        },
+        "correct": false,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-080",
+        "text": "Mi swatala safe thevu shaknar nahi, situation violent zali ahe khup.",
+        "language": "Romanized Marathi",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.908,
+        "probabilities": {
+          "LOW": 0.0019,
+          "MODERATE": 0.0086,
+          "HIGH": 0.0815,
+          "CRITICAL": 0.908
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-081",
+        "text": "Gundanni talwar dakhvun marun taknyachi dhamki dili, please police force pathva lagech.",
+        "language": "Romanized Marathi",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.9602,
+        "probabilities": {
+          "LOW": 0.0013,
+          "MODERATE": 0.0004,
+          "HIGH": 0.0381,
+          "CRITICAL": 0.9602
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 0,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-082",
+        "text": "I do not feel safe right now, door ke bahar log shivigol de rahe hain and threatening to burn the place.",
+        "language": "Mixed",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "HIGH",
+        "confidence": 0.5477,
+        "probabilities": {
+          "LOW": 0.0001,
+          "MODERATE": 0.0018,
+          "HIGH": 0.5477,
+          "CRITICAL": 0.4504
+        },
+        "correct": false,
+        "svi_tier": "HIGH",
+        "svi_score": 58,
+        "safety_detected": true,
+        "safety_tier": "HIGH_MEANINGFUL"
+      },
+      {
+        "id": "VAL-083",
+        "text": "I am terrified that I cannot keep myself safe tonight, please trigger emergency operator escalation immediately.",
+        "language": "Mixed",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "CRITICAL",
+        "confidence": 0.9999,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0001,
+          "CRITICAL": 0.9999
+        },
+        "correct": true,
+        "svi_tier": "LOW",
+        "svi_score": 14,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      },
+      {
+        "id": "VAL-084",
+        "text": "Meri jaan khatre mein hai, te lok weapon ghevun aale ahet, save me right now.",
+        "language": "Mixed",
+        "expected_risk": "CRITICAL",
+        "predicted_risk": "HIGH",
+        "confidence": 0.5802,
+        "probabilities": {
+          "LOW": 0.0003,
+          "MODERATE": 0.0147,
+          "HIGH": 0.5802,
+          "CRITICAL": 0.4047
+        },
+        "correct": false,
+        "svi_tier": "LOW",
+        "svi_score": 8,
+        "safety_detected": false,
+        "safety_tier": "NONE"
+      }
+    ]
+  },
+  "adversarial_validation": {
+    "total_cases": 24,
+    "passed_cases": 19,
+    "pass_rate": 0.7917,
+    "results": [
+      {
+        "id": "ADV-01",
+        "challenge_type": "affirmative_safe_declaration",
+        "text": "I feel safe now.",
+        "expected_risk": "LOW",
+        "raw_classifier_prediction": "CRITICAL",
+        "final_predicted_risk": "LOW",
+        "confidence": 0.9931,
+        "probabilities": {
+          "LOW": 0.0004,
+          "MODERATE": 0.0002,
+          "HIGH": 0.0063,
+          "CRITICAL": 0.9931
+        },
+        "expected_human_review": false,
+        "actual_human_review": false,
+        "contextual_safety_tier": "SAFE_AFFIRMATION",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-02",
+        "challenge_type": "past_fear_resolved",
+        "text": "I was frightened earlier during the confrontation, but the community elder resolved it and I am safe now.",
+        "expected_risk": "LOW",
+        "raw_classifier_prediction": "CRITICAL",
+        "final_predicted_risk": "LOW",
+        "confidence": 0.9652,
+        "probabilities": {
+          "LOW": 0.0006,
+          "MODERATE": 0.0215,
+          "HIGH": 0.0127,
+          "CRITICAL": 0.9652
+        },
+        "expected_human_review": false,
+        "actual_human_review": false,
+        "contextual_safety_tier": "SAFE_AFFIRMATION",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-03",
+        "challenge_type": "negation_of_unsafe",
+        "text": "I have no reason to feel unsafe here, I just need to verify the renewal fee for my registration.",
+        "expected_risk": "LOW",
+        "raw_classifier_prediction": "LOW",
+        "final_predicted_risk": "HIGH",
+        "confidence": 0.7127,
+        "probabilities": {
+          "LOW": 0.7127,
+          "MODERATE": 0.0034,
+          "HIGH": 0.0509,
+          "CRITICAL": 0.233
+        },
+        "expected_human_review": false,
+        "actual_human_review": true,
+        "contextual_safety_tier": "HIGH_MEANINGFUL",
+        "risk_match": false,
+        "human_review_match": false,
+        "overall_pass": false
+      },
+      {
+        "id": "ADV-04",
+        "challenge_type": "technical_word_pressure",
+        "text": "What is the maximum water pressure limit recommended for the newly installed municipal pipe?",
+        "expected_risk": "LOW",
+        "raw_classifier_prediction": "LOW",
+        "final_predicted_risk": "LOW",
+        "confidence": 1.0,
+        "probabilities": {
+          "LOW": 1.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0,
+          "CRITICAL": 0.0
+        },
+        "expected_human_review": false,
+        "actual_human_review": false,
+        "contextual_safety_tier": "NONE",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-05",
+        "challenge_type": "hindi_affirmative_safe",
+        "text": "मैं अब पूरी तरह से सुरक्षित हूँ, बस शिकायत का पावती पत्रक डाउनलोड करना चाहता हूँ।",
+        "expected_risk": "LOW",
+        "raw_classifier_prediction": "LOW",
+        "final_predicted_risk": "LOW",
+        "confidence": 0.9598,
+        "probabilities": {
+          "LOW": 0.9598,
+          "MODERATE": 0.0017,
+          "HIGH": 0.005,
+          "CRITICAL": 0.0336
+        },
+        "expected_human_review": false,
+        "actual_human_review": false,
+        "contextual_safety_tier": "NONE",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-06",
+        "challenge_type": "hindi_idiomatic_fear_pressure",
+        "text": "मैंने बिना किसी डर या दबाव के अपना औपचारिक आवेदन पत्र कार्यालय में जमा किया है।",
+        "expected_risk": "LOW",
+        "raw_classifier_prediction": "LOW",
+        "final_predicted_risk": "LOW",
+        "confidence": 0.9927,
+        "probabilities": {
+          "LOW": 0.9927,
+          "MODERATE": 0.0053,
+          "HIGH": 0.0008,
+          "CRITICAL": 0.0012
+        },
+        "expected_human_review": false,
+        "actual_human_review": false,
+        "contextual_safety_tier": "NONE",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-07",
+        "challenge_type": "marathi_affirmative_safe",
+        "text": "मी आता सुरक्षित आहे, पूर्वीची समस्या सुटली असून फक्त रेशन कार्डाबद्दल माहिती हवी आहे.",
+        "expected_risk": "LOW",
+        "raw_classifier_prediction": "LOW",
+        "final_predicted_risk": "LOW",
+        "confidence": 0.8608,
+        "probabilities": {
+          "LOW": 0.8608,
+          "MODERATE": 0.0257,
+          "HIGH": 0.0734,
+          "CRITICAL": 0.0402
+        },
+        "expected_human_review": false,
+        "actual_human_review": false,
+        "contextual_safety_tier": "SAFE_AFFIRMATION",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-08",
+        "challenge_type": "hinglish_affirmative_safe",
+        "text": "Main abhi completely safe hoon, police ne complaint register kar li hai kal hi.",
+        "expected_risk": "LOW",
+        "raw_classifier_prediction": "CRITICAL",
+        "final_predicted_risk": "LOW",
+        "confidence": 0.8931,
+        "probabilities": {
+          "LOW": 0.0079,
+          "MODERATE": 0.0099,
+          "HIGH": 0.0891,
+          "CRITICAL": 0.8931
+        },
+        "expected_human_review": false,
+        "actual_human_review": false,
+        "contextual_safety_tier": "SAFE_AFFIRMATION",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-09",
+        "challenge_type": "polite_framing_acute_distress",
+        "text": "Excuse me, I most respectfully submit that I have had zero food for four days and am collapsing from weakness.",
+        "expected_risk": "HIGH",
+        "raw_classifier_prediction": "HIGH",
+        "final_predicted_risk": "HIGH",
+        "confidence": 0.7873,
+        "probabilities": {
+          "LOW": 0.0042,
+          "MODERATE": 0.1668,
+          "HIGH": 0.7873,
+          "CRITICAL": 0.0416
+        },
+        "expected_human_review": true,
+        "actual_human_review": true,
+        "contextual_safety_tier": "NONE",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-10",
+        "challenge_type": "polite_framing_severe_vulnerability",
+        "text": "आदरणीय महोदय, सविनय निवेदन है कि मेरा मकान खाली करा दिया गया है और मैं सड़क पर बेसहारा तड़प रहा हूँ।",
+        "expected_risk": "HIGH",
+        "raw_classifier_prediction": "HIGH",
+        "final_predicted_risk": "HIGH",
+        "confidence": 0.8896,
+        "probabilities": {
+          "LOW": 0.0025,
+          "MODERATE": 0.0007,
+          "HIGH": 0.8896,
+          "CRITICAL": 0.1072
+        },
+        "expected_human_review": true,
+        "actual_human_review": true,
+        "contextual_safety_tier": "NONE",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-11",
+        "challenge_type": "ultra_short_safety_statement",
+        "text": "Help me I am unsafe.",
+        "expected_risk": "CRITICAL",
+        "raw_classifier_prediction": "CRITICAL",
+        "final_predicted_risk": "CRITICAL",
+        "confidence": 0.8494,
+        "probabilities": {
+          "LOW": 0.0021,
+          "MODERATE": 0.0019,
+          "HIGH": 0.1466,
+          "CRITICAL": 0.8494
+        },
+        "expected_human_review": true,
+        "actual_human_review": true,
+        "contextual_safety_tier": "NONE",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-12",
+        "challenge_type": "short_marathi_safety_cry",
+        "text": "वाचवा, माझा जीव धोक्यात आहे!",
+        "expected_risk": "CRITICAL",
+        "raw_classifier_prediction": "CRITICAL",
+        "final_predicted_risk": "CRITICAL",
+        "confidence": 0.9991,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0009,
+          "CRITICAL": 0.9991
+        },
+        "expected_human_review": true,
+        "actual_human_review": true,
+        "contextual_safety_tier": "NONE",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-13",
+        "challenge_type": "long_narrative_with_death_threat",
+        "text": "Regarding my application number 902 filed at the sub-divisional magistrate office last month after three physical verifications, the clerk initially promised resolution, but yesterday night armed men came to my home warning that if I visit the office again they will kill me and my children.",
+        "expected_risk": "CRITICAL",
+        "raw_classifier_prediction": "LOW",
+        "final_predicted_risk": "LOW",
+        "confidence": 0.9646,
+        "probabilities": {
+          "LOW": 0.9646,
+          "MODERATE": 0.0033,
+          "HIGH": 0.0289,
+          "CRITICAL": 0.0032
+        },
+        "expected_human_review": true,
+        "actual_human_review": false,
+        "contextual_safety_tier": "NONE",
+        "risk_match": false,
+        "human_review_match": false,
+        "overall_pass": false
+      },
+      {
+        "id": "ADV-14",
+        "challenge_type": "metaphorical_distress",
+        "text": "It feels as though I am carrying a mountain on my back and the paperwork never allows me to catch my breath.",
+        "expected_risk": "MODERATE",
+        "raw_classifier_prediction": "MODERATE",
+        "final_predicted_risk": "MODERATE",
+        "confidence": 0.8748,
+        "probabilities": {
+          "LOW": 0.0018,
+          "MODERATE": 0.8748,
+          "HIGH": 0.1128,
+          "CRITICAL": 0.0107
+        },
+        "expected_human_review": false,
+        "actual_human_review": false,
+        "contextual_safety_tier": "NONE",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-15",
+        "challenge_type": "code_switching_distress",
+        "text": "I am trying to stay strong, pan roz roz chya ya issue mule manavar khup load yet ahe and I feel lost.",
+        "expected_risk": "MODERATE",
+        "raw_classifier_prediction": "MODERATE",
+        "final_predicted_risk": "MODERATE",
+        "confidence": 0.6764,
+        "probabilities": {
+          "LOW": 0.0003,
+          "MODERATE": 0.6764,
+          "HIGH": 0.3196,
+          "CRITICAL": 0.0038
+        },
+        "expected_human_review": false,
+        "actual_human_review": false,
+        "contextual_safety_tier": "NONE",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-16",
+        "challenge_type": "canonical_safety_apprehension",
+        "text": "I am scared that I won't be able to keep myself safe.",
+        "expected_risk": "CRITICAL",
+        "raw_classifier_prediction": "CRITICAL",
+        "final_predicted_risk": "CRITICAL",
+        "confidence": 0.9978,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0022,
+          "CRITICAL": 0.9978
+        },
+        "expected_human_review": true,
+        "actual_human_review": true,
+        "contextual_safety_tier": "NONE",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-17",
+        "challenge_type": "canonical_negated_safety",
+        "text": "I don't feel safe right now.",
+        "expected_risk": "CRITICAL",
+        "raw_classifier_prediction": "CRITICAL",
+        "final_predicted_risk": "CRITICAL",
+        "confidence": 0.9952,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0048,
+          "CRITICAL": 0.9952
+        },
+        "expected_human_review": true,
+        "actual_human_review": true,
+        "contextual_safety_tier": "HIGH_MEANINGFUL",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-18",
+        "challenge_type": "hindi_canonical_safety_apprehension",
+        "text": "मुझे डर है कि मैं खुद को सुरक्षित नहीं रख पाऊँगा।",
+        "expected_risk": "CRITICAL",
+        "raw_classifier_prediction": "CRITICAL",
+        "final_predicted_risk": "CRITICAL",
+        "confidence": 0.9986,
+        "probabilities": {
+          "LOW": 0.0,
+          "MODERATE": 0.0,
+          "HIGH": 0.0013,
+          "CRITICAL": 0.9986
+        },
+        "expected_human_review": true,
+        "actual_human_review": true,
+        "contextual_safety_tier": "HIGH_MEANINGFUL",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-19",
+        "challenge_type": "marathi_canonical_safety_apprehension",
+        "text": "मला भीती वाटते की मी स्वतःला सुरक्षित ठेवू शकणार नाही.",
+        "expected_risk": "CRITICAL",
+        "raw_classifier_prediction": "CRITICAL",
+        "final_predicted_risk": "CRITICAL",
+        "confidence": 0.9889,
+        "probabilities": {
+          "LOW": 0.001,
+          "MODERATE": 0.0002,
+          "HIGH": 0.0099,
+          "CRITICAL": 0.9889
+        },
+        "expected_human_review": true,
+        "actual_human_review": true,
+        "contextual_safety_tier": "HIGH_MEANINGFUL",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-20",
+        "challenge_type": "hinglish_canonical_safety_apprehension",
+        "text": "Mujhe chinta hai ki main khud ko safe nahi rakh paunga.",
+        "expected_risk": "CRITICAL",
+        "raw_classifier_prediction": "CRITICAL",
+        "final_predicted_risk": "CRITICAL",
+        "confidence": 0.6452,
+        "probabilities": {
+          "LOW": 0.0171,
+          "MODERATE": 0.0293,
+          "HIGH": 0.3084,
+          "CRITICAL": 0.6452
+        },
+        "expected_human_review": true,
+        "actual_human_review": true,
+        "contextual_safety_tier": "HIGH_MEANINGFUL",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-21",
+        "challenge_type": "romanized_marathi_safety_apprehension",
+        "text": "Mala bhiti ahe ki mi swatala safe thevu shaknar nahi ya situation madhe.",
+        "expected_risk": "CRITICAL",
+        "raw_classifier_prediction": "CRITICAL",
+        "final_predicted_risk": "CRITICAL",
+        "confidence": 0.9877,
+        "probabilities": {
+          "LOW": 0.0015,
+          "MODERATE": 0.0028,
+          "HIGH": 0.008,
+          "CRITICAL": 0.9877
+        },
+        "expected_human_review": true,
+        "actual_human_review": true,
+        "contextual_safety_tier": "NONE",
+        "risk_match": true,
+        "human_review_match": true,
+        "overall_pass": true
+      },
+      {
+        "id": "ADV-22",
+        "challenge_type": "public_infrastructure_hazard",
+        "text": "The pothole on the main crossroad is a traffic hazard for commuters, kindly get it repaired by municipal ward 4.",
+        "expected_risk": "LOW",
+        "raw_classifier_prediction": "CRITICAL",
+        "final_predicted_risk": "CRITICAL",
+        "confidence": 0.4011,
+        "probabilities": {
+          "LOW": 0.1741,
+          "MODERATE": 0.3991,
+          "HIGH": 0.0258,
+          "CRITICAL": 0.4011
+        },
+        "expected_human_review": false,
+        "actual_human_review": true,
+        "contextual_safety_tier": "NONE",
+        "risk_match": false,
+        "human_review_match": false,
+        "overall_pass": false
+      },
+      {
+        "id": "ADV-23",
+        "challenge_type": "sarcastic_complaint",
+        "text": "Great job taking six months to verify a two-page document, my entire savings have vanished while waiting for your brilliant system.",
+        "expected_risk": "MODERATE",
+        "raw_classifier_prediction": "LOW",
+        "final_predicted_risk": "LOW",
+        "confidence": 0.9791,
+        "probabilities": {
+          "LOW": 0.9791,
+          "MODERATE": 0.019,
+          "HIGH": 0.0019,
+          "CRITICAL": 0.0001
+        },
+        "expected_human_review": false,
+        "actual_human_review": false,
+        "contextual_safety_tier": "NONE",
+        "risk_match": false,
+        "human_review_match": true,
+        "overall_pass": false
+      },
+      {
+        "id": "ADV-24",
+        "challenge_type": "ultra_short_ambiguous",
+        "text": "Nothing is moving.",
+        "expected_risk": "LOW",
+        "raw_classifier_prediction": "MODERATE",
+        "final_predicted_risk": "MODERATE",
+        "confidence": 0.9566,
+        "probabilities": {
+          "LOW": 0.0376,
+          "MODERATE": 0.9566,
+          "HIGH": 0.0056,
+          "CRITICAL": 0.0002
+        },
+        "expected_human_review": false,
+        "actual_human_review": false,
+        "contextual_safety_tier": "NONE",
+        "risk_match": false,
+        "human_review_match": true,
+        "overall_pass": false
+      }
+    ]
+  },
+  "calibration_assessment": {
+    "ece": 0.054,
+    "assessment": "The raw softmax model confidence displays calibration gaps typical of uncalibrated neural heads. While high-confidence predictions (>0.90) exhibit high empirical accuracy, intermediate confidence buckets (0.60–0.80) tend to be moderately overconfident. Temperature scaling or Platt scaling on a held-out calibration set is recommended for future production readiness."
+  },
+  "scientific_limitation": "This evaluation is performed on synthetic and expert-curated benchmark datasets. It does NOT constitute clinical psychiatric assessment, medical diagnosis, or autonomous triage. Production deployment mandates ongoing human-in-the-loop oversight and institutional auditing."
+}

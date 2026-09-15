@@ -4,6 +4,21 @@
  * Assessment UI lives in assessment.js (calls mock-ai.js)
  */
 
+// Unified API base URL configuration:
+// - Uses production Cloudflare Tunnel when deployed on Vercel
+// - Falls back to local http://127.0.0.1:8000 when developing locally or on file://
+(function () {
+  if (typeof window !== "undefined" && !window.SAMVAD_API_BASE_URL) {
+    var isLocal =
+      window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1" ||
+      window.location.protocol === "file:";
+    window.SAMVAD_API_BASE_URL = isLocal
+      ? "http://127.0.0.1:8000"
+      : "https://farmer-oriental-specialists-ringtone.trycloudflare.com";
+  }
+})();
+
 const SAMVAD = {
   version: "0.1.0-prototype",
   storageKey: "samvad_demo_session",
