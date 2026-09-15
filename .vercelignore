@@ -1,0 +1,13 @@
+# Exclude backend and AI models from Vercel static deployment
+backend/
+Dockerfile
+.dockerignore
+DOCKER_DEPLOYMENT.md
+DEPLOYMENT_PLAN.md
+DEPLOYMENT_READINESS.md
+HF_DEPLOYMENT.md
+test_*.js
+test_*.py
+cloudflared.exe
+*.db
+*.log

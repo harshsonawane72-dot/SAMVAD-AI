@@ -80,8 +80,8 @@ class MockElement {
       this.listeners[event.type].forEach((fn) => fn(event));
     }
   }
-  focus() {}
-  scrollIntoView() {}
+  focus() { }
+  scrollIntoView() { }
 }
 
 // Build mock document

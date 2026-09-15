@@ -87,7 +87,7 @@ async function runTests() {
   let mockDoc = {
     querySelector: () => null,
     querySelectorAll: () => [],
-    addEventListener: () => {},
+    addEventListener: () => { },
   };
   const evalFunc = new Function("window", "document", mainJsContent + "\nreturn window.SAMVAD_API_BASE_URL;");
   const resolvedVercelBase = evalFunc(mockWindowVercel, mockDoc);
